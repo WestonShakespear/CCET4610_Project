@@ -1,8 +1,8 @@
 # CCET4610_Project
 
 
-1A	Research SolidWorks Docs
-1A	Write test code for starting
+| 1A | Research SolidWorks Docs |
+| 1A | Write test code for starting |
 1A	Write test code for attaching
 1A	Write test code window control
 1A	Create library from code
