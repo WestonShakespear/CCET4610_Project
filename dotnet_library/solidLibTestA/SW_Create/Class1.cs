@@ -1,4 +1,5 @@
-﻿using System.Diagnostics;
+﻿using System.Threading;
+using System.Diagnostics;
 using System.Runtime.InteropServices;
 using System.Runtime.InteropServices.ComTypes;
 using SolidWorks.Interop.sldworks;
