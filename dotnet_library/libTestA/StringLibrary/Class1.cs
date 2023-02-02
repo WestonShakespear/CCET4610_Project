@@ -1,4 +1,4 @@
-﻿namespace UtilityLibraries;
+﻿namespace CurrentNamespace;
 
 public static class StringLibrary
 {
@@ -9,5 +9,9 @@ public static class StringLibrary
 
         char ch = str[0];
         return char.IsUpper(ch);
+    }
+
+    public static void justPrintSomething(string str) {
+        Console.WriteLine(str);
     }
 }
