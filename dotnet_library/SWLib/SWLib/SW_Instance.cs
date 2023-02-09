@@ -63,6 +63,10 @@ public class SW_Instance
             return false;
         }
 
+        public ISldWorks getApp() {
+            return this.sldApp;
+        }
+
         private ISldWorks GetSwAppFromProcess(int processId)
         {
             var monikerName = "SolidWorks_PID_" + processId.ToString();
