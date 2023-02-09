@@ -5,6 +5,7 @@ class Program
     static void Main(string[] args)
     {
         StringLibrary.justPrintSomething("hello");
+        IntLibrary.justPrintSomething("hello");
     //     int row = 0;
 
     //     do
