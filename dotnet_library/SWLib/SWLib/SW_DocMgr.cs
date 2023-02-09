@@ -3,6 +3,7 @@ namespace SWLib;
 using SolidWorks.Interop.sldworks;
 using SolidWorks.Interop.swconst;
 
+
 public class SW_DocMgr
 {
     private ISldWorks app;
@@ -15,6 +16,9 @@ public class SW_DocMgr
         int options = 0;
         int errors = 0;
         app.ActivateDoc3(name, true, options, ref errors);
+    }
+    public void getBMPFile(string docfile, string bmpfile) {
+        app.GetPreviewBitmapFile(docfile, "Default", bmpfile);
     }
 
     public string open(string docName, bool readOnly) {
@@ -38,6 +42,7 @@ public class SW_DocMgr
                     (int)swDocumentTypes_e.swDocASSEMBLY,
                     docOptions, "", ref status, ref warnings);
                 model = (ModelDoc2)asm;
+                model.SaveBMP(docName + ".bmp", 1080, 1080);
                 break;
             case ".SLDPRT":
                 PartDoc part = (PartDoc)app.OpenDoc6(
@@ -45,6 +50,7 @@ public class SW_DocMgr
                     (int)swDocumentTypes_e.swDocPART,
                     docOptions, "", ref status, ref warnings);
                 model = (ModelDoc2)part; 
+                model.SaveBMP(docName + ".bmp", 1080, 1080);
                 break;
 
             case ".SLDDRW":
@@ -53,8 +59,10 @@ public class SW_DocMgr
                     (int)swDocumentTypes_e.swDocDRAWING,
                     docOptions, "", ref status, ref warnings);
                 model = (ModelDoc2)drawing;
+                model.SaveBMP(docName + ".bmp", 1080, 1080);
                 break;
         }
+        
         return Path.GetFileNameWithoutExtension(docName);
     }
 }
