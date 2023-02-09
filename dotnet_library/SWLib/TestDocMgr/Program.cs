@@ -6,8 +6,10 @@ class Program {
         Console.WriteLine(swC.startFromArgs(args));
 
         SW_DocMgr doc = new SW_DocMgr(swC);
-        doc.open(@"C:\Users\Initec\source\github\ccet4610_project\testFiles\cube.SLDPRT", false);
+        string n = doc.open(@"C:\Users\Initec\source\github\ccet4610_project\testFiles\cube.SLDPRT", false);
+        Console.WriteLine("ret" + n);
         doc.open(@"C:\Users\Initec\source\github\ccet4610_project\testFiles\asm.SLDASM", false);
         doc.open(@"C:\Users\Initec\source\github\ccet4610_project\testFiles\drawing.SLDDRW", false);
+        doc.activate(n);
     }
 }

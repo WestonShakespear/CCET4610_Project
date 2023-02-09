@@ -11,7 +11,13 @@ public class SW_DocMgr
         Console.WriteLine("appin");
     }
 
-    public void open(string docName, bool readOnly) {
+    public void activate(string name) {
+        int options = 0;
+        int errors = 0;
+        app.ActivateDoc3(name, true, options, ref errors);
+    }
+
+    public string open(string docName, bool readOnly) {
         int status = 0;
         int warnings = 0;
 
@@ -21,6 +27,8 @@ public class SW_DocMgr
         if (readOnly == true) {
             docOptions = (int)swOpenDocOptions_e.swOpenDocOptions_ReadOnly;
         }
+
+        
         
         switch (Path.GetExtension(docName))
         {
@@ -47,5 +55,6 @@ public class SW_DocMgr
                 model = (ModelDoc2)drawing;
                 break;
         }
+        return Path.GetFileNameWithoutExtension(docName);
     }
 }
