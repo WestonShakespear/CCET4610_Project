@@ -16,6 +16,28 @@ public class SW_Create
         private Process process;
         private int processID;
         private string path = @"C:\Program Files\SOLIDWORKS Corp\SOLIDWORKS\SLDWORKS.exe";
+        private int[] window = {0, 0, 1920, 1080};
+
+        private bool taskPanePinned = false;
+
+        public void setTaskPanePinned(bool pinned) {
+            this.taskPanePinned = pinned;
+            this.refreshTaskPane();
+        }
+
+        public void refreshTaskPane() {
+            this.sldApp.TaskPaneIsPinned = this.taskPanePinned;
+        }
+        public void setWindow(int[] window) {
+            this.window = window;
+        }
+        public void refreshWindow() {
+            this.sldApp.FrameLeft = this.window[0] - 10;
+            this.sldApp.FrameTop = this.window[1];
+            this.sldApp.FrameWidth = this.window[2];
+            this.sldApp.FrameHeight = this.window[3];
+            this.refreshTaskPane();
+        }
 
         public bool startFromArgs(string[] args) {
             if (args.Length > 0) {
