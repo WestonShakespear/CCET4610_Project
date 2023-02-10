@@ -7,6 +7,8 @@ using SolidWorks.Interop.swconst;
 public class SW_DocMgr
 {
     private ISldWorks app;
+    
+    private IDictionary<string, ModelDoc2> openDocs = new Dictionary<string, ModelDoc2>();
     public SW_DocMgr(SW_Instance swInstanceIn) {
         this.app = swInstanceIn.getApp();
         Console.WriteLine("appin");
@@ -17,23 +19,19 @@ public class SW_DocMgr
         int errors = 0;
         app.ActivateDoc3(name, true, options, ref errors);
     }
-    public void getBMPFile(string docfile, string bmpfile) {
-        app.GetPreviewBitmapFile(docfile, "Default", bmpfile);
-    }
 
-    public string open(string docName, bool readOnly) {
+    public string openDoc(string docName, bool readOnly) {
         int status = 0;
         int warnings = 0;
 
-        ModelDoc2 model;
+        ModelDoc2 model = null;
+        string name = Path.GetFileNameWithoutExtension(docName);
 
         int docOptions = (int)swOpenDocOptions_e.swOpenDocOptions_LoadModel;
         if (readOnly == true) {
             docOptions = (int)swOpenDocOptions_e.swOpenDocOptions_ReadOnly;
         }
 
-        
-        
         switch (Path.GetExtension(docName))
         {
             case ".SLDASM":
@@ -42,7 +40,6 @@ public class SW_DocMgr
                     (int)swDocumentTypes_e.swDocASSEMBLY,
                     docOptions, "", ref status, ref warnings);
                 model = (ModelDoc2)asm;
-                model.SaveBMP(docName + ".bmp", 1080, 1080);
                 break;
             case ".SLDPRT":
                 PartDoc part = (PartDoc)app.OpenDoc6(
@@ -50,7 +47,6 @@ public class SW_DocMgr
                     (int)swDocumentTypes_e.swDocPART,
                     docOptions, "", ref status, ref warnings);
                 model = (ModelDoc2)part; 
-                model.SaveBMP(docName + ".bmp", 1080, 1080);
                 break;
 
             case ".SLDDRW":
@@ -59,10 +55,22 @@ public class SW_DocMgr
                     (int)swDocumentTypes_e.swDocDRAWING,
                     docOptions, "", ref status, ref warnings);
                 model = (ModelDoc2)drawing;
-                model.SaveBMP(docName + ".bmp", 1080, 1080);
                 break;
         }
-        
-        return Path.GetFileNameWithoutExtension(docName);
+        if (model != null) {
+            openDocs.Add(name, model);
+            // model.SaveBMP(docName + ".bmp", 1080, 1080);
+        }
+        return name;
     }
+
+    private void newDoc(string template, string location)
+    {
+        ModelDoc2 model = (ModelDoc2)app.INewDocument2(template, (int)swDwgPaperSizes_e.swDwgPaperAsize, 0, 0);
+
+        string name = Path.GetFileNameWithoutExtension(location);
+        openDocs.Add(name, model);
+    }
+
+
 }

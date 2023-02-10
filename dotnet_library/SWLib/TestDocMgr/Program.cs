@@ -10,13 +10,12 @@ class Program {
         swC.refreshWindow();
 
         SW_DocMgr doc = new SW_DocMgr(swC);
-        string n = doc.open(@"C:\Users\Initec\source\github\ccet4610_project\testFiles\cube.SLDPRT", false);
-        doc.open(@"C:\Users\Initec\source\github\ccet4610_project\testFiles\cylinder.SLDPRT", false);
+        string n = doc.openDoc(@"C:\Users\Initec\source\github\ccet4610_project\testFiles\cube.SLDPRT", false);
+        doc.openDoc(@"C:\Users\Initec\source\github\ccet4610_project\testFiles\cylinder.SLDPRT", false);
         Console.WriteLine("ret" + n);
-        doc.open(@"C:\Users\Initec\source\github\ccet4610_project\testFiles\asm.SLDASM", false);
-        doc.open(@"C:\Users\Initec\source\github\ccet4610_project\testFiles\drawing.SLDDRW", false);
+        doc.openDoc(@"C:\Users\Initec\source\github\ccet4610_project\testFiles\asm.SLDASM", false);
+        doc.openDoc(@"C:\Users\Initec\source\github\ccet4610_project\testFiles\drawing.SLDDRW", false);
         doc.activate(n);
 
-        doc.getBMPFile(@"C:\Users\Initec\source\github\ccet4610_project\testFiles\cube.SLDPRT", @"C:\Users\Initec\source\github\ccet4610_project\testFiles\prv.bmp");
     }
 }
