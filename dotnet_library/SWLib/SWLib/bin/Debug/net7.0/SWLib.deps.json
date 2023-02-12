@@ -1,0 +1,53 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v7.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v7.0": {
+      "SWLib/1.0.0": {
+        "dependencies": {
+          "SolidWorks.Interop.sldworks": "30.2.0.46",
+          "SolidWorks.Interop.swconst": "30.2.0.46"
+        },
+        "runtime": {
+          "SWLib.dll": {}
+        }
+      },
+      "SolidWorks.Interop.sldworks/30.2.0.46": {
+        "runtime": {
+          "SolidWorks.Interop.sldworks.dll": {
+            "assemblyVersion": "30.2.0.46",
+            "fileVersion": "30.2.0.46"
+          }
+        }
+      },
+      "SolidWorks.Interop.swconst/30.2.0.46": {
+        "runtime": {
+          "SolidWorks.Interop.swconst.dll": {
+            "assemblyVersion": "30.2.0.46",
+            "fileVersion": "30.2.0.46"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "SWLib/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "SolidWorks.Interop.sldworks/30.2.0.46": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "SolidWorks.Interop.swconst/30.2.0.46": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
