@@ -21,12 +21,14 @@ namespace SWLogger
 
         TestForm taskPaneWinFormControl = null;
 
+        private string loadedTitle = "";
+
         public Form1()
         {
             swC = new SW_Instance();
             InitializeComponent();
             pathTextBox.Text = path;
-            pidTextBox.Text = "17412";
+            pidTextBox.Text = "37588";
 
 
         }
@@ -40,6 +42,18 @@ namespace SWLogger
             else
             {
                 textBox1.AppendText(message + "\r\n");
+            }
+        }
+
+        private void updateText(Label host, string message)
+        {
+            if (host.InvokeRequired)
+            {
+                textBox1.Invoke(new MethodInvoker(delegate { host.Text = message; }));
+            }
+            else
+            {
+                host.Text = message;
             }
         }
 
@@ -179,6 +193,135 @@ namespace SWLogger
             log("Taskpane test button 3: clicked");
         }
 
+        private void updateActive(ModelDoc2 model)
+        {
+            log(model.GetPathName());
+
+            int currentType = model.GetType();
+            string typeString = currentType switch
+            {
+                1 => "Part",
+                2 => "Assembly",
+                3 => "Drawing",
+                _ => ""
+            };
+            string currentTitle = model.GetTitle();
+
+            this.updateText(activeDocNameLabel, currentTitle);
+            this.updateText(activeDocTypeLabel, typeString);
+
+            if (currentTitle == this.loadedTitle)
+            {
+                log("attach events to doc" + this.loadedTitle);
+                bool result = currentType switch
+                {
+                    1 => this.attachPartEvents(model),
+                    2 => this.attachAssemblyEvents(model),
+                    3 => this.attachDrawingEvents(model),
+                    _ => false
+                };
+            }
+            this.loadedTitle = "";
+        }
+
+        private bool attachPartEvents(ModelDoc2 model)
+        {
+            PartDoc doc = (PartDoc)model;
+            doc.FileSaveNotify += this.PartDoc_FileSaveNotify;
+            doc.EquationEditorPostNotify += this.PartDoc_EquationEditorPostNotify;
+            doc.FileSaveAsNotify2 += this.PartDoc_FileSaveAsNotify2;
+            return true;
+        }
+
+        private bool attachDrawingEvents(ModelDoc2 model)
+        {
+            DrawingDoc doc = (DrawingDoc)model;
+            doc.FileSaveNotify += this.DrawingDoc_FileSaveNotify;
+            doc.EquationEditorPostNotify += this.DrawingDoc_EquationEditorPostNotify;
+            doc.FileSaveAsNotify2 += this.DrawingDoc_FileSaveAsNotify2;
+            return true;
+        }
+
+        private bool attachAssemblyEvents(ModelDoc2 model)
+        {
+            AssemblyDoc doc = (AssemblyDoc)model;
+            doc.FileSaveNotify += this.AssemblyDoc_FileSaveNotify;
+            doc.EquationEditorPostNotify += this.AssemblyDoc_EquationEditorPostNotify;
+            doc.FileSaveAsNotify2 += this.AssemblyDoc_FileSaveAsNotify2;
+
+            doc.AddItemNotify += this.AssemblyDoc_AddItemNotify;
+            doc.AddMatePostNotify2 += this.AssemblyDoc_AddMatePostNotify2;
+
+            return true;
+        }
+
+        private int PartDoc_FileSaveNotify(string name)
+        {
+            log("Event: PartDoc: Document " + name + " Saved");
+            return 1;
+        }
+
+        private int PartDoc_EquationEditorPostNotify(bool changed)
+        {
+            log("Event: PartDoc: Equation editor closed, Modified: " + changed.ToString());
+            return 1;
+        }
+
+        private int PartDoc_FileSaveAsNotify2(string filename)
+        {
+            log("Event: PartDoc: Document " + filename + " SaveAs triggered");
+            return 1;
+        }
+
+        private int DrawingDoc_FileSaveNotify(string name)
+        {
+            log("Event: DrawingDoc: Document " + name + " Saved");
+            return 1;
+        }
+
+        private int DrawingDoc_EquationEditorPostNotify(bool changed)
+        {
+            log("Event: DrawingDoc: Equation editor closed, Modified: " + changed.ToString());
+            return 1;
+        }
+
+        private int DrawingDoc_FileSaveAsNotify2(string filename)
+        {
+            log("Event: DrawingDoc: Document " + filename + " SaveAs triggered");
+            return 1;
+        }
+
+        private int AssemblyDoc_FileSaveNotify(string name)
+        {
+            log("Event: AssemblyDoc: Document " + name + " Saved");
+            return 1;
+        }
+
+        private int AssemblyDoc_EquationEditorPostNotify(bool changed)
+        {
+            log("Event: AssemblyDoc: Equation editor closed, Modified: " + changed.ToString());
+            return 1;
+        }
+
+        private int AssemblyDoc_FileSaveAsNotify2(string filename)
+        {
+            log("Event: AssemblyDoc: Document " + filename + " SaveAs triggered");
+            return 1;
+        }
+
+        private int AssemblyDoc_AddItemNotify(int EntityType, string itemName)
+        {
+            log("Event: AssemblyDoc: Component " + itemName + " added");
+            return 1;
+        }
+
+        private int AssemblyDoc_AddMatePostNotify2(ref object mates)
+        {
+            log("Event: AssemblyDoc: Mate Post Notify");
+            return 1;
+        }
+
+
 
         private void createEvent()
         {
@@ -187,14 +330,18 @@ namespace SWLogger
             this.sld.DocumentLoadNotify2 += this.SldWorks_DocumentLoadNotify;
             this.sld.FileNewNotify2 += this.SldWorks_FileNewNotify;
         }
+
         private int SldWorks_ActiveDocChangeNotify()
         {
             log("Event: SldWorks: Document Changed");
+  
+            updateActive((ModelDoc2)app.IActiveDoc2);
             return 1;
         }
         private int SldWorks_DocumentLoadNotify(string docTitle, string docPath)
         {
             log("Event: SldWorks: " + docTitle + " Loaded");
+            this.loadedTitle = docTitle;
             return 1;
         }
         private int SldWorks_FileNewNotify(object NewDoc, int DocType, string TemplateName)
