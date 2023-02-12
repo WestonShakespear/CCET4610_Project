@@ -10,12 +10,14 @@ class Program {
         swC.refreshWindow();
 
         SW_DocMgr doc = new SW_DocMgr(swC);
-        string n = doc.openDoc(@"C:\Users\Initec\source\github\ccet4610_project\testFiles\cube.SLDPRT", false);
-        doc.openDoc(@"C:\Users\Initec\source\github\ccet4610_project\testFiles\cylinder.SLDPRT", false);
-        Console.WriteLine("ret" + n);
-        doc.openDoc(@"C:\Users\Initec\source\github\ccet4610_project\testFiles\asm.SLDASM", false);
-        doc.openDoc(@"C:\Users\Initec\source\github\ccet4610_project\testFiles\drawing.SLDDRW", false);
-        doc.activate(n);
-
+        // string n = doc.openDoc(@"C:\Users\Initec\source\github\ccet4610_project\testFiles\cube.SLDPRT", false);
+        // doc.openDoc(@"C:\Users\Initec\source\github\ccet4610_project\testFiles\cylinder.SLDPRT", false);
+        // Console.WriteLine("ret" + n);
+        // doc.openDoc(@"C:\Users\Initec\source\github\ccet4610_project\testFiles\asm.SLDASM", false);
+        // doc.openDoc(@"C:\Users\Initec\source\github\ccet4610_project\testFiles\drawing.SLDDRW", false);
+        // doc.activate(n);
+        doc.newDoc("prt", @"C:\Users\Initec\source\github\ccet4610_project\testFiles\create\testNew.SLDPRT");
+        // doc.newDoc("asm", @"C:\Users\Initec\source\github\ccet4610_project\testFiles\create\testNew2.SLDASM");
+        // doc.newDoc("drw", @"C:\Users\Initec\source\github\ccet4610_project\testFiles\create\testNew3.SLDDRW");
     }
 }

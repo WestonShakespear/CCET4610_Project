@@ -9,9 +9,12 @@ public class SW_DocMgr
     private ISldWorks app;
     
     private IDictionary<string, ModelDoc2> openDocs = new Dictionary<string, ModelDoc2>();
+
+    private string[] templatePaths = new string[3];
+
     public SW_DocMgr(SW_Instance swInstanceIn) {
         this.app = swInstanceIn.getApp();
-        Console.WriteLine("appin");
+        this.getDocTemplates();
     }
 
     public void activate(string name) {
@@ -64,12 +67,43 @@ public class SW_DocMgr
         return name;
     }
 
-    private void newDoc(string template, string location)
+    public void newDoc(string type, string location)
     {
+        string template = type switch{
+            "prt" => this.templatePaths[0],
+            "asm" => this.templatePaths[1],
+            "drw" => this.templatePaths[2],
+            _     => type
+        };
+
         ModelDoc2 model = (ModelDoc2)app.INewDocument2(template, (int)swDwgPaperSizes_e.swDwgPaperAsize, 0, 0);
 
         string name = Path.GetFileNameWithoutExtension(location);
+        // Console.WriteLine("Name: " + name);
+        // Console.WriteLine("Loc: " + location);
+        // Console.WriteLine(model.GetPathName());
+
+        // bool status = false;
+        // int errors = 0;
+        // int warnings = 0;
+        // ModelDocExtension modEx = (ModelDocExtension)model.Extension;
+
+        // int opt = (int)swSaveWithReferencesOptions_e.swSaveWithReferencesOptions_None;
+        // object options = modEx.GetAdvancedSaveAsOptions(opt);
+
+        // status = modEx.SaveAs3(location, (int)swSaveAsVersion_e.swSaveAsCurrentVersion, (int)swSaveAsOptions_e.swSaveAsOptions_Silent, null, options, ref errors, ref warnings);
+
+        // Console.WriteLine(status);
+        // Console.WriteLine(errors);
+        // Console.WriteLine(warnings);
+
         openDocs.Add(name, model);
+    }
+
+    public void getDocTemplates() {
+        this.templatePaths[0] = app.GetUserPreferenceStringValue((int)swUserPreferenceStringValue_e.swDefaultTemplatePart);
+        this.templatePaths[1] = app.GetUserPreferenceStringValue((int)swUserPreferenceStringValue_e.swDefaultTemplateAssembly);
+        this.templatePaths[2] = app.GetUserPreferenceStringValue((int)swUserPreferenceStringValue_e.swDefaultTemplateDrawing);
     }
 
 
