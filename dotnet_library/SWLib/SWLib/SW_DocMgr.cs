@@ -81,11 +81,11 @@ public class SW_DocMgr
     }
 
     private ModelDocExtension getModelExtFromName(string name) {
-        return (ModelDocExtension)this.getModelFromName(name);
+        return (ModelDocExtension)this.getModelFromName(name).Extension;
     }
 
     private EquationMgr getEquMgrFromName(string name) {
-        return (EquationMgr)this.getModelFromName(name);
+        return (EquationMgr)this.getModelFromName(name).GetEquationMgr();
     }
 
     public string getPath(string name) {
