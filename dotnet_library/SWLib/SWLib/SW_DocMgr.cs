@@ -23,6 +23,135 @@ public class SW_DocMgr
         app.ActivateDoc3(name, true, options, ref errors);
     }
 
+    // isn't working for drawings
+    public void close(string name) {
+        this.app.CloseDoc(name);
+    }
+
+    public void closeAll() {
+        this.app.CloseAllDocuments(true);
+    }
+
+    public string[,]? getDependents(string name) {
+        ModelDocExtension modEx = this.getModelExtFromName(name);
+        String[] vDepend = (String[])modEx.GetDependencies(true, true, true, true, true);
+
+        int length = vDepend.Length;
+        string[,] ret = new string[length/3, 3];
+        if (length == 0) {
+            return null;
+        }
+
+        for (int i = 0; i < vDepend.Length; i+=3) {
+            ret[i/3, 0] = vDepend[i];
+            ret[i/3, 1] = vDepend[i+1];
+            ret[i/3, 2] = "True";
+
+            string ro = vDepend[i+2];
+            if (ro == "FALSE") {
+                ret[i/3, 2] = "False";
+            }
+
+        }
+        return ret;
+    }
+
+    public string[,]? getEquations(string name) {
+        EquationMgr swEqnMgr = this.getEquMgrFromName(name);
+      
+        int nCount = swEqnMgr.GetCount();
+        if (nCount == 0) {
+            return null;
+        }
+
+        string[,] ret = new string[nCount, 4];
+        for (int i = 0; i < nCount; i++)
+        {
+            ret[i, 0] = swEqnMgr.get_Equation(i);
+            ret[i, 1] = swEqnMgr.get_Value(i).ToString();
+            ret[i, 2] = swEqnMgr.Status.ToString();
+            ret[i, 3] = swEqnMgr.get_GlobalVariable(i).ToString();
+        }
+
+        return ret;
+    }
+
+    private ModelDoc2 getModelFromName(string name) {
+        return this.openDocs[name];
+    }
+
+    private ModelDocExtension getModelExtFromName(string name) {
+        return (ModelDocExtension)this.getModelFromName(name);
+    }
+
+    private EquationMgr getEquMgrFromName(string name) {
+        return (EquationMgr)this.getModelFromName(name);
+    }
+
+    public string getPath(string name) {
+        return this.getModelFromName(name).GetPathName();
+    }
+
+    public string getType(string name) {
+        int type = this.getModelFromName(name).GetType();
+
+        return type switch{
+            (int)swDocumentTypes_e.swDocPART => "prt",
+            (int)swDocumentTypes_e.swDocASSEMBLY   => "asm",
+            (int)swDocumentTypes_e.swDocDRAWING   => "drw",
+            _     => "err"
+        };
+    }
+
+    public string listAllDetails(string name) {
+        Console.WriteLine("---------------------------------");
+        
+        Console.WriteLine("  Name: " + name);
+        Console.WriteLine("  Path: "+ this.getPath(name));
+        Console.WriteLine();
+
+        Console.WriteLine("  |Dependents|");
+        // find dependents
+        string[,]? depend = this.getDependents(name);
+        if (depend != null) {
+            for (int i = 0; i < depend.Rank; i++) {
+                Console.WriteLine("    " + i.ToString() + ":");
+                Console.WriteLine("      Name: " + depend[i, 0]);
+                Console.WriteLine("      Path: " + depend[i, 1]);
+                Console.WriteLine("      R/O:  " + depend[i, 2]);
+            }
+        } else {
+            Console.WriteLine("    No dependents");
+        }
+        Console.WriteLine();
+
+        //equations
+        Console.WriteLine("  |Equations|");
+        
+        string[,]? equations = this.getEquations(name);
+
+        if (equations != null) {
+            for (int i = 0; i < equations.Rank; i++)
+            {
+                Console.WriteLine("    " + i + ":");
+                Console.WriteLine("      Funct:  " + equations[i, 0]);
+                Console.WriteLine("      Value:  " + equations[i, 1]);
+                Console.WriteLine("      Index:  " + equations[i, 2]);
+                Console.WriteLine("      Global: " + equations[i, 3]);
+            }
+        } else {
+            Console.WriteLine("    No equations");
+        }
+        Console.WriteLine();
+        
+
+
+
+
+
+        return "";
+    }
+
     public string openDoc(string docName, bool readOnly) {
         int status = 0;
         int warnings = 0;
@@ -62,9 +191,13 @@ public class SW_DocMgr
         }
         if (model != null) {
             openDocs.Add(name, model);
-            // model.SaveBMP(docName + ".bmp", 1080, 1080);
+            // 
         }
         return name;
+    }
+
+    public void savePreviewBMP(string model, string fileLocation, int x, int y) {
+        this.openDocs[model].SaveBMP(fileLocation + model + ".bmp", x, y);
     }
 
     public void newDoc(string type, string location)
