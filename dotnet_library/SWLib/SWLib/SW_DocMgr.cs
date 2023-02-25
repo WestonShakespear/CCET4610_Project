@@ -32,31 +32,38 @@ public class SW_DocMgr
         this.app.CloseAllDocuments(true);
     }
 
-    public string[,]? getDependents(string name) {
+    public Dictionary<string, Dictionary<string, string>>? getDependents(string name) {
+
         ModelDocExtension modEx = this.getModelExtFromName(name);
         String[] vDepend = (String[])modEx.GetDependencies(true, true, true, true, true);
 
         int length = vDepend.Length;
-        string[,] ret = new string[length/3, 3];
         if (length == 0) {
             return null;
         }
 
+        Dictionary<string, Dictionary<string, string>> ret;
+        ret = new Dictionary<string, Dictionary<string, string>>();
+
         for (int i = 0; i < vDepend.Length; i+=3) {
-            ret[i/3, 0] = vDepend[i];
-            ret[i/3, 1] = vDepend[i+1];
-            ret[i/3, 2] = "True";
+            Dictionary<string, string> data = new Dictionary<string, string>();
+
+            data.Add("name", vDepend[i]);
+            data.Add("path", vDepend[i+1]);
 
             string ro = vDepend[i+2];
             if (ro == "FALSE") {
-                ret[i/3, 2] = "False";
+                data.Add("rw", "False");
+            } else {
+                data.Add("rw", "False");
             }
+            ret.Add(data["name"], data);
 
         }
         return ret;
     }
 
-    public string[,]? getEquations(string name) {
+    public Dictionary<string, Dictionary<string, string>>? getEquations(string name) {
         EquationMgr swEqnMgr = this.getEquMgrFromName(name);
       
         int nCount = swEqnMgr.GetCount();
@@ -64,17 +71,185 @@ public class SW_DocMgr
             return null;
         }
 
-        string[,] ret = new string[nCount, 4];
+        Dictionary<string, Dictionary<string, string>> ret;
+        ret = new Dictionary<string, Dictionary<string, string>>();
+
         for (int i = 0; i < nCount; i++)
         {
-            ret[i, 0] = swEqnMgr.get_Equation(i);
-            ret[i, 1] = swEqnMgr.get_Value(i).ToString();
-            ret[i, 2] = swEqnMgr.Status.ToString();
-            ret[i, 3] = swEqnMgr.get_GlobalVariable(i).ToString();
+            Dictionary<string, string> data = new Dictionary<string, string>();
+
+            data.Add("func", swEqnMgr.get_Equation(i));
+            data.Add("value", swEqnMgr.get_Value(i).ToString());
+            data.Add("index", swEqnMgr.Status.ToString());
+            data.Add("global", swEqnMgr.get_GlobalVariable(i).ToString());
+
+            ret.Add(data["name"], data);
         }
 
         return ret;
     }
+
+    public void getConfigurations(string name) {
+        ConfigurationManager configMgr = this.getConfigMgrFromName(name);
+
+        Configuration activeConfig = (Configuration)configMgr.ActiveConfiguration;
+
+
+        Console.WriteLine("    Current: " + activeConfig.Name);
+
+        bool derived = activeConfig.IsDerived();
+        Console.WriteLine("    Derived: " + derived.ToString());
+
+        if (derived == true) {
+            string parentName = activeConfig.GetParent().Name;
+            Console.WriteLine("        From: " + name);
+        }
+    }
+
+    
+
+    
+
+    public string listAllDetails(string name) {
+        Console.WriteLine("---------------------------------");
+        
+        Console.WriteLine("  Name: " + name);
+        Console.WriteLine("  Path: "+ this.getPath(name));
+        Console.WriteLine("  Type: "+ this.getType(name));
+        Console.WriteLine();
+
+
+        // find dependents
+        Console.WriteLine("  |Dependents|");
+        
+        Dictionary<string, Dictionary<string, string>>? depend;
+        depend = this.getDependents(name);
+        this.outputDictionaryInfo(depend);
+        Console.WriteLine();
+
+
+        //equations
+        Console.WriteLine("  |Equations|");
+        
+        Dictionary<string, Dictionary<string, string>>? equations;
+        equations = this.getEquations(name);
+        this.outputDictionaryInfo(equations);
+        Console.WriteLine();
+
+
+        //configurations
+        Console.WriteLine("  |Features|");
+        FeatureManager featMgr = this.getFeatureMgrFromName(name);
+        int featureCount = featMgr.GetFeatureCount(true);
+
+
+        Feature feat = (Feature)this.getModelFromName(name).FirstFeature();
+
+
+        Dictionary<string, Dictionary<string, string>> ret;
+        ret = new Dictionary<string, Dictionary<string, string>>();
+
+        for (int f = 0; f < featureCount; f++) {
+
+            Dictionary<string, string> data = new Dictionary<string, string>();
+
+            data.Add("name", feat.Name);
+            data.Add("type", feat.GetTypeName2());
+
+            int refNum = feat.ListExternalFileReferencesCount();
+            data.Add("extref", refNum.ToString());
+
+
+
+
+            // Console.WriteLine("    " + f + ":");
+            // Console.WriteLine("      Name:  " + feat.Name);
+            // Console.WriteLine("      Type:  " + feat.GetTypeName2());
+
+
+            
+            // Console.WriteLine("      ExtRef:  " + refNum.ToString());
+
+            if (refNum > 0) {
+
+                object vModelPathName = null;
+                object vComponentPathName = null;
+                object vFeature = null;
+                object vDataType = null;
+                object vStatus = null;
+                object vRefEntity = null;
+                object vFeatComp = null;
+                int vConfigOpt = 0;
+                string vConfigName = null;
+
+                for (int r = 0; r < refNum; r++) {
+                    feat.ListExternalFileReferences2(
+                        out vModelPathName,
+                        out vComponentPathName,
+                        out vFeature,
+                        out vDataType,
+                        out vStatus,
+                        out vRefEntity,
+                        out vFeatComp,
+                        out vConfigOpt,
+                        out vConfigName);
+
+                    if (refNum >= 1)
+                    {
+                        object[] ModelPathName = new object[refNum - 1];
+                        object[] ComponentPathName = new object[refNum - 1];
+                        object[] Feature = new object[refNum - 1];
+                        object[] DataType = new object[refNum - 1];
+                        int[] Status = new int[refNum - 1];
+                        object[] RefEntity = new object[refNum - 1];
+                        object[] FeatComp = new object[refNum - 1];
+
+                        ModelPathName = (object[])vModelPathName;
+                        ComponentPathName = (object[])vComponentPathName;
+                        Feature = (object[])vFeature;
+                        DataType = (object[])vDataType;
+                        Status = (int[])vStatus;
+                        RefEntity = (object[])vRefEntity;
+                        FeatComp = (object[])vFeatComp;
+
+                        Console.WriteLine("");
+                        for (int i = 0; i <= refNum - 1; i++)
+                        {
+                            Console.WriteLine("    Model path + name      = " + ModelPathName[i]);
+                            Console.WriteLine("    Component path + name  = " + ComponentPathName[i]);
+                            Console.WriteLine("    Feature                = " + Feature[i]);
+                            Console.WriteLine("    Data type              = " + DataType[i]);
+                            Console.WriteLine("    Status                 = " + System.Convert.ToString(Status[i]));
+                            Console.WriteLine("    Reference entity       = " + RefEntity[i]);
+                            Console.WriteLine("    Feature component      = " + FeatComp[i]);
+
+                            Console.WriteLine(" ");
+                        }
+                    }
+                }
+            }
+
+            
+
+
+            feat = (Feature)feat.GetNextFeature();
+            ret.Add(data["name"], data);
+        }
+
+        this.outputDictionaryInfo(ret);
+        
+        
+
+
+
+
+
+        return "";
+    }
+
+
+
+
 
     private ModelDoc2 getModelFromName(string name) {
         return this.openDocs[name];
@@ -86,6 +261,14 @@ public class SW_DocMgr
 
     private EquationMgr getEquMgrFromName(string name) {
         return (EquationMgr)this.getModelFromName(name).GetEquationMgr();
+    }
+
+    private ConfigurationManager getConfigMgrFromName(string name) {
+        return (ConfigurationManager)this.getModelFromName(name).ConfigurationManager;
+    }
+
+    private FeatureManager getFeatureMgrFromName(string name) {
+        return (FeatureManager)this.getModelFromName(name).FeatureManager;
     }
 
     public string getPath(string name) {
@@ -103,54 +286,55 @@ public class SW_DocMgr
         };
     }
 
-    public string listAllDetails(string name) {
-        Console.WriteLine("---------------------------------");
-        
-        Console.WriteLine("  Name: " + name);
-        Console.WriteLine("  Path: "+ this.getPath(name));
-        Console.WriteLine();
-
-        Console.WriteLine("  |Dependents|");
-        // find dependents
-        string[,]? depend = this.getDependents(name);
-        if (depend != null) {
-            for (int i = 0; i < depend.Rank; i++) {
+    public void outputDictionaryInfo(Dictionary<string, Dictionary<string, string>>? dict) {
+        if (dict != null) {
+            int i = 0;
+            foreach (var item in dict) {
                 Console.WriteLine("    " + i.ToString() + ":");
-                Console.WriteLine("      Name: " + depend[i, 0]);
-                Console.WriteLine("      Path: " + depend[i, 1]);
-                Console.WriteLine("      R/O:  " + depend[i, 2]);
+                i++;
+                foreach (var value in item.Value) {
+                    Console.WriteLine("      " + value.Key + ":  " + value.Value);
+                }
             }
         } else {
-            Console.WriteLine("    No dependents");
+            Console.WriteLine("    None");
         }
-        Console.WriteLine();
-
-        //equations
-        Console.WriteLine("  |Equations|");
-        
-        string[,]? equations = this.getEquations(name);
-
-        if (equations != null) {
-            for (int i = 0; i < equations.Rank; i++)
-            {
-                Console.WriteLine("    " + i + ":");
-                Console.WriteLine("      Funct:  " + equations[i, 0]);
-                Console.WriteLine("      Value:  " + equations[i, 1]);
-                Console.WriteLine("      Index:  " + equations[i, 2]);
-                Console.WriteLine("      Global: " + equations[i, 3]);
-            }
-        } else {
-            Console.WriteLine("    No equations");
-        }
-        Console.WriteLine();
-        
-
-
-
-
-
-        return "";
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     public string openDoc(string docName, bool readOnly) {
         int status = 0;

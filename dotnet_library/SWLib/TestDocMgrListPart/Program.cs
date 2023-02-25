@@ -14,7 +14,7 @@ class Program {
         string[] files = {
             // @"ccet4610_project\testFiles\cube.SLDPRT",
             @"ccet4610_project\testFiles\cylinder.SLDPRT",
-            @"ccet4610_project\testFiles\asm.SLDASM"
+            // @"ccet4610_project\testFiles\asm.SLDASM"
             // @"ccet4610_project\testFiles\drawing.SLDDRW",
         };
 
@@ -30,6 +30,21 @@ class Program {
 
         // doc.activate(a);
 
+        
 
+        // Dictionary<string, Dictionary<string, string>> v = new Dictionary<string, Dictionary<string, string>>();
+
+        // Dictionary<string, string> m = new Dictionary<string, string>();
+
+        // m.Add("test", "this");
+        // m.Add("okay", "yes");
+
+        // v.Add("first", m);
+
+        // foreach (var item in v) {
+        //     Console.WriteLine(item.Value["test"]);
+        // }
+
+        
     }
 }
