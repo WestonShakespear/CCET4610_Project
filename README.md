@@ -12,7 +12,7 @@ For both company and personal data and file management having centralized and ne
 
 When creating an assembly for a new project I often find myself navigating folders and looking for parts I’ve created in the past. It’s difficult to find or remember which part is the most current since I will update the details or configurations for a part when using it in a new project.
 
-This is a problem I have been wanting to solve before I even started attending SUU. Coming from a programming background I am used to revisioning and collaboration tools like git and GitHub. While these solve the problem for programmers perfectly, these tools don’t fit the cad and design environment as well. 
+This is a problem I have been wanting to solve before I even started attending SUU. Coming from a programming background I am used to revisioning and collaboration tools like git and GitHub. While these solve the problem for programmers perfectly, these tools don’t fit the cad and design environment as well.
 
 ## Detailed Proposed Solution
 
@@ -29,3 +29,17 @@ A successful project will look like an application that can be used for the cent
 The main inspiration for this idea is to have the ability to manage the parts and sub-assemblies that are used in projects. I want to build a fully standalone application for Windows that will communicate with Solidworks.  
 
 For both company and personal data and file management having centralized and networked file servers is paramount for file security. One of the main features of this project will be a way to centralize all of my cad parts and files, while I will mainly focus on Solidworks integration.
+
+
+
+# Using the library
+
+## SW_Instance
+
+
+## SW_DocMgr
+
+
+
+
+# Using the application

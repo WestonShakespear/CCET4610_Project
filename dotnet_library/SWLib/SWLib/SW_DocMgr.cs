@@ -78,7 +78,7 @@ public class SW_DocMgr
         {
             Dictionary<string, string> data = new Dictionary<string, string>();
 
-            data.Add("func", swEqnMgr.get_Equation(i));
+            data.Add("name", swEqnMgr.get_Equation(i));
             data.Add("value", swEqnMgr.get_Value(i).ToString());
             data.Add("index", swEqnMgr.Status.ToString());
             data.Add("global", swEqnMgr.get_GlobalVariable(i).ToString());
@@ -86,6 +86,40 @@ public class SW_DocMgr
             ret.Add(data["name"], data);
         }
 
+        return ret;
+    }
+
+    public Dictionary<string, Dictionary<string, string>>? getFeatures(string name) {
+        FeatureManager featMgr = this.getFeatureMgrFromName(name);
+        int featureCount = featMgr.GetFeatureCount(true);
+
+        if (featureCount == 0) {
+            return null;
+        }
+
+        Feature feat = (Feature)this.getModelFromName(name).FirstFeature();
+
+        Dictionary<string, Dictionary<string, string>> ret;
+
+        ret = new Dictionary<string, Dictionary<string, string>>();
+
+        for (int f = 0; f < featureCount; f++) {
+
+            Dictionary<string, string> featData = new Dictionary<string, string>();
+
+            string featureName = feat.Name;
+            featData.Add("name", featureName);
+
+            featData.Add("type", feat.GetTypeName2());
+            featData.Add("extref", feat.ListExternalFileReferencesCount().ToString());
+
+            featData.Add("base", feat.IsBase2().ToString());
+
+
+            feat = (Feature)feat.GetNextFeature();
+
+            ret.Add(featData["name"], featData);
+        }
         return ret;
     }
 
@@ -137,106 +171,14 @@ public class SW_DocMgr
         Console.WriteLine();
 
 
-        //configurations
+        //features and their references
         Console.WriteLine("  |Features|");
-        FeatureManager featMgr = this.getFeatureMgrFromName(name);
-        int featureCount = featMgr.GetFeatureCount(true);
 
-
-        Feature feat = (Feature)this.getModelFromName(name).FirstFeature();
-
-
-        Dictionary<string, Dictionary<string, string>> ret;
-        ret = new Dictionary<string, Dictionary<string, string>>();
-
-        for (int f = 0; f < featureCount; f++) {
-
-            Dictionary<string, string> data = new Dictionary<string, string>();
-
-            data.Add("name", feat.Name);
-            data.Add("type", feat.GetTypeName2());
-
-            int refNum = feat.ListExternalFileReferencesCount();
-            data.Add("extref", refNum.ToString());
-
-
-
-
-            // Console.WriteLine("    " + f + ":");
-            // Console.WriteLine("      Name:  " + feat.Name);
-            // Console.WriteLine("      Type:  " + feat.GetTypeName2());
-
-
-            
-            // Console.WriteLine("      ExtRef:  " + refNum.ToString());
-
-            if (refNum > 0) {
-
-                object vModelPathName = null;
-                object vComponentPathName = null;
-                object vFeature = null;
-                object vDataType = null;
-                object vStatus = null;
-                object vRefEntity = null;
-                object vFeatComp = null;
-                int vConfigOpt = 0;
-                string vConfigName = null;
-
-                for (int r = 0; r < refNum; r++) {
-                    feat.ListExternalFileReferences2(
-                        out vModelPathName,
-                        out vComponentPathName,
-                        out vFeature,
-                        out vDataType,
-                        out vStatus,
-                        out vRefEntity,
-                        out vFeatComp,
-                        out vConfigOpt,
-                        out vConfigName);
-
-                    if (refNum >= 1)
-                    {
-                        object[] ModelPathName = new object[refNum - 1];
-                        object[] ComponentPathName = new object[refNum - 1];
-                        object[] Feature = new object[refNum - 1];
-                        object[] DataType = new object[refNum - 1];
-                        int[] Status = new int[refNum - 1];
-                        object[] RefEntity = new object[refNum - 1];
-                        object[] FeatComp = new object[refNum - 1];
-
-                        ModelPathName = (object[])vModelPathName;
-                        ComponentPathName = (object[])vComponentPathName;
-                        Feature = (object[])vFeature;
-                        DataType = (object[])vDataType;
-                        Status = (int[])vStatus;
-                        RefEntity = (object[])vRefEntity;
-                        FeatComp = (object[])vFeatComp;
-
-                        Console.WriteLine("");
-                        for (int i = 0; i <= refNum - 1; i++)
-                        {
-                            Console.WriteLine("    Model path + name      = " + ModelPathName[i]);
-                            Console.WriteLine("    Component path + name  = " + ComponentPathName[i]);
-                            Console.WriteLine("    Feature                = " + Feature[i]);
-                            Console.WriteLine("    Data type              = " + DataType[i]);
-                            Console.WriteLine("    Status                 = " + System.Convert.ToString(Status[i]));
-                            Console.WriteLine("    Reference entity       = " + RefEntity[i]);
-                            Console.WriteLine("    Feature component      = " + FeatComp[i]);
-
-                            Console.WriteLine(" ");
-                        }
-                    }
-                }
-            }
-
-            
-
-
-            feat = (Feature)feat.GetNextFeature();
-            ret.Add(data["name"], data);
-        }
-
-        this.outputDictionaryInfo(ret);
+        Dictionary<string, Dictionary<string, string>>? features;
+        features = this.getFeatures(name);
+        this.outputDictionaryInfo(features);
+        Console.WriteLine();
+ 
         
         
 
