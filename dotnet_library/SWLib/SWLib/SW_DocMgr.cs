@@ -179,13 +179,6 @@ public class SW_DocMgr
         this.outputDictionaryInfo(features);
         Console.WriteLine();
  
-        
-        
-
-
-
-
-
         return "";
     }
 

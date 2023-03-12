@@ -12,10 +12,10 @@ class Program {
         // string imRoot = @"C:\Users\wes\Documents\";
 
         string[] files = {
-            // @"ccet4610_project\testFiles\cube.SLDPRT",
+            @"ccet4610_project\testFiles\cube.SLDPRT",
             @"ccet4610_project\testFiles\cylinder.SLDPRT",
-            @"ccet4610_project\testFiles\asm.SLDASM"
-            // @"ccet4610_project\testFiles\drawing.SLDDRW",
+            @"ccet4610_project\testFiles\asm.SLDASM",
+            @"ccet4610_project\testFiles\drawing.SLDDRW",
         };
 
 
