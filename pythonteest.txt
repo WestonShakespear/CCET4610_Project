@@ -1,0 +1,34 @@
+(env) westonshakespear@DESKTOP-HMO0MGT:~/ccet4610/flaskTest1$ python
+Python 3.8.10 (default, Nov 14 2022, 12:59:47)
+[GCC 9.4.0] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+>>> import base64
+>>> im_file=open("test/bolt.SLDPRT", "rb")
+>>> binary = im_file.read()
+>>> import sys
+>>> sys.getsizeof(binary)
+453901
+>>> image_data = (base64.b64encode(binary)).decode('ascii')
+>>> sys.getsizeof(image_data)
+605209
+>>> import zlib
+>>> comp = zlib.compress(binary)
+>>> sys.getsizeof(comp)
+448409
+>>> i = (base64.b64encode(comp)).decode('ascii')
+>>> sys.getsizeof(i)
+597885
+>>> import hashlib
+>>> hashlib.md5(image_data).hexdigest()
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: Unicode-objects must be encoded before hashing
+>>> hashlib.md5(image_data.encode()).hexdigest()
+'10761f0695d2e703a8b88ffeda72df20'
+>>> out_bytes = base64.b64decode(image_data.encode())
+>>> im_file.close()
+>>> out_file = open("test/out.SLDPRT", "wb")
+>>> out_file.write(out_bytes)
+453868
+>>> out_file.close()
+>>>

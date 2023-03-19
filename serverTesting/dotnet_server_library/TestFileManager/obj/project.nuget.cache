@@ -1,10 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "ngxfSgqmMjVDky1zWkSVmgjnSTdVzUT8AS0uUsEmkGqxd6uGvLYSm4vvqeSV/5PCJOd2AW4dJuxJYYRU0XLuOA==",
+  "dgSpecHash": "ynxxPEeZx56/BgRhtkDfiY1gDf5SmcXVqM2SBRKWz/0ivNY8sRyPKCrHisLCuWN1fV6fvhypU4HxS6ShbrKJiA==",
   "success": true,
   "projectFilePath": "C:\\Users\\wes\\github-repos\\ccet4610_project\\serverTesting\\dotnet_server_library\\TestFileManager\\TestFileManager.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\wes\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512"
+    "C:\\Users\\wes\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512",
+    "C:\\Users\\wes\\.nuget\\packages\\restsharp\\109.0.1\\restsharp.109.0.1.nupkg.sha512"
   ],
   "logs": []
 }
