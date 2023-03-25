@@ -5,10 +5,27 @@ using System.Diagnostics;
 using Microsoft.VisualBasic.ApplicationServices;
 using System.Net;
 
+using FileManager;
+using System.Security.Policy;
+using Newtonsoft.Json.Linq;
+
+
+
 namespace GUILayoutTest1
 {
     public partial class Form1 : Form
     {
+        private API api = null;
+
+        
+
+        private string url = "http://127.0.0.1:5000/";
+        private string user = "weston";
+        private string localHead = @"D:\School\4610\API\local\";
+
+        private string currentProject;
+
+        private Dictionary<string, List<string>> tree = new Dictionary<string, List<string>>();
         public Form1()
         {
             InitializeComponent();
@@ -52,19 +69,157 @@ namespace GUILayoutTest1
 
         private void settingsButton_Click(object sender, EventArgs e)
         {
-            var settings = new Settings();
+            var settings = new Settings(this.url, this.localHead, this.user);
             settings.ShowDialog();
 
-            Debug.WriteLine("window closed");
+            //Debug.WriteLine("window closed");
 
-            var address = settings.address;
-            var user = settings.user;
-            var localHead = settings.localHead;
+            string url = settings.address;
+            string user = settings.user;
+            string localHead = settings.localHead;
 
-            Debug.WriteLine(address);
-            Debug.WriteLine(user);
-            Debug.WriteLine(localHead);
+                
+            try
+            {
 
+                this.api = new API(url, localHead, user);
+                bool res = api.testConnection();
+
+                if (res == true)
+                {
+                    this.url = url;
+                    this.user = user;
+                    this.localHead = localHead;
+
+                    MessageBox.Show("Connection to API successful");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Fatal Error");
+
+            }
+
+                
+            } 
+
+     
+
+        private void newProjectButton_Click(object sender, EventArgs e)
+        {
+            if (api != null)
+            {
+                var newProject = new NewProject();
+
+                newProject.ShowDialog();
+
+                string name = newProject.name;
+                string units = newProject.units;
+                string prefix = newProject.prefix;
+                string suffix = newProject.suffix;
+
+                if (name != "")
+                {
+                    dynamic settings = new JObject();
+                    settings.name = name;
+                    settings.units = units;
+                    settings.prefix = prefix;
+                    settings.suffix = suffix;
+
+                    bool res = this.api.createProject(settings);
+                    Console.WriteLine(res);
+
+                    this.update();
+                }
+            } else
+            {
+                MessageBox.Show("Not connected to API!!");
+            }
+            
+        }
+
+        private void updateButton_Click(object sender, EventArgs e)
+        {
+            this.update();
+        }
+
+        private void update()
+        {
+            if (api != null)
+            {
+                tree = new Dictionary<string, List<string>>();
+
+
+
+                var res2 = api.listProjects();
+                foreach (var project in res2)
+                {
+                    List<string> data = new List<string>();
+                    string name = project.name;
+
+                    foreach (var file in project.files)
+                    {
+                        string filename = file;
+                        data.Add(filename);
+                    }
+
+                    tree.Add(name, data);
+                }
+
+
+                this.updateProjects();
+                this.updateFiles();
+            }
+            else
+            {
+                MessageBox.Show("Not connected to API!!");
+            }
+        }
+
+        private void updateFiles()
+        {
+            if (this.currentProject != null)
+            {
+                if (tree.ContainsKey(this.currentProject))
+                {
+                    fileTreeView.BeginUpdate();
+                    fileTreeView.Nodes.Clear();
+
+                    foreach (var file in tree[this.currentProject])
+                    {
+                        TreeNode node = new TreeNode(file);
+                        fileTreeView.Nodes.Add(node);
+
+                    }
+
+                    fileTreeView.EndUpdate();
+                }
+            }
+            
+        }
+
+        private void updateProjects()
+        {
+            projectTreeView.BeginUpdate();
+            projectTreeView.Nodes.Clear();
+
+            foreach (KeyValuePair<string, List<string>> entry in this.tree)
+            {
+                TreeNode node = new TreeNode(entry.Key);
+                projectTreeView.Nodes.Add(node);
+            }
+
+            projectTreeView.EndUpdate();
+        }
+
+        private void projectTreeView_AfterSelect(object sender, TreeViewEventArgs e)
+        {
+            if (e.Node != null)
+            {
+                currentProject = e.Node.Text;
+                currentProjectField.Text = currentProject;
+                this.updateFiles();
+            }
         }
     }
 }

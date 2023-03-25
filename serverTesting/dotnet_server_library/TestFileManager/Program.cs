@@ -13,21 +13,34 @@ class Program {
 
         Console.WriteLine(api.testConnection());
 
-        // create project
-        dynamic settings = new JObject();
-        settings.name = "New Project Name";
-        settings.units = "inch";
-        settings.prefix = "wshakespear";
-        settings.suffix = "";
+        string filePath = @"D:\School\4610\";
+        string fileName = "Brake_Disk.SLDPRT";
+        bool res = api.sendFile(filePath, @"Project B\file\", fileName);
 
-        bool res = api.createProject(settings);
-        Console.WriteLine(res);
+    //     Console.WriteLine(res);
+
+        // create project
+        // dynamic settings = new JObject();
+        // settings.name = "Project B";
+        // settings.units = "inch";
+        // settings.prefix = "wshakespear";
+        // settings.suffix = "";
+
+        // bool res = api.createProject(settings);
+        // Console.WriteLine(res);
 
 
 
         // list projects
-        res = api.listProjects();
-        Console.WriteLine(res);
+        var res2 = api.listProjects();
+        foreach(var project in res2)
+                {
+                    foreach( var file in project.files) {
+                        Console.WriteLine(file);
+                    }
+                }
+
+        Console.WriteLine(res2);
 
         // string remoteDir = @"project\sub\";
         // string fileName = "bolt.SLDPRT";
@@ -45,6 +58,18 @@ class Program {
 
         
     }
+
+    // string url = "http://127.0.0.1:5000/";
+    //     string pathHead = @"D:\School\4610\API\local\";
+    //     string user = "weston";
+
+    //     API api = new API(url, pathHead, user);
+
+    //     Console.WriteLine(api.testConnection());
+
+    //     string filePath = @"\\wsl$\Ubuntu\home\westonshakespear\ccet4610\flaskTest1\test\";
+    //     string fileName = "bolt.SLDPRT";
+    //     bool res = api.sendFile(filePath, @"New Project Name\file\", fileName);
 
 
 

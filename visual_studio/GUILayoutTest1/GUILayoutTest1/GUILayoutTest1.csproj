@@ -9,8 +9,16 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="RestSharp" Version="109.0.1" />
     <PackageReference Include="System.Data.SqlClient" Version="4.8.5" />
     <PackageReference Include="System.Data.SQLite" Version="1.0.117" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="FileManager">
+      <HintPath>..\..\..\serverTesting\dotnet_server_library\FileManager\bin\Debug\net7.0\FileManager.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
   <ItemGroup>

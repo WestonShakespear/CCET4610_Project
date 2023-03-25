@@ -1,9 +1,11 @@
-﻿using System;
+﻿using Microsoft.VisualBasic.ApplicationServices;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -20,9 +22,12 @@ namespace GUILayoutTest1
         public string user = "";
         public string localHead = "";
 
-        public Settings()
+        public Settings(string url, string localHead, string user)
         {
             InitializeComponent();
+            addressTextBox.Text = url;
+            userTextBox.Text = user;
+            pathTextBox.Text = localHead;
         }
 
         private void applyButton_Click(object sender, EventArgs e)

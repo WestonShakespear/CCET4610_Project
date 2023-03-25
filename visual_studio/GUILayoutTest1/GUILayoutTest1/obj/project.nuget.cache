@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "OdnpSatQIwF2QSQe2HJfsVPrPtcgWwHTSdV2WfnK/ba94uXYuNxdDmr7Ok62phS/rdOzdpqcAU9TwIzc3zMpRQ==",
+  "dgSpecHash": "IoVfttJZvyiyWzWo7LjJ3BJPvErn1Mk+AHz1StnszLPEMj2YzQ+DsrGE4xPvxtBco9G8A99dpLQpn8qJywwHWw==",
   "success": true,
   "projectFilePath": "C:\\Users\\wes\\github-repos\\ccet4610_project\\visual_studio\\GUILayoutTest1\\GUILayoutTest1\\GUILayoutTest1.csproj",
   "expectedPackageFiles": [
@@ -9,6 +9,8 @@
     "C:\\Users\\wes\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",
     "C:\\Users\\wes\\.nuget\\packages\\microsoft.win32.registry\\4.7.0\\microsoft.win32.registry.4.7.0.nupkg.sha512",
     "C:\\Users\\wes\\.nuget\\packages\\microsoft.win32.systemevents\\4.7.0\\microsoft.win32.systemevents.4.7.0.nupkg.sha512",
+    "C:\\Users\\wes\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512",
+    "C:\\Users\\wes\\.nuget\\packages\\restsharp\\109.0.1\\restsharp.109.0.1.nupkg.sha512",
     "C:\\Users\\wes\\.nuget\\packages\\runtime.native.system.data.sqlclient.sni\\4.7.0\\runtime.native.system.data.sqlclient.sni.4.7.0.nupkg.sha512",
     "C:\\Users\\wes\\.nuget\\packages\\runtime.win-arm64.runtime.native.system.data.sqlclient.sni\\4.4.0\\runtime.win-arm64.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",
     "C:\\Users\\wes\\.nuget\\packages\\runtime.win-x64.runtime.native.system.data.sqlclient.sni\\4.4.0\\runtime.win-x64.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",

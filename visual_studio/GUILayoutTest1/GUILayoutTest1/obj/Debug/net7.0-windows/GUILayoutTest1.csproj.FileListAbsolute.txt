@@ -32,3 +32,8 @@ C:\Users\wes\github-repos\ccet4610_project\visual_studio\GUILayoutTest1\GUILayou
 C:\Users\wes\github-repos\ccet4610_project\visual_studio\GUILayoutTest1\GUILayoutTest1\bin\Debug\net7.0-windows\runtimes\win-x64\native\SQLite.Interop.dll
 C:\Users\wes\github-repos\ccet4610_project\visual_studio\GUILayoutTest1\GUILayoutTest1\bin\Debug\net7.0-windows\runtimes\win-x86\native\SQLite.Interop.dll
 C:\Users\wes\github-repos\ccet4610_project\visual_studio\GUILayoutTest1\GUILayoutTest1\obj\Debug\net7.0-windows\GUILayoutTest1.Settings.resources
+C:\Users\wes\github-repos\ccet4610_project\visual_studio\GUILayoutTest1\GUILayoutTest1\bin\Debug\net7.0-windows\FileManager.dll
+C:\Users\wes\github-repos\ccet4610_project\visual_studio\GUILayoutTest1\GUILayoutTest1\bin\Debug\net7.0-windows\FileManager.pdb
+C:\Users\wes\github-repos\ccet4610_project\visual_studio\GUILayoutTest1\GUILayoutTest1\bin\Debug\net7.0-windows\Newtonsoft.Json.dll
+C:\Users\wes\github-repos\ccet4610_project\visual_studio\GUILayoutTest1\GUILayoutTest1\bin\Debug\net7.0-windows\RestSharp.dll
+C:\Users\wes\github-repos\ccet4610_project\visual_studio\GUILayoutTest1\GUILayoutTest1\obj\Debug\net7.0-windows\GUILayoutTest1.NewProject.resources

@@ -89,7 +89,8 @@ public class API
                 checksum = checksum,
                 filePath = filePath,
                 fileName = fileName,
-                remoteDir = remoteDir
+                remoteDir = remoteDir,
+                user = this.user
             };
             var bodyy = JsonConvert.SerializeObject(body);
             request.AddBody(bodyy, "application/json");
@@ -199,8 +200,10 @@ public class API
         try {
             string success = response.success;
             if (success.Contains("true")) {
-                Console.WriteLine(response.name);
-                return true;
+                var data = response.data;
+
+                
+                return data;
             }
         }
         catch (Microsoft.CSharp.RuntimeBinder.RuntimeBinderException) {
