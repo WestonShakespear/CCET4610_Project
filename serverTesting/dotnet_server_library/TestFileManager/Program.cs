@@ -4,12 +4,41 @@ using Newtonsoft.Json.Linq;
 
 class Program {
     static void Main(string[] args) {
-        // testEncode();
-        // testDecode();
+
+        string url = "http://127.0.0.1:5000/";
+        string pathHead = @"D:\School\4610\API\local\";
+        string user = "weston";
+
+        API api = new API(url, pathHead, user);
+
+        Console.WriteLine(api.testConnection());
+
+        // create project
+        dynamic settings = new JObject();
+        settings.name = "New Project Name";
+        settings.units = "inch";
+        settings.prefix = "wshakespear";
+        settings.suffix = "";
+
+        bool res = api.createProject(settings);
+        Console.WriteLine(res);
 
 
-        // testJSONUpload();
-        fileUploadTest();
+
+        // list projects
+        res = api.listProjects();
+        Console.WriteLine(res);
+
+        // string remoteDir = @"project\sub\";
+        // string fileName = "bolt.SLDPRT";
+        
+        
+
+
+
+        // bool res = api.recvFile(remoteDir, fileName);
+
+        // Console.WriteLine(res);
         
         
 
@@ -48,73 +77,76 @@ class Program {
 
 
 
-    public static void fileUploadTest() {
-        API api = new API();
+    // public static void fileUploadTest() {
+    //     API api = new API();
 
-        string filePath = @"\\wsl$\Ubuntu\home\westonshakespear\ccet4610\flaskTest1\test\";
-        string fileName = "bolt.SLDPRT";
+    //     string filePath = @"\\wsl$\Ubuntu\home\westonshakespear\ccet4610\flaskTest1\test\";
+    //     string fileName = "bolt.SLDPRT";
 
-        string remoteDir = "project/sub/";
+    //     string remoteDir = "project/sub/";
 
-        string url = "http://127.0.0.1:5000/file_upload";
+    //     string url = "http://127.0.0.1:5000/file_upload";
 
-        Console.WriteLine("Uploading file:");
-        Console.WriteLine("URL: " + url);
-        Console.WriteLine("Name: " + fileName);
-        Console.WriteLine("Upload from: "+ filePath);
-        Console.WriteLine("Upload to: "+ remoteDir);
+    //     Console.WriteLine("Uploading file:");
+    //     Console.WriteLine("URL: " + url);
+    //     Console.WriteLine("Name: " + fileName);
+    //     Console.WriteLine("Upload from: "+ filePath);
+    //     Console.WriteLine("Upload to: "+ remoteDir);
 
 
-        api.sendFile(url, filePath, fileName, remoteDir);
-    }
+    //     bool res = api.sendFile(url, filePath, fileName, remoteDir);
+    //     Console.WriteLine(res);
 
-    public static void fileDownloadTest() {
-        API api = new API();
+    // }
 
-        string filePath = @"\\wsl$\Ubuntu\home\westonshakespear\ccet4610\flaskTest1\test\other\";
-        string fileName = "bolt.SLDPRT";
-        string remoteDir = "project/sub/";
-        string url = "http://127.0.0.1:5000/file_download";
+    // public static void fileDownloadTest() {
+    //     API api = new API();
 
-        Console.WriteLine("Downloading file:");
-        Console.WriteLine("URL: " + url);
-        Console.WriteLine("Name: " + fileName);
-        Console.WriteLine("Download to: "+ filePath);
-        Console.WriteLine("Download from: "+ remoteDir);
+    //     string filePath = @"\\wsl$\Ubuntu\home\westonshakespear\ccet4610\flaskTest1\test\other\";
+    //     string fileName = "bolt.SLDPRT";
+    //     string remoteDir = "project/sub/";
+    //     string url = "http://127.0.0.1:5000/file_download";
 
-        api.recvFile(url, filePath, fileName, remoteDir);
-    }
+    //     Console.WriteLine("Downloading file:");
+    //     Console.WriteLine("URL: " + url);
+    //     Console.WriteLine("Name: " + fileName);
+    //     Console.WriteLine("Download to: "+ filePath);
+    //     Console.WriteLine("Download from: "+ remoteDir);
 
-    public static void testEncode() {
-        Encode enc = new Encode();
+    //     bool res = api.recvFile(url, filePath, fileName, remoteDir);
+    //     Console.WriteLine(res);
+    // }
 
-        string filePath = @"\\wsl$\Ubuntu\home\westonshakespear\ccet4610\flaskTest1\test\bolt.SLDPRT";
+    // public static void testEncode() {
+    //     Encode enc = new Encode();
 
-        byte[]? data = enc.readFileBytes(filePath);
+    //     string filePath = @"\\wsl$\Ubuntu\home\westonshakespear\ccet4610\flaskTest1\test\bolt.SLDPRT";
 
-        if (data != null) {
-            string base64 = enc.encodeFileB64(data);
-            string checksum = enc.getFileChecksum(base64);
+    //     byte[]? data = enc.readFileBytes(filePath);
 
-            // Console.WriteLine(base64);
-            Console.WriteLine(checksum);
-        }
-    }
+    //     if (data != null) {
+    //         string base64 = enc.encodeFileB64(data);
+    //         string checksum = enc.getFileChecksum(base64);
 
-    public static void testDecode() {
-        Decode man = new Decode();
-    }
+    //         // Console.WriteLine(base64);
+    //         Console.WriteLine(checksum);
+    //     }
+    // }
 
-    public static void testJSONUpload() {
-        API api = new API();
+    // public static void testDecode() {
+    //     Decode man = new Decode();
+    // }
 
-        dynamic jsonData = new JObject();
-        jsonData.username = "weston";
-        jsonData.password = "shakespear";
+    // public static void testJSONUpload() {
+    //     API api = new API();
 
-        dynamic response = api.sendJSON("http://127.0.0.1:5000/api_test", jsonData);
+    //     dynamic jsonData = new JObject();
+    //     jsonData.username = "weston";
+    //     jsonData.password = "shakespear";
+
+    //     dynamic response = api.sendJSON("http://127.0.0.1:5000/api_test", jsonData);
         
-        Console.WriteLine(response.username);
-        Console.WriteLine(response.password);
-    }
+    //     Console.WriteLine(response.username);
+    //     Console.WriteLine(response.password);
+    // }
 }

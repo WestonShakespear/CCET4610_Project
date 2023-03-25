@@ -2,6 +2,8 @@ using System.Data;
 using System.Collections.Generic;
 using System.Data.SQLite;
 using System.Diagnostics;
+using Microsoft.VisualBasic.ApplicationServices;
+using System.Net;
 
 namespace GUILayoutTest1
 {
@@ -46,6 +48,23 @@ namespace GUILayoutTest1
 
 
            
+        }
+
+        private void settingsButton_Click(object sender, EventArgs e)
+        {
+            var settings = new Settings();
+            settings.ShowDialog();
+
+            Debug.WriteLine("window closed");
+
+            var address = settings.address;
+            var user = settings.user;
+            var localHead = settings.localHead;
+
+            Debug.WriteLine(address);
+            Debug.WriteLine(user);
+            Debug.WriteLine(localHead);
+
         }
     }
 }

@@ -12,12 +12,41 @@ using RestSharp;
 public class API
 {
 
+    private string localPathHead = "";
+    private string user = "";
+    private string baseURL = "";
+
+    public API(string setBaseURL, string setLocalPathHead, string setLocalUser) {
+        this.baseURL = setBaseURL;
+        this.localPathHead = setLocalPathHead;
+        this.user = setLocalUser;
+    }
+
+    public bool testConnection() {
+        string url = this.baseURL + "/";
+
+        var client = new RestClient(url);
+        var request = new RestRequest(url, Method.Get);
+
+        RestResponse response = client.Execute(request);
+
+
+        var output = response.Content;
+        if (output != null) {
+            string data = output;
+            if (data.Contains("testing")) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     public dynamic sendJSON(string path, dynamic jsonData) {
         string response = string.Empty;
         WebRequest postRequest = null;
         HttpWebResponse postResponse = null;
 
-        Uri uri = new Uri(path);
+        Uri uri = new Uri(this.baseURL + path);
 
         postRequest = (HttpWebRequest)WebRequest.Create(uri);
         postRequest.ContentType = "application/json";
@@ -27,8 +56,6 @@ public class API
         {
             streamWriter.Write(jsonData.ToString());
         }
-
-
 
         postResponse = (HttpWebResponse)postRequest.GetResponse();
         using (StreamReader streamReader = new StreamReader(postResponse.GetResponseStream()))
@@ -41,7 +68,9 @@ public class API
         return retData;
     }
 
-    public void sendFile(string url, string filePath, string fileName, string remoteDir) {
+    public bool sendFile(string filePath, string remoteDir, string fileName) {
+        string url = this.baseURL + "file_upload";
+
         Encode enc = new Encode();
 
         byte[]? data = enc.readFileBytes(filePath + fileName);
@@ -50,21 +79,6 @@ public class API
             // encode file
             string base64 = enc.encodeFileB64(data);
             string checksum = enc.getFileChecksum(base64);
-            Console.WriteLine(checksum);
-
-            // pack file for post request
-            // string postJsonString = string.Empty;
-            // string responseContent = string.Empty;
-
-
-            // dynamic postJson = new JObject();
-            // postJson.content = base64;
-            // postJson.checksum = checksum;
-            // postJson.filePath = filePath;
-            // postJson.fileName = fileName;
-            // postJson.remoteDir = remoteDir;
-
-            // postJsonString = postJson.ToString();
 
             // execute post request
             var client = new RestClient(url);
@@ -81,98 +95,121 @@ public class API
             request.AddBody(bodyy, "application/json");
             RestResponse response = client.Execute(request);
             var output = response.Content;
-            Console.WriteLine(output);
 
-            // RestRequest restRequest = new RestRequest(Method.POST);
-            // restRequest.AddHeader("content-type", "application/json");
-            // restRequest.AddParameter("application/json", postJsonString, ParameterType.RequestBody);
-            // RestClient restClient = new RestClient(path);
-            // IRestResponse iRestResponse = restClient.Execute(restRequest);
+            if (output != null) {
+                if (output.Contains("good")) {
+                    return true;
+                }
+            }
 
-            // // test response
-            // string errorMessage = iRestResponse.ErrorMessage;
-            // if (string.IsNullOrEmpty(errorMessage))
-            // {
-            //     responseContent = iRestResponse.Content;
-            // }
-            // else
-            // {
-            //     responseContent = errorMessage;
-            // }
-
-            // Console.WriteLine(responseContent);
+            return false;
 
         }
+        return false;
     }
 
 
-    public void recvFile(string url, string filePath, string fileName, string remoteDir) {
+    public bool recvFile(string remoteDir, string fileName) {
+        string url = this.baseURL + "file_download";
+
         var client = new RestClient(url);
         var request = new RestRequest(url, Method.Get);
-        request.AddParameter("filePath", filePath);
         request.AddParameter("fileName", fileName);
         request.AddParameter("remoteDir", remoteDir);
 
         RestResponse response = client.Execute(request);
 
 
-        
-        dynamic responseData =  JsonConvert.DeserializeObject(response.Content);
+        var output = response.Content;
 
-        string checksum = responseData.checksum;
-        string content = responseData.content;
+        if (output != null) {
+            dynamic responseData =  JsonConvert.DeserializeObject(output);
 
-        Decode dec = new Decode();
-        Encode enc = new Encode();
+            string checksum = responseData.checksum;
+            string content = responseData.content;
 
-        if (enc.getFileChecksum(content) != checksum) {
-            Console.WriteLine("Checksum mismatch!");
-        } else {
-            Console.WriteLine("Checksum matches");
-            byte[] fileData = dec.decodeFileB64(content);
+            Decode dec = new Decode();
+            Encode enc = new Encode();
 
+            if (enc.getFileChecksum(content) == checksum) {
+                byte[] fileData = dec.decodeFileB64(content);
 
+                return this.saveFile(fileData, remoteDir, fileName);
+            }
         }
+        
+        return false;
 
     }
 
 
+    public bool saveFile(byte[] fileData, string remoteDir, string fileName) {
 
-    //  public string RestSharpPythonRestfulApiImageClassificationBase64(string urlWebAPI, string imagePathName, out string exceptionMessage)
-    //     {
-    //         string base64String = string.Empty;
-    //         string imageJsonString = string.Empty;
-    //         exceptionMessage = string.Empty;
-    //         string responseContent = string.Empty;
-    //         try
-    //         {
-    //             base64String = ImageFileToBase64String(imagePathName);
-    //             imageJsonString = BuildImageJsonString(base64String);                
-    //             RestRequest restRequest = new RestRequest(Method.POST);
-    //             restRequest.AddHeader("content-type", "application/json");
-    //             restRequest.AddParameter("application/json", imageJsonString, ParameterType.RequestBody);
-    //             RestClient restClient = new RestClient(urlWebAPI);
-    //             IRestResponse iRestResponse = restClient.Execute(restRequest);
-    //             string errorMessage = iRestResponse.ErrorMessage;
-    //             if (string.IsNullOrEmpty(errorMessage))
-    //             {
-    //                 responseContent = iRestResponse.Content;
-    //             }
-    //             else
-    //             {
-    //                 responseContent = errorMessage;
-    //             }
-    //         }
-    //         catch (Exception ex)
-    //         {
-    //             exceptionMessage = $"An error occurred. {ex.Message}";
-    //         }
-    //         return responseContent;
-    //     }
+        string location = this.localPathHead + remoteDir + fileName;
+        string[] needed = remoteDir.Split(@"\");
+        
+        string[] dirs;
+        string currentPath = this.localPathHead;
+        string sub;
+
+        for(int i = 0; i < needed.Length - 1;i++) {
+            dirs = Directory.GetDirectories(currentPath, "*", SearchOption.TopDirectoryOnly);
+            sub = currentPath + needed[i];
+            //Console.WriteLine("Searching: " + currentPath+ " for: " + sub);
+
+            if (!dirs.Any(sub.Contains)) {
+                Directory.CreateDirectory(sub);
+            }
+
+            currentPath += needed[i];
+
+            if (i != needed.Length - 1) {
+                currentPath += @"\";
+            } 
+        }
+
+        using var writer = new BinaryWriter(File.OpenWrite(location));
+        writer.Write(fileData);
+
+        return true;
+    }
 
 
+    public bool createProject(dynamic settings) {
+        settings.owner = this.user;
+        dynamic response = this.sendJSON("create_project", settings);
 
+        try {
+            string success = response.success;
+            if (success.Contains("true")) {
+                return true;
+            }
+        }
+        catch (Microsoft.CSharp.RuntimeBinder.RuntimeBinderException) {
+            Console.WriteLine("error parsing");
+        }
 
+        return false;
+        
+    }
+
+    public dynamic listProjects() {
+        dynamic response = this.sendJSON("list_projects", new JObject());
+
+        try {
+            string success = response.success;
+            if (success.Contains("true")) {
+                Console.WriteLine(response.name);
+                return true;
+            }
+        }
+        catch (Microsoft.CSharp.RuntimeBinder.RuntimeBinderException) {
+            Console.WriteLine("error parsing");
+        }
+
+        return false;
+        
+    }
 
 }
 
