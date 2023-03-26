@@ -28,82 +28,65 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Scissor_Hardware_Assy");
-            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Handle_Assy");
-            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("Scissor_Assy", new System.Windows.Forms.TreeNode[] {
-            treeNode1,
-            treeNode2});
-            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("Assy", new System.Windows.Forms.TreeNode[] {
-            treeNode3});
-            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("Drawing");
-            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("Scissor Lift", new System.Windows.Forms.TreeNode[] {
-            treeNode4,
-            treeNode5});
-            System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("Hub_Assembly");
-            System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("Hub_Drawing");
-            System.Windows.Forms.TreeNode treeNode9 = new System.Windows.Forms.TreeNode("5 Lug Hub", new System.Windows.Forms.TreeNode[] {
-            treeNode7,
-            treeNode8});
-            System.Windows.Forms.TreeNode treeNode10 = new System.Windows.Forms.TreeNode("Throttle_Shaft_Assembly");
-            System.Windows.Forms.TreeNode treeNode11 = new System.Windows.Forms.TreeNode("Assembly", new System.Windows.Forms.TreeNode[] {
-            treeNode10});
-            System.Windows.Forms.TreeNode treeNode12 = new System.Windows.Forms.TreeNode("Drawing");
-            System.Windows.Forms.TreeNode treeNode13 = new System.Windows.Forms.TreeNode("Holley Carb", new System.Windows.Forms.TreeNode[] {
-            treeNode11,
-            treeNode12});
-            System.Windows.Forms.TreeNode treeNode14 = new System.Windows.Forms.TreeNode("Assembly");
-            System.Windows.Forms.TreeNode treeNode15 = new System.Windows.Forms.TreeNode("Throttle_Shaft_Assembly");
-            System.Windows.Forms.TreeNode treeNode16 = new System.Windows.Forms.TreeNode("Assemblies", new System.Windows.Forms.TreeNode[] {
-            treeNode14,
-            treeNode15});
-            System.Windows.Forms.TreeNode treeNode17 = new System.Windows.Forms.TreeNode("Linkage_A");
-            System.Windows.Forms.TreeNode treeNode18 = new System.Windows.Forms.TreeNode("Linkage_B");
-            System.Windows.Forms.TreeNode treeNode19 = new System.Windows.Forms.TreeNode("Cable_Primary_Rod");
-            System.Windows.Forms.TreeNode treeNode20 = new System.Windows.Forms.TreeNode("Return_Plate");
-            System.Windows.Forms.TreeNode treeNode21 = new System.Windows.Forms.TreeNode("Right_Angle_Cable");
-            System.Windows.Forms.TreeNode treeNode22 = new System.Windows.Forms.TreeNode("Throttle_Body");
-            System.Windows.Forms.TreeNode treeNode23 = new System.Windows.Forms.TreeNode("Throttle_Cable_Sheath");
-            System.Windows.Forms.TreeNode treeNode24 = new System.Windows.Forms.TreeNode("Throttle_Plate");
-            System.Windows.Forms.TreeNode treeNode25 = new System.Windows.Forms.TreeNode("Throttle_Rod");
-            System.Windows.Forms.TreeNode treeNode26 = new System.Windows.Forms.TreeNode("91375A088");
-            System.Windows.Forms.TreeNode treeNode27 = new System.Windows.Forms.TreeNode("90107A006_316");
-            System.Windows.Forms.TreeNode treeNode28 = new System.Windows.Forms.TreeNode("91864A017");
-            System.Windows.Forms.TreeNode treeNode29 = new System.Windows.Forms.TreeNode("Parts", new System.Windows.Forms.TreeNode[] {
-            treeNode17,
-            treeNode18,
-            treeNode19,
-            treeNode20,
-            treeNode21,
-            treeNode22,
-            treeNode23,
-            treeNode24,
-            treeNode25,
-            treeNode26,
-            treeNode27,
-            treeNode28});
-            System.Windows.Forms.TreeNode treeNode30 = new System.Windows.Forms.TreeNode("Drawing");
-            System.Windows.Forms.TreeNode treeNode31 = new System.Windows.Forms.TreeNode("Drawings", new System.Windows.Forms.TreeNode[] {
-            treeNode30});
+            System.Windows.Forms.TreeNode treeNode32 = new System.Windows.Forms.TreeNode("Scissor_Hardware_Assy");
+            System.Windows.Forms.TreeNode treeNode33 = new System.Windows.Forms.TreeNode("Handle_Assy");
+            System.Windows.Forms.TreeNode treeNode34 = new System.Windows.Forms.TreeNode("Scissor_Assy", new System.Windows.Forms.TreeNode[] {
+            treeNode32,
+            treeNode33});
+            System.Windows.Forms.TreeNode treeNode35 = new System.Windows.Forms.TreeNode("Assy", new System.Windows.Forms.TreeNode[] {
+            treeNode34});
+            System.Windows.Forms.TreeNode treeNode36 = new System.Windows.Forms.TreeNode("Drawing");
+            System.Windows.Forms.TreeNode treeNode37 = new System.Windows.Forms.TreeNode("Scissor Lift", new System.Windows.Forms.TreeNode[] {
+            treeNode35,
+            treeNode36});
+            System.Windows.Forms.TreeNode treeNode38 = new System.Windows.Forms.TreeNode("Hub_Assembly");
+            System.Windows.Forms.TreeNode treeNode39 = new System.Windows.Forms.TreeNode("Hub_Drawing");
+            System.Windows.Forms.TreeNode treeNode40 = new System.Windows.Forms.TreeNode("5 Lug Hub", new System.Windows.Forms.TreeNode[] {
+            treeNode38,
+            treeNode39});
+            System.Windows.Forms.TreeNode treeNode41 = new System.Windows.Forms.TreeNode("Throttle_Shaft_Assembly");
+            System.Windows.Forms.TreeNode treeNode42 = new System.Windows.Forms.TreeNode("Assembly", new System.Windows.Forms.TreeNode[] {
+            treeNode41});
+            System.Windows.Forms.TreeNode treeNode43 = new System.Windows.Forms.TreeNode("Drawing");
+            System.Windows.Forms.TreeNode treeNode44 = new System.Windows.Forms.TreeNode("Holley Carb", new System.Windows.Forms.TreeNode[] {
+            treeNode42,
+            treeNode43});
+            System.Windows.Forms.TreeNode treeNode45 = new System.Windows.Forms.TreeNode("Assembly");
+            System.Windows.Forms.TreeNode treeNode46 = new System.Windows.Forms.TreeNode("Throttle_Shaft_Assembly");
+            System.Windows.Forms.TreeNode treeNode47 = new System.Windows.Forms.TreeNode("Assemblies", new System.Windows.Forms.TreeNode[] {
+            treeNode45,
+            treeNode46});
+            System.Windows.Forms.TreeNode treeNode48 = new System.Windows.Forms.TreeNode("Linkage_A");
+            System.Windows.Forms.TreeNode treeNode49 = new System.Windows.Forms.TreeNode("Linkage_B");
+            System.Windows.Forms.TreeNode treeNode50 = new System.Windows.Forms.TreeNode("Cable_Primary_Rod");
+            System.Windows.Forms.TreeNode treeNode51 = new System.Windows.Forms.TreeNode("Return_Plate");
+            System.Windows.Forms.TreeNode treeNode52 = new System.Windows.Forms.TreeNode("Right_Angle_Cable");
+            System.Windows.Forms.TreeNode treeNode53 = new System.Windows.Forms.TreeNode("Throttle_Body");
+            System.Windows.Forms.TreeNode treeNode54 = new System.Windows.Forms.TreeNode("Throttle_Cable_Sheath");
+            System.Windows.Forms.TreeNode treeNode55 = new System.Windows.Forms.TreeNode("Throttle_Plate");
+            System.Windows.Forms.TreeNode treeNode56 = new System.Windows.Forms.TreeNode("Throttle_Rod");
+            System.Windows.Forms.TreeNode treeNode57 = new System.Windows.Forms.TreeNode("91375A088");
+            System.Windows.Forms.TreeNode treeNode58 = new System.Windows.Forms.TreeNode("90107A006_316");
+            System.Windows.Forms.TreeNode treeNode59 = new System.Windows.Forms.TreeNode("91864A017");
+            System.Windows.Forms.TreeNode treeNode60 = new System.Windows.Forms.TreeNode("Parts", new System.Windows.Forms.TreeNode[] {
+            treeNode48,
+            treeNode49,
+            treeNode50,
+            treeNode51,
+            treeNode52,
+            treeNode53,
+            treeNode54,
+            treeNode55,
+            treeNode56,
+            treeNode57,
+            treeNode58,
+            treeNode59});
+            System.Windows.Forms.TreeNode treeNode61 = new System.Windows.Forms.TreeNode("Drawing");
+            System.Windows.Forms.TreeNode treeNode62 = new System.Windows.Forms.TreeNode("Drawings", new System.Windows.Forms.TreeNode[] {
+            treeNode61});
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
-            this.tableLayoutPanel9 = new System.Windows.Forms.TableLayoutPanel();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.tableLayoutPanel8 = new System.Windows.Forms.TableLayoutPanel();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
-            this.label5 = new System.Windows.Forms.Label();
-            this.currentProjectField = new System.Windows.Forms.Label();
-            this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -119,23 +102,27 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.tabPage5 = new System.Windows.Forms.TabPage();
+            this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
+            this.fileGroupBox = new System.Windows.Forms.GroupBox();
+            this.currentFileLabel = new System.Windows.Forms.Label();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.currentProjectLabel = new System.Windows.Forms.Label();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.button3 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.settingsButton = new System.Windows.Forms.Button();
             this.newProjectButton = new System.Windows.Forms.Button();
             this.updateButton = new System.Windows.Forms.Button();
+            this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.newFileButton = new System.Windows.Forms.Button();
             this.addFileButton = new System.Windows.Forms.Button();
+            this.tableLayoutPanel8 = new System.Windows.Forms.TableLayoutPanel();
+            this.projectNameGroupBox = new System.Windows.Forms.GroupBox();
+            this.currentProjectField = new System.Windows.Forms.Label();
+            this.uploadButton = new System.Windows.Forms.Button();
+            this.newButton = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
-            this.groupBox4.SuspendLayout();
-            this.tableLayoutPanel4.SuspendLayout();
-            this.tableLayoutPanel9.SuspendLayout();
-            this.tableLayoutPanel8.SuspendLayout();
-            this.tableLayoutPanel7.SuspendLayout();
-            this.tableLayoutPanel6.SuspendLayout();
-            this.tableLayoutPanel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -151,7 +138,11 @@
             this.tabPage1.SuspendLayout();
             this.tabPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.tableLayoutPanel5.SuspendLayout();
+            this.fileGroupBox.SuspendLayout();
+            this.groupBox4.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
+            this.tableLayoutPanel4.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -175,8 +166,8 @@
             // 
             this.tableLayoutPanel2.ColumnCount = 1;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Controls.Add(this.groupBox4, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.splitContainer1, 0, 1);
+            this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel5, 0, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(99, 3);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
@@ -186,255 +177,6 @@
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel2.Size = new System.Drawing.Size(1802, 1035);
             this.tableLayoutPanel2.TabIndex = 0;
-            // 
-            // groupBox4
-            // 
-            this.groupBox4.Controls.Add(this.tableLayoutPanel4);
-            this.groupBox4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox4.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.groupBox4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(139)))), ((int)(((byte)(210)))));
-            this.groupBox4.Location = new System.Drawing.Point(3, 3);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(1796, 90);
-            this.groupBox4.TabIndex = 3;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Current Project";
-            // 
-            // tableLayoutPanel4
-            // 
-            this.tableLayoutPanel4.ColumnCount = 8;
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 96F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 96F));
-            this.tableLayoutPanel4.Controls.Add(this.newFileButton, 6, 0);
-            this.tableLayoutPanel4.Controls.Add(this.tableLayoutPanel9, 0, 0);
-            this.tableLayoutPanel4.Controls.Add(this.tableLayoutPanel8, 0, 0);
-            this.tableLayoutPanel4.Controls.Add(this.tableLayoutPanel7, 0, 0);
-            this.tableLayoutPanel4.Controls.Add(this.tableLayoutPanel6, 1, 0);
-            this.tableLayoutPanel4.Controls.Add(this.tableLayoutPanel5, 0, 0);
-            this.tableLayoutPanel4.Controls.Add(this.addFileButton, 7, 0);
-            this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel4.Location = new System.Drawing.Point(3, 22);
-            this.tableLayoutPanel4.Name = "tableLayoutPanel4";
-            this.tableLayoutPanel4.RowCount = 1;
-            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(1790, 65);
-            this.tableLayoutPanel4.TabIndex = 0;
-            // 
-            // tableLayoutPanel9
-            // 
-            this.tableLayoutPanel9.ColumnCount = 2;
-            this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 80F));
-            this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel9.Controls.Add(this.label9, 0, 0);
-            this.tableLayoutPanel9.Controls.Add(this.label10, 1, 0);
-            this.tableLayoutPanel9.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel9.Location = new System.Drawing.Point(640, 3);
-            this.tableLayoutPanel9.Name = "tableLayoutPanel9";
-            this.tableLayoutPanel9.Padding = new System.Windows.Forms.Padding(10);
-            this.tableLayoutPanel9.RowCount = 1;
-            this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel9.Size = new System.Drawing.Size(313, 59);
-            this.tableLayoutPanel9.TabIndex = 6;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label9.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label9.Location = new System.Drawing.Point(13, 10);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(74, 39);
-            this.label9.TabIndex = 2;
-            this.label9.Text = "Variant";
-            this.label9.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label10.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(147)))), ((int)(((byte)(161)))), ((int)(((byte)(161)))));
-            this.label10.Location = new System.Drawing.Point(93, 10);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(207, 39);
-            this.label10.TabIndex = 1;
-            this.label10.Text = "Yes";
-            this.label10.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            // 
-            // tableLayoutPanel8
-            // 
-            this.tableLayoutPanel8.ColumnCount = 2;
-            this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 80F));
-            this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel8.Controls.Add(this.label7, 0, 0);
-            this.tableLayoutPanel8.Controls.Add(this.label8, 1, 0);
-            this.tableLayoutPanel8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel8.Location = new System.Drawing.Point(3, 3);
-            this.tableLayoutPanel8.Name = "tableLayoutPanel8";
-            this.tableLayoutPanel8.Padding = new System.Windows.Forms.Padding(10);
-            this.tableLayoutPanel8.RowCount = 1;
-            this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel8.Size = new System.Drawing.Size(313, 59);
-            this.tableLayoutPanel8.TabIndex = 5;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label7.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label7.Location = new System.Drawing.Point(13, 10);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(74, 39);
-            this.label7.TabIndex = 2;
-            this.label7.Text = "Units";
-            this.label7.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label8.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(147)))), ((int)(((byte)(161)))), ((int)(((byte)(161)))));
-            this.label8.Location = new System.Drawing.Point(93, 10);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(207, 39);
-            this.label8.TabIndex = 1;
-            this.label8.Text = "inch";
-            this.label8.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            // 
-            // tableLayoutPanel7
-            // 
-            this.tableLayoutPanel7.ColumnCount = 2;
-            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 80F));
-            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel7.Controls.Add(this.label5, 0, 0);
-            this.tableLayoutPanel7.Controls.Add(this.currentProjectField, 1, 0);
-            this.tableLayoutPanel7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel7.Location = new System.Drawing.Point(481, 3);
-            this.tableLayoutPanel7.Name = "tableLayoutPanel7";
-            this.tableLayoutPanel7.Padding = new System.Windows.Forms.Padding(10);
-            this.tableLayoutPanel7.RowCount = 1;
-            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel7.Size = new System.Drawing.Size(153, 59);
-            this.tableLayoutPanel7.TabIndex = 4;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label5.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label5.Location = new System.Drawing.Point(13, 10);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(74, 39);
-            this.label5.TabIndex = 2;
-            this.label5.Text = "Name";
-            this.label5.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            // 
-            // currentProjectField
-            // 
-            this.currentProjectField.AutoSize = true;
-            this.currentProjectField.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.currentProjectField.Font = new System.Drawing.Font("Verdana", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.currentProjectField.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(147)))), ((int)(((byte)(161)))), ((int)(((byte)(161)))));
-            this.currentProjectField.Location = new System.Drawing.Point(93, 10);
-            this.currentProjectField.Name = "currentProjectField";
-            this.currentProjectField.Size = new System.Drawing.Size(47, 39);
-            this.currentProjectField.TabIndex = 1;
-            this.currentProjectField.Text = "Holley Carb";
-            this.currentProjectField.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            // 
-            // tableLayoutPanel6
-            // 
-            this.tableLayoutPanel6.ColumnCount = 2;
-            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 80F));
-            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel6.Controls.Add(this.label3, 0, 0);
-            this.tableLayoutPanel6.Controls.Add(this.label4, 1, 0);
-            this.tableLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel6.Location = new System.Drawing.Point(959, 3);
-            this.tableLayoutPanel6.Name = "tableLayoutPanel6";
-            this.tableLayoutPanel6.Padding = new System.Windows.Forms.Padding(10);
-            this.tableLayoutPanel6.RowCount = 1;
-            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel6.Size = new System.Drawing.Size(313, 59);
-            this.tableLayoutPanel6.TabIndex = 3;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label3.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label3.Location = new System.Drawing.Point(13, 10);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(74, 39);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "Owner";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label4.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(147)))), ((int)(((byte)(161)))), ((int)(((byte)(161)))));
-            this.label4.Location = new System.Drawing.Point(93, 10);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(207, 39);
-            this.label4.TabIndex = 1;
-            this.label4.Text = "Weston Shakespear";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            // 
-            // tableLayoutPanel5
-            // 
-            this.tableLayoutPanel5.ColumnCount = 2;
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 80F));
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel5.Controls.Add(this.label2, 0, 0);
-            this.tableLayoutPanel5.Controls.Add(this.label1, 1, 0);
-            this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel5.Location = new System.Drawing.Point(322, 3);
-            this.tableLayoutPanel5.Name = "tableLayoutPanel5";
-            this.tableLayoutPanel5.Padding = new System.Windows.Forms.Padding(10);
-            this.tableLayoutPanel5.RowCount = 1;
-            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(153, 59);
-            this.tableLayoutPanel5.TabIndex = 2;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label2.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(13, 10);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(74, 39);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Revision";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label1.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(147)))), ((int)(((byte)(161)))), ((int)(((byte)(161)))));
-            this.label1.Location = new System.Drawing.Point(93, 10);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(47, 39);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "4";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             // 
             // splitContainer1
             // 
@@ -467,7 +209,7 @@
             // 
             this.splitContainer2.Panel2.Controls.Add(this.groupBox3);
             this.splitContainer2.Size = new System.Drawing.Size(777, 933);
-            this.splitContainer2.SplitterDistance = 362;
+            this.splitContainer2.SplitterDistance = 281;
             this.splitContainer2.TabIndex = 0;
             // 
             // groupBox1
@@ -479,7 +221,7 @@
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(10);
-            this.groupBox1.Size = new System.Drawing.Size(362, 933);
+            this.groupBox1.Size = new System.Drawing.Size(281, 933);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Projects";
@@ -493,37 +235,37 @@
             this.projectTreeView.ItemHeight = 40;
             this.projectTreeView.Location = new System.Drawing.Point(10, 29);
             this.projectTreeView.Name = "projectTreeView";
-            treeNode1.Name = "Scissor_Hardware_Assy";
-            treeNode1.Text = "Scissor_Hardware_Assy";
-            treeNode2.Name = "Handle_Assy";
-            treeNode2.Text = "Handle_Assy";
-            treeNode3.Name = "Scissor_Assy";
-            treeNode3.Text = "Scissor_Assy";
-            treeNode4.Name = "Assy";
-            treeNode4.Text = "Assy";
-            treeNode5.Name = "Drawing";
-            treeNode5.Text = "Drawing";
-            treeNode6.Name = "Scissor Lift";
-            treeNode6.Text = "Scissor Lift";
-            treeNode7.Name = "Hub_Assembly";
-            treeNode7.Text = "Hub_Assembly";
-            treeNode8.Name = "Hub_Drawing";
-            treeNode8.Text = "Hub_Drawing";
-            treeNode9.Name = "5 Lug Hub";
-            treeNode9.Text = "5 Lug Hub";
-            treeNode10.Name = "Throttle_Shaft_Assembly";
-            treeNode10.Text = "Throttle_Shaft_Assembly";
-            treeNode11.Name = "Assembly";
-            treeNode11.Text = "Assembly";
-            treeNode12.Name = "Drawing";
-            treeNode12.Text = "Drawing";
-            treeNode13.Name = "Holley Carb";
-            treeNode13.Text = "Holley Carb";
+            treeNode32.Name = "Scissor_Hardware_Assy";
+            treeNode32.Text = "Scissor_Hardware_Assy";
+            treeNode33.Name = "Handle_Assy";
+            treeNode33.Text = "Handle_Assy";
+            treeNode34.Name = "Scissor_Assy";
+            treeNode34.Text = "Scissor_Assy";
+            treeNode35.Name = "Assy";
+            treeNode35.Text = "Assy";
+            treeNode36.Name = "Drawing";
+            treeNode36.Text = "Drawing";
+            treeNode37.Name = "Scissor Lift";
+            treeNode37.Text = "Scissor Lift";
+            treeNode38.Name = "Hub_Assembly";
+            treeNode38.Text = "Hub_Assembly";
+            treeNode39.Name = "Hub_Drawing";
+            treeNode39.Text = "Hub_Drawing";
+            treeNode40.Name = "5 Lug Hub";
+            treeNode40.Text = "5 Lug Hub";
+            treeNode41.Name = "Throttle_Shaft_Assembly";
+            treeNode41.Text = "Throttle_Shaft_Assembly";
+            treeNode42.Name = "Assembly";
+            treeNode42.Text = "Assembly";
+            treeNode43.Name = "Drawing";
+            treeNode43.Text = "Drawing";
+            treeNode44.Name = "Holley Carb";
+            treeNode44.Text = "Holley Carb";
             this.projectTreeView.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode6,
-            treeNode9,
-            treeNode13});
-            this.projectTreeView.Size = new System.Drawing.Size(342, 894);
+            treeNode37,
+            treeNode40,
+            treeNode44});
+            this.projectTreeView.Size = new System.Drawing.Size(261, 894);
             this.projectTreeView.TabIndex = 0;
             this.projectTreeView.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.projectTreeView_AfterSelect);
             // 
@@ -536,7 +278,7 @@
             this.groupBox3.Location = new System.Drawing.Point(0, 0);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Padding = new System.Windows.Forms.Padding(10);
-            this.groupBox3.Size = new System.Drawing.Size(411, 933);
+            this.groupBox3.Size = new System.Drawing.Size(492, 933);
             this.groupBox3.TabIndex = 2;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Files";
@@ -550,48 +292,49 @@
             this.fileTreeView.ItemHeight = 40;
             this.fileTreeView.Location = new System.Drawing.Point(10, 29);
             this.fileTreeView.Name = "fileTreeView";
-            treeNode14.Name = "Assembly";
-            treeNode14.Text = "Assembly";
-            treeNode15.Name = "Node1";
-            treeNode15.Text = "Throttle_Shaft_Assembly";
-            treeNode16.Name = "Assemblies";
-            treeNode16.Text = "Assemblies";
-            treeNode17.Name = "Node3";
-            treeNode17.Text = "Linkage_A";
-            treeNode18.Name = "Node4";
-            treeNode18.Text = "Linkage_B";
-            treeNode19.Name = "Node5";
-            treeNode19.Text = "Cable_Primary_Rod";
-            treeNode20.Name = "Node6";
-            treeNode20.Text = "Return_Plate";
-            treeNode21.Name = "Node7";
-            treeNode21.Text = "Right_Angle_Cable";
-            treeNode22.Name = "Node8";
-            treeNode22.Text = "Throttle_Body";
-            treeNode23.Name = "Node9";
-            treeNode23.Text = "Throttle_Cable_Sheath";
-            treeNode24.Name = "Node10";
-            treeNode24.Text = "Throttle_Plate";
-            treeNode25.Name = "Node11";
-            treeNode25.Text = "Throttle_Rod";
-            treeNode26.Name = "Node12";
-            treeNode26.Text = "91375A088";
-            treeNode27.Name = "Node13";
-            treeNode27.Text = "90107A006_316";
-            treeNode28.Name = "Node14";
-            treeNode28.Text = "91864A017";
-            treeNode29.Name = "Parts";
-            treeNode29.Text = "Parts";
-            treeNode30.Name = "Node2";
-            treeNode30.Text = "Drawing";
-            treeNode31.Name = "Drawings";
-            treeNode31.Text = "Drawings";
+            treeNode45.Name = "Assembly";
+            treeNode45.Text = "Assembly";
+            treeNode46.Name = "Node1";
+            treeNode46.Text = "Throttle_Shaft_Assembly";
+            treeNode47.Name = "Assemblies";
+            treeNode47.Text = "Assemblies";
+            treeNode48.Name = "Node3";
+            treeNode48.Text = "Linkage_A";
+            treeNode49.Name = "Node4";
+            treeNode49.Text = "Linkage_B";
+            treeNode50.Name = "Node5";
+            treeNode50.Text = "Cable_Primary_Rod";
+            treeNode51.Name = "Node6";
+            treeNode51.Text = "Return_Plate";
+            treeNode52.Name = "Node7";
+            treeNode52.Text = "Right_Angle_Cable";
+            treeNode53.Name = "Node8";
+            treeNode53.Text = "Throttle_Body";
+            treeNode54.Name = "Node9";
+            treeNode54.Text = "Throttle_Cable_Sheath";
+            treeNode55.Name = "Node10";
+            treeNode55.Text = "Throttle_Plate";
+            treeNode56.Name = "Node11";
+            treeNode56.Text = "Throttle_Rod";
+            treeNode57.Name = "Node12";
+            treeNode57.Text = "91375A088";
+            treeNode58.Name = "Node13";
+            treeNode58.Text = "90107A006_316";
+            treeNode59.Name = "Node14";
+            treeNode59.Text = "91864A017";
+            treeNode60.Name = "Parts";
+            treeNode60.Text = "Parts";
+            treeNode61.Name = "Node2";
+            treeNode61.Text = "Drawing";
+            treeNode62.Name = "Drawings";
+            treeNode62.Text = "Drawings";
             this.fileTreeView.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode16,
-            treeNode29,
-            treeNode31});
-            this.fileTreeView.Size = new System.Drawing.Size(391, 894);
+            treeNode47,
+            treeNode60,
+            treeNode62});
+            this.fileTreeView.Size = new System.Drawing.Size(472, 894);
             this.fileTreeView.TabIndex = 1;
+            this.fileTreeView.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.fileTreeView_AfterSelect);
             // 
             // groupBox2
             // 
@@ -695,6 +438,83 @@
             this.tabPage5.TabIndex = 4;
             this.tabPage5.Text = "History";
             // 
+            // tableLayoutPanel5
+            // 
+            this.tableLayoutPanel5.ColumnCount = 8;
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 384F));
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 384F));
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 96F));
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 96F));
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 96F));
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 192F));
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 192F));
+            this.tableLayoutPanel5.Controls.Add(this.fileGroupBox, 1, 0);
+            this.tableLayoutPanel5.Controls.Add(this.groupBox4, 0, 0);
+            this.tableLayoutPanel5.Controls.Add(this.uploadButton, 6, 0);
+            this.tableLayoutPanel5.Controls.Add(this.newButton, 7, 0);
+            this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel5.Location = new System.Drawing.Point(3, 3);
+            this.tableLayoutPanel5.Name = "tableLayoutPanel5";
+            this.tableLayoutPanel5.RowCount = 1;
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(1796, 90);
+            this.tableLayoutPanel5.TabIndex = 1;
+            // 
+            // fileGroupBox
+            // 
+            this.fileGroupBox.Controls.Add(this.currentFileLabel);
+            this.fileGroupBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.fileGroupBox.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.fileGroupBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(139)))), ((int)(((byte)(210)))));
+            this.fileGroupBox.Location = new System.Drawing.Point(387, 3);
+            this.fileGroupBox.Name = "fileGroupBox";
+            this.fileGroupBox.Size = new System.Drawing.Size(378, 84);
+            this.fileGroupBox.TabIndex = 1;
+            this.fileGroupBox.TabStop = false;
+            this.fileGroupBox.Text = "File";
+            // 
+            // currentFileLabel
+            // 
+            this.currentFileLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.currentFileLabel.AutoSize = true;
+            this.currentFileLabel.Font = new System.Drawing.Font("Verdana", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.currentFileLabel.Location = new System.Drawing.Point(6, 41);
+            this.currentFileLabel.Name = "currentFileLabel";
+            this.currentFileLabel.Size = new System.Drawing.Size(84, 25);
+            this.currentFileLabel.TabIndex = 1;
+            this.currentFileLabel.Text = "label1";
+            this.currentFileLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.currentProjectLabel);
+            this.groupBox4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox4.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.groupBox4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(139)))), ((int)(((byte)(210)))));
+            this.groupBox4.Location = new System.Drawing.Point(3, 3);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(378, 84);
+            this.groupBox4.TabIndex = 0;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Project";
+            // 
+            // currentProjectLabel
+            // 
+            this.currentProjectLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.currentProjectLabel.AutoSize = true;
+            this.currentProjectLabel.Font = new System.Drawing.Font("Verdana", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.currentProjectLabel.Location = new System.Drawing.Point(6, 41);
+            this.currentProjectLabel.Name = "currentProjectLabel";
+            this.currentProjectLabel.Size = new System.Drawing.Size(84, 25);
+            this.currentProjectLabel.TabIndex = 0;
+            this.currentProjectLabel.Text = "label1";
+            this.currentProjectLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // tableLayoutPanel3
             // 
             this.tableLayoutPanel3.ColumnCount = 1;
@@ -785,15 +605,35 @@
             this.updateButton.UseVisualStyleBackColor = false;
             this.updateButton.Click += new System.EventHandler(this.updateButton_Click);
             // 
+            // tableLayoutPanel4
+            // 
+            this.tableLayoutPanel4.ColumnCount = 8;
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 96F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 96F));
+            this.tableLayoutPanel4.Controls.Add(this.newFileButton, 6, 0);
+            this.tableLayoutPanel4.Controls.Add(this.addFileButton, 7, 0);
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel4.Name = "tableLayoutPanel4";
+            this.tableLayoutPanel4.RowCount = 1;
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(200, 100);
+            this.tableLayoutPanel4.TabIndex = 0;
+            // 
             // newFileButton
             // 
             this.newFileButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(54)))), ((int)(((byte)(66)))));
             this.newFileButton.Dock = System.Windows.Forms.DockStyle.Fill;
             this.newFileButton.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.newFileButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(139)))), ((int)(((byte)(210)))));
-            this.newFileButton.Location = new System.Drawing.Point(1597, 3);
+            this.newFileButton.Location = new System.Drawing.Point(7, 3);
             this.newFileButton.Name = "newFileButton";
-            this.newFileButton.Size = new System.Drawing.Size(90, 59);
+            this.newFileButton.Size = new System.Drawing.Size(90, 94);
             this.newFileButton.TabIndex = 6;
             this.newFileButton.Text = "New";
             this.newFileButton.UseVisualStyleBackColor = false;
@@ -804,12 +644,66 @@
             this.addFileButton.Dock = System.Windows.Forms.DockStyle.Fill;
             this.addFileButton.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.addFileButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(139)))), ((int)(((byte)(210)))));
-            this.addFileButton.Location = new System.Drawing.Point(1693, 3);
+            this.addFileButton.Location = new System.Drawing.Point(103, 3);
             this.addFileButton.Name = "addFileButton";
-            this.addFileButton.Size = new System.Drawing.Size(94, 59);
+            this.addFileButton.Size = new System.Drawing.Size(94, 94);
             this.addFileButton.TabIndex = 7;
             this.addFileButton.Text = "Add";
             this.addFileButton.UseVisualStyleBackColor = false;
+            // 
+            // tableLayoutPanel8
+            // 
+            this.tableLayoutPanel8.ColumnCount = 2;
+            this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 80F));
+            this.tableLayoutPanel8.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel8.Name = "tableLayoutPanel8";
+            this.tableLayoutPanel8.Padding = new System.Windows.Forms.Padding(10);
+            this.tableLayoutPanel8.RowCount = 1;
+            this.tableLayoutPanel8.Size = new System.Drawing.Size(200, 100);
+            this.tableLayoutPanel8.TabIndex = 0;
+            // 
+            // projectNameGroupBox
+            // 
+            this.projectNameGroupBox.Location = new System.Drawing.Point(0, 0);
+            this.projectNameGroupBox.Name = "projectNameGroupBox";
+            this.projectNameGroupBox.Size = new System.Drawing.Size(200, 100);
+            this.projectNameGroupBox.TabIndex = 0;
+            this.projectNameGroupBox.TabStop = false;
+            // 
+            // currentProjectField
+            // 
+            this.currentProjectField.Location = new System.Drawing.Point(0, 0);
+            this.currentProjectField.Name = "currentProjectField";
+            this.currentProjectField.Size = new System.Drawing.Size(100, 23);
+            this.currentProjectField.TabIndex = 0;
+            // 
+            // uploadButton
+            // 
+            this.uploadButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(54)))), ((int)(((byte)(66)))));
+            this.uploadButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.uploadButton.Font = new System.Drawing.Font("Verdana", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.uploadButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(139)))), ((int)(((byte)(210)))));
+            this.uploadButton.Location = new System.Drawing.Point(1415, 3);
+            this.uploadButton.Name = "uploadButton";
+            this.uploadButton.Size = new System.Drawing.Size(186, 84);
+            this.uploadButton.TabIndex = 3;
+            this.uploadButton.Text = "Upload";
+            this.uploadButton.UseVisualStyleBackColor = false;
+            this.uploadButton.Click += new System.EventHandler(this.uploadButton_Click);
+            // 
+            // newButton
+            // 
+            this.newButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(54)))), ((int)(((byte)(66)))));
+            this.newButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.newButton.Font = new System.Drawing.Font("Verdana", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.newButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(139)))), ((int)(((byte)(210)))));
+            this.newButton.Location = new System.Drawing.Point(1607, 3);
+            this.newButton.Name = "newButton";
+            this.newButton.Size = new System.Drawing.Size(186, 84);
+            this.newButton.TabIndex = 4;
+            this.newButton.Text = "New";
+            this.newButton.UseVisualStyleBackColor = false;
+            this.newButton.Click += new System.EventHandler(this.newButton_Click);
             // 
             // Form1
             // 
@@ -822,18 +716,6 @@
             this.Load += new System.EventHandler(this.s);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
-            this.groupBox4.ResumeLayout(false);
-            this.tableLayoutPanel4.ResumeLayout(false);
-            this.tableLayoutPanel9.ResumeLayout(false);
-            this.tableLayoutPanel9.PerformLayout();
-            this.tableLayoutPanel8.ResumeLayout(false);
-            this.tableLayoutPanel8.PerformLayout();
-            this.tableLayoutPanel7.ResumeLayout(false);
-            this.tableLayoutPanel7.PerformLayout();
-            this.tableLayoutPanel6.ResumeLayout(false);
-            this.tableLayoutPanel6.PerformLayout();
-            this.tableLayoutPanel5.ResumeLayout(false);
-            this.tableLayoutPanel5.PerformLayout();
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
@@ -849,7 +731,13 @@
             this.tabPage1.ResumeLayout(false);
             this.tabPage3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.tableLayoutPanel5.ResumeLayout(false);
+            this.fileGroupBox.ResumeLayout(false);
+            this.fileGroupBox.PerformLayout();
+            this.groupBox4.ResumeLayout(false);
+            this.groupBox4.PerformLayout();
             this.tableLayoutPanel3.ResumeLayout(false);
+            this.tableLayoutPanel4.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -857,46 +745,40 @@
         #endregion
 
         private TableLayoutPanel tableLayoutPanel1;
-        private TableLayoutPanel tableLayoutPanel2;
-        private SplitContainer splitContainer1;
-        private SplitContainer splitContainer2;
-        private GroupBox groupBox1;
         private TableLayoutPanel tableLayoutPanel3;
         private Button button1;
         private Button settingsButton;
         private Button newProjectButton;
+        private Button updateButton;
+        private Button button3;
+        private TableLayoutPanel tableLayoutPanel2;
+        private SplitContainer splitContainer1;
+        private SplitContainer splitContainer2;
+        private GroupBox groupBox1;
         private TreeView projectTreeView;
-        private GroupBox groupBox4;
         private GroupBox groupBox3;
+        private TreeView fileTreeView;
         private GroupBox groupBox2;
         private TabControl tabControl1;
         private TabPage tabPage1;
         private Panel panel1;
         private TabPage tabPage2;
         private TabPage tabPage3;
+        private DataGridView dataGridView1;
         private TabPage tabPage4;
         private TabPage tabPage5;
-        private TreeView fileTreeView;
         private TableLayoutPanel tableLayoutPanel4;
-        private TableLayoutPanel tableLayoutPanel9;
-        private Label label9;
-        private Label label10;
-        private TableLayoutPanel tableLayoutPanel8;
-        private Label label7;
-        private Label label8;
-        private TableLayoutPanel tableLayoutPanel7;
-        private Label label5;
-        private Label currentProjectField;
-        private TableLayoutPanel tableLayoutPanel6;
-        private Label label3;
-        private Label label4;
-        private TableLayoutPanel tableLayoutPanel5;
-        private Label label2;
-        private Label label1;
-        private DataGridView dataGridView1;
-        private Button updateButton;
-        private Button button3;
         private Button newFileButton;
         private Button addFileButton;
+        private TableLayoutPanel tableLayoutPanel8;
+        private GroupBox projectNameGroupBox;
+        private Label currentProjectField;
+        private TableLayoutPanel tableLayoutPanel5;
+        private GroupBox fileGroupBox;
+        private Label currentFileLabel;
+        private GroupBox groupBox4;
+        private Label currentProjectLabel;
+        private Button uploadButton;
+        private Button newButton;
     }
 }

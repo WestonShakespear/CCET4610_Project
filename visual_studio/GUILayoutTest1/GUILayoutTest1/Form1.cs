@@ -24,6 +24,7 @@ namespace GUILayoutTest1
         private string localHead = @"D:\School\4610\API\local\";
 
         private string currentProject;
+        private string currentFile;
 
         private Dictionary<string, List<string>> tree = new Dictionary<string, List<string>>();
         public Form1()
@@ -212,14 +213,39 @@ namespace GUILayoutTest1
             projectTreeView.EndUpdate();
         }
 
+        private void updateSelected()
+        {
+
+        }
+
         private void projectTreeView_AfterSelect(object sender, TreeViewEventArgs e)
         {
             if (e.Node != null)
             {
                 currentProject = e.Node.Text;
-                currentProjectField.Text = currentProject;
+                currentProjectLabel.Text = currentProject;
                 this.updateFiles();
             }
+        }
+
+        private void fileTreeView_AfterSelect(object sender, TreeViewEventArgs e)
+        {
+            if (e.Node != null)
+            {
+                currentFile = e.Node.Text;
+                currentFileLabel.Text = currentFile;
+                this.updateSelected();
+            }
+        }
+
+        private void newButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void uploadButton_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
