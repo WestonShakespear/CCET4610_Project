@@ -30,8 +30,13 @@
         {
             this.projectGroupBox = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.label1 = new System.Windows.Forms.Label();
             this.nameTextBox = new System.Windows.Forms.TextBox();
             this.nameLabel = new System.Windows.Forms.Label();
+            this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
+            this.partTemplateButton = new System.Windows.Forms.Button();
+            this.assemblyTemplateButton = new System.Windows.Forms.Button();
+            this.drawingTemplateButton = new System.Windows.Forms.Button();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.settingsGroupBox = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
@@ -46,6 +51,7 @@
             this.createButton = new System.Windows.Forms.Button();
             this.projectGroupBox.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
+            this.tableLayoutPanel5.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.settingsGroupBox.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
@@ -69,16 +75,29 @@
             this.tableLayoutPanel2.ColumnCount = 2;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 70F));
+            this.tableLayoutPanel2.Controls.Add(this.label1, 0, 1);
             this.tableLayoutPanel2.Controls.Add(this.nameTextBox, 1, 0);
             this.tableLayoutPanel2.Controls.Add(this.nameLabel, 0, 0);
+            this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel5, 1, 1);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 23);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 1;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel2.RowCount = 2;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel2.Size = new System.Drawing.Size(788, 170);
             this.tableLayoutPanel2.TabIndex = 0;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label1.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label1.Location = new System.Drawing.Point(3, 85);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(230, 14);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "Templates:";
             // 
             // nameTextBox
             // 
@@ -100,6 +119,57 @@
             this.nameLabel.Size = new System.Drawing.Size(230, 14);
             this.nameLabel.TabIndex = 3;
             this.nameLabel.Text = "Name:";
+            // 
+            // tableLayoutPanel5
+            // 
+            this.tableLayoutPanel5.ColumnCount = 3;
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33334F));
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33334F));
+            this.tableLayoutPanel5.Controls.Add(this.partTemplateButton, 0, 0);
+            this.tableLayoutPanel5.Controls.Add(this.assemblyTemplateButton, 1, 0);
+            this.tableLayoutPanel5.Controls.Add(this.drawingTemplateButton, 2, 0);
+            this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel5.Location = new System.Drawing.Point(239, 88);
+            this.tableLayoutPanel5.Name = "tableLayoutPanel5";
+            this.tableLayoutPanel5.RowCount = 1;
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(546, 79);
+            this.tableLayoutPanel5.TabIndex = 5;
+            // 
+            // partTemplateButton
+            // 
+            this.partTemplateButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.partTemplateButton.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.partTemplateButton.Location = new System.Drawing.Point(3, 3);
+            this.partTemplateButton.Name = "partTemplateButton";
+            this.partTemplateButton.Size = new System.Drawing.Size(175, 73);
+            this.partTemplateButton.TabIndex = 0;
+            this.partTemplateButton.Text = "Part";
+            this.partTemplateButton.UseVisualStyleBackColor = true;
+            // 
+            // assemblyTemplateButton
+            // 
+            this.assemblyTemplateButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.assemblyTemplateButton.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.assemblyTemplateButton.Location = new System.Drawing.Point(184, 3);
+            this.assemblyTemplateButton.Name = "assemblyTemplateButton";
+            this.assemblyTemplateButton.Size = new System.Drawing.Size(176, 73);
+            this.assemblyTemplateButton.TabIndex = 1;
+            this.assemblyTemplateButton.Text = "Assembly";
+            this.assemblyTemplateButton.UseVisualStyleBackColor = true;
+            // 
+            // drawingTemplateButton
+            // 
+            this.drawingTemplateButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.drawingTemplateButton.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.drawingTemplateButton.Location = new System.Drawing.Point(366, 3);
+            this.drawingTemplateButton.Name = "drawingTemplateButton";
+            this.drawingTemplateButton.Size = new System.Drawing.Size(177, 73);
+            this.drawingTemplateButton.TabIndex = 2;
+            this.drawingTemplateButton.Text = "Drawing";
+            this.drawingTemplateButton.UseVisualStyleBackColor = true;
             // 
             // tableLayoutPanel1
             // 
@@ -261,6 +331,7 @@
             this.projectGroupBox.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
+            this.tableLayoutPanel5.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.settingsGroupBox.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);
@@ -288,5 +359,10 @@
         private TextBox suffixTextBox;
         private Label suffixLabel;
         private ComboBox unitsComboBox;
+        private Label label1;
+        private TableLayoutPanel tableLayoutPanel5;
+        private Button partTemplateButton;
+        private Button assemblyTemplateButton;
+        private Button drawingTemplateButton;
     }
 }

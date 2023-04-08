@@ -13,34 +13,44 @@ class Program {
 
         Console.WriteLine(api.testConnection());
 
-        string filePath = @"D:\School\4610\";
-        string fileName = "Brake_Disk.SLDPRT";
-        bool res = api.sendFile(filePath, @"Project B\file\", fileName);
 
-    //     Console.WriteLine(res);
 
-        // create project
+        //create project
         // dynamic settings = new JObject();
         // settings.name = "Project B";
         // settings.units = "inch";
         // settings.prefix = "wshakespear";
         // settings.suffix = "";
 
-        // bool res = api.createProject(settings);
-        // Console.WriteLine(res);
+        // bool res2 = api.createProject(settings);
+        // Console.WriteLine(res2);
+
+
+
+        // add file
+        string filePath = @"D:\School\4610\";
+
+        string project = "Project B";
+        string remote_dir = @"Project B\file\";
+        string fileName = "Brake_Disk.SLDPRT.BMP";
+        bool res = api.sendFile(filePath, project, remote_dir, fileName, true);
+
+        Console.WriteLine(res);
+
+        
 
 
 
         // list projects
-        var res2 = api.listProjects();
-        foreach(var project in res2)
-                {
-                    foreach( var file in project.files) {
-                        Console.WriteLine(file);
-                    }
-                }
+        // var res2 = api.listProjects();
+        // foreach(var project in res2)
+        //         {
+        //             foreach( var file in project.files) {
+        //                 Console.WriteLine(file);
+        //             }
+        //         }
 
-        Console.WriteLine(res2);
+        // Console.WriteLine(res2);
 
         // string remoteDir = @"project\sub\";
         // string fileName = "bolt.SLDPRT";

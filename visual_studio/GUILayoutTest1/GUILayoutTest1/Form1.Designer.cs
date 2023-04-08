@@ -28,63 +28,62 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.TreeNode treeNode32 = new System.Windows.Forms.TreeNode("Scissor_Hardware_Assy");
-            System.Windows.Forms.TreeNode treeNode33 = new System.Windows.Forms.TreeNode("Handle_Assy");
-            System.Windows.Forms.TreeNode treeNode34 = new System.Windows.Forms.TreeNode("Scissor_Assy", new System.Windows.Forms.TreeNode[] {
-            treeNode32,
-            treeNode33});
-            System.Windows.Forms.TreeNode treeNode35 = new System.Windows.Forms.TreeNode("Assy", new System.Windows.Forms.TreeNode[] {
-            treeNode34});
-            System.Windows.Forms.TreeNode treeNode36 = new System.Windows.Forms.TreeNode("Drawing");
-            System.Windows.Forms.TreeNode treeNode37 = new System.Windows.Forms.TreeNode("Scissor Lift", new System.Windows.Forms.TreeNode[] {
-            treeNode35,
-            treeNode36});
-            System.Windows.Forms.TreeNode treeNode38 = new System.Windows.Forms.TreeNode("Hub_Assembly");
-            System.Windows.Forms.TreeNode treeNode39 = new System.Windows.Forms.TreeNode("Hub_Drawing");
-            System.Windows.Forms.TreeNode treeNode40 = new System.Windows.Forms.TreeNode("5 Lug Hub", new System.Windows.Forms.TreeNode[] {
-            treeNode38,
-            treeNode39});
-            System.Windows.Forms.TreeNode treeNode41 = new System.Windows.Forms.TreeNode("Throttle_Shaft_Assembly");
-            System.Windows.Forms.TreeNode treeNode42 = new System.Windows.Forms.TreeNode("Assembly", new System.Windows.Forms.TreeNode[] {
-            treeNode41});
-            System.Windows.Forms.TreeNode treeNode43 = new System.Windows.Forms.TreeNode("Drawing");
-            System.Windows.Forms.TreeNode treeNode44 = new System.Windows.Forms.TreeNode("Holley Carb", new System.Windows.Forms.TreeNode[] {
-            treeNode42,
-            treeNode43});
-            System.Windows.Forms.TreeNode treeNode45 = new System.Windows.Forms.TreeNode("Assembly");
-            System.Windows.Forms.TreeNode treeNode46 = new System.Windows.Forms.TreeNode("Throttle_Shaft_Assembly");
-            System.Windows.Forms.TreeNode treeNode47 = new System.Windows.Forms.TreeNode("Assemblies", new System.Windows.Forms.TreeNode[] {
-            treeNode45,
-            treeNode46});
-            System.Windows.Forms.TreeNode treeNode48 = new System.Windows.Forms.TreeNode("Linkage_A");
-            System.Windows.Forms.TreeNode treeNode49 = new System.Windows.Forms.TreeNode("Linkage_B");
-            System.Windows.Forms.TreeNode treeNode50 = new System.Windows.Forms.TreeNode("Cable_Primary_Rod");
-            System.Windows.Forms.TreeNode treeNode51 = new System.Windows.Forms.TreeNode("Return_Plate");
-            System.Windows.Forms.TreeNode treeNode52 = new System.Windows.Forms.TreeNode("Right_Angle_Cable");
-            System.Windows.Forms.TreeNode treeNode53 = new System.Windows.Forms.TreeNode("Throttle_Body");
-            System.Windows.Forms.TreeNode treeNode54 = new System.Windows.Forms.TreeNode("Throttle_Cable_Sheath");
-            System.Windows.Forms.TreeNode treeNode55 = new System.Windows.Forms.TreeNode("Throttle_Plate");
-            System.Windows.Forms.TreeNode treeNode56 = new System.Windows.Forms.TreeNode("Throttle_Rod");
-            System.Windows.Forms.TreeNode treeNode57 = new System.Windows.Forms.TreeNode("91375A088");
-            System.Windows.Forms.TreeNode treeNode58 = new System.Windows.Forms.TreeNode("90107A006_316");
-            System.Windows.Forms.TreeNode treeNode59 = new System.Windows.Forms.TreeNode("91864A017");
-            System.Windows.Forms.TreeNode treeNode60 = new System.Windows.Forms.TreeNode("Parts", new System.Windows.Forms.TreeNode[] {
-            treeNode48,
-            treeNode49,
-            treeNode50,
-            treeNode51,
-            treeNode52,
-            treeNode53,
-            treeNode54,
-            treeNode55,
-            treeNode56,
-            treeNode57,
-            treeNode58,
-            treeNode59});
-            System.Windows.Forms.TreeNode treeNode61 = new System.Windows.Forms.TreeNode("Drawing");
-            System.Windows.Forms.TreeNode treeNode62 = new System.Windows.Forms.TreeNode("Drawings", new System.Windows.Forms.TreeNode[] {
-            treeNode61});
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Scissor_Hardware_Assy");
+            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Handle_Assy");
+            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("Scissor_Assy", new System.Windows.Forms.TreeNode[] {
+            treeNode1,
+            treeNode2});
+            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("Assy", new System.Windows.Forms.TreeNode[] {
+            treeNode3});
+            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("Drawing");
+            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("Scissor Lift", new System.Windows.Forms.TreeNode[] {
+            treeNode4,
+            treeNode5});
+            System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("Hub_Assembly");
+            System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("Hub_Drawing");
+            System.Windows.Forms.TreeNode treeNode9 = new System.Windows.Forms.TreeNode("5 Lug Hub", new System.Windows.Forms.TreeNode[] {
+            treeNode7,
+            treeNode8});
+            System.Windows.Forms.TreeNode treeNode10 = new System.Windows.Forms.TreeNode("Throttle_Shaft_Assembly");
+            System.Windows.Forms.TreeNode treeNode11 = new System.Windows.Forms.TreeNode("Assembly", new System.Windows.Forms.TreeNode[] {
+            treeNode10});
+            System.Windows.Forms.TreeNode treeNode12 = new System.Windows.Forms.TreeNode("Drawing");
+            System.Windows.Forms.TreeNode treeNode13 = new System.Windows.Forms.TreeNode("Holley Carb", new System.Windows.Forms.TreeNode[] {
+            treeNode11,
+            treeNode12});
+            System.Windows.Forms.TreeNode treeNode14 = new System.Windows.Forms.TreeNode("Assembly");
+            System.Windows.Forms.TreeNode treeNode15 = new System.Windows.Forms.TreeNode("Throttle_Shaft_Assembly");
+            System.Windows.Forms.TreeNode treeNode16 = new System.Windows.Forms.TreeNode("Assemblies", new System.Windows.Forms.TreeNode[] {
+            treeNode14,
+            treeNode15});
+            System.Windows.Forms.TreeNode treeNode17 = new System.Windows.Forms.TreeNode("Linkage_A");
+            System.Windows.Forms.TreeNode treeNode18 = new System.Windows.Forms.TreeNode("Linkage_B");
+            System.Windows.Forms.TreeNode treeNode19 = new System.Windows.Forms.TreeNode("Cable_Primary_Rod");
+            System.Windows.Forms.TreeNode treeNode20 = new System.Windows.Forms.TreeNode("Return_Plate");
+            System.Windows.Forms.TreeNode treeNode21 = new System.Windows.Forms.TreeNode("Right_Angle_Cable");
+            System.Windows.Forms.TreeNode treeNode22 = new System.Windows.Forms.TreeNode("Throttle_Body");
+            System.Windows.Forms.TreeNode treeNode23 = new System.Windows.Forms.TreeNode("Throttle_Cable_Sheath");
+            System.Windows.Forms.TreeNode treeNode24 = new System.Windows.Forms.TreeNode("Throttle_Plate");
+            System.Windows.Forms.TreeNode treeNode25 = new System.Windows.Forms.TreeNode("Throttle_Rod");
+            System.Windows.Forms.TreeNode treeNode26 = new System.Windows.Forms.TreeNode("91375A088");
+            System.Windows.Forms.TreeNode treeNode27 = new System.Windows.Forms.TreeNode("90107A006_316");
+            System.Windows.Forms.TreeNode treeNode28 = new System.Windows.Forms.TreeNode("91864A017");
+            System.Windows.Forms.TreeNode treeNode29 = new System.Windows.Forms.TreeNode("Parts", new System.Windows.Forms.TreeNode[] {
+            treeNode17,
+            treeNode18,
+            treeNode19,
+            treeNode20,
+            treeNode21,
+            treeNode22,
+            treeNode23,
+            treeNode24,
+            treeNode25,
+            treeNode26,
+            treeNode27,
+            treeNode28});
+            System.Windows.Forms.TreeNode treeNode30 = new System.Windows.Forms.TreeNode("Drawing");
+            System.Windows.Forms.TreeNode treeNode31 = new System.Windows.Forms.TreeNode("Drawings", new System.Windows.Forms.TreeNode[] {
+            treeNode30});
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
@@ -96,7 +95,7 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.previewPictureBox = new System.Windows.Forms.PictureBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
@@ -107,20 +106,22 @@
             this.currentFileLabel = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.currentProjectLabel = new System.Windows.Forms.Label();
+            this.uploadButton = new System.Windows.Forms.Button();
+            this.newButton = new System.Windows.Forms.Button();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
-            this.button3 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
             this.settingsButton = new System.Windows.Forms.Button();
-            this.newProjectButton = new System.Windows.Forms.Button();
             this.updateButton = new System.Windows.Forms.Button();
+            this.solidSettingsButton = new System.Windows.Forms.Button();
+            this.newProjectButton = new System.Windows.Forms.Button();
+            this.editProject = new System.Windows.Forms.Button();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.newFileButton = new System.Windows.Forms.Button();
             this.addFileButton = new System.Windows.Forms.Button();
             this.tableLayoutPanel8 = new System.Windows.Forms.TableLayoutPanel();
             this.projectNameGroupBox = new System.Windows.Forms.GroupBox();
             this.currentProjectField = new System.Windows.Forms.Label();
-            this.uploadButton = new System.Windows.Forms.Button();
-            this.newButton = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -136,6 +137,7 @@
             this.groupBox2.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.previewPictureBox)).BeginInit();
             this.tabPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.tableLayoutPanel5.SuspendLayout();
@@ -235,36 +237,36 @@
             this.projectTreeView.ItemHeight = 40;
             this.projectTreeView.Location = new System.Drawing.Point(10, 29);
             this.projectTreeView.Name = "projectTreeView";
-            treeNode32.Name = "Scissor_Hardware_Assy";
-            treeNode32.Text = "Scissor_Hardware_Assy";
-            treeNode33.Name = "Handle_Assy";
-            treeNode33.Text = "Handle_Assy";
-            treeNode34.Name = "Scissor_Assy";
-            treeNode34.Text = "Scissor_Assy";
-            treeNode35.Name = "Assy";
-            treeNode35.Text = "Assy";
-            treeNode36.Name = "Drawing";
-            treeNode36.Text = "Drawing";
-            treeNode37.Name = "Scissor Lift";
-            treeNode37.Text = "Scissor Lift";
-            treeNode38.Name = "Hub_Assembly";
-            treeNode38.Text = "Hub_Assembly";
-            treeNode39.Name = "Hub_Drawing";
-            treeNode39.Text = "Hub_Drawing";
-            treeNode40.Name = "5 Lug Hub";
-            treeNode40.Text = "5 Lug Hub";
-            treeNode41.Name = "Throttle_Shaft_Assembly";
-            treeNode41.Text = "Throttle_Shaft_Assembly";
-            treeNode42.Name = "Assembly";
-            treeNode42.Text = "Assembly";
-            treeNode43.Name = "Drawing";
-            treeNode43.Text = "Drawing";
-            treeNode44.Name = "Holley Carb";
-            treeNode44.Text = "Holley Carb";
+            treeNode1.Name = "Scissor_Hardware_Assy";
+            treeNode1.Text = "Scissor_Hardware_Assy";
+            treeNode2.Name = "Handle_Assy";
+            treeNode2.Text = "Handle_Assy";
+            treeNode3.Name = "Scissor_Assy";
+            treeNode3.Text = "Scissor_Assy";
+            treeNode4.Name = "Assy";
+            treeNode4.Text = "Assy";
+            treeNode5.Name = "Drawing";
+            treeNode5.Text = "Drawing";
+            treeNode6.Name = "Scissor Lift";
+            treeNode6.Text = "Scissor Lift";
+            treeNode7.Name = "Hub_Assembly";
+            treeNode7.Text = "Hub_Assembly";
+            treeNode8.Name = "Hub_Drawing";
+            treeNode8.Text = "Hub_Drawing";
+            treeNode9.Name = "5 Lug Hub";
+            treeNode9.Text = "5 Lug Hub";
+            treeNode10.Name = "Throttle_Shaft_Assembly";
+            treeNode10.Text = "Throttle_Shaft_Assembly";
+            treeNode11.Name = "Assembly";
+            treeNode11.Text = "Assembly";
+            treeNode12.Name = "Drawing";
+            treeNode12.Text = "Drawing";
+            treeNode13.Name = "Holley Carb";
+            treeNode13.Text = "Holley Carb";
             this.projectTreeView.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode37,
-            treeNode40,
-            treeNode44});
+            treeNode6,
+            treeNode9,
+            treeNode13});
             this.projectTreeView.Size = new System.Drawing.Size(261, 894);
             this.projectTreeView.TabIndex = 0;
             this.projectTreeView.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.projectTreeView_AfterSelect);
@@ -292,46 +294,46 @@
             this.fileTreeView.ItemHeight = 40;
             this.fileTreeView.Location = new System.Drawing.Point(10, 29);
             this.fileTreeView.Name = "fileTreeView";
-            treeNode45.Name = "Assembly";
-            treeNode45.Text = "Assembly";
-            treeNode46.Name = "Node1";
-            treeNode46.Text = "Throttle_Shaft_Assembly";
-            treeNode47.Name = "Assemblies";
-            treeNode47.Text = "Assemblies";
-            treeNode48.Name = "Node3";
-            treeNode48.Text = "Linkage_A";
-            treeNode49.Name = "Node4";
-            treeNode49.Text = "Linkage_B";
-            treeNode50.Name = "Node5";
-            treeNode50.Text = "Cable_Primary_Rod";
-            treeNode51.Name = "Node6";
-            treeNode51.Text = "Return_Plate";
-            treeNode52.Name = "Node7";
-            treeNode52.Text = "Right_Angle_Cable";
-            treeNode53.Name = "Node8";
-            treeNode53.Text = "Throttle_Body";
-            treeNode54.Name = "Node9";
-            treeNode54.Text = "Throttle_Cable_Sheath";
-            treeNode55.Name = "Node10";
-            treeNode55.Text = "Throttle_Plate";
-            treeNode56.Name = "Node11";
-            treeNode56.Text = "Throttle_Rod";
-            treeNode57.Name = "Node12";
-            treeNode57.Text = "91375A088";
-            treeNode58.Name = "Node13";
-            treeNode58.Text = "90107A006_316";
-            treeNode59.Name = "Node14";
-            treeNode59.Text = "91864A017";
-            treeNode60.Name = "Parts";
-            treeNode60.Text = "Parts";
-            treeNode61.Name = "Node2";
-            treeNode61.Text = "Drawing";
-            treeNode62.Name = "Drawings";
-            treeNode62.Text = "Drawings";
+            treeNode14.Name = "Assembly";
+            treeNode14.Text = "Assembly";
+            treeNode15.Name = "Node1";
+            treeNode15.Text = "Throttle_Shaft_Assembly";
+            treeNode16.Name = "Assemblies";
+            treeNode16.Text = "Assemblies";
+            treeNode17.Name = "Node3";
+            treeNode17.Text = "Linkage_A";
+            treeNode18.Name = "Node4";
+            treeNode18.Text = "Linkage_B";
+            treeNode19.Name = "Node5";
+            treeNode19.Text = "Cable_Primary_Rod";
+            treeNode20.Name = "Node6";
+            treeNode20.Text = "Return_Plate";
+            treeNode21.Name = "Node7";
+            treeNode21.Text = "Right_Angle_Cable";
+            treeNode22.Name = "Node8";
+            treeNode22.Text = "Throttle_Body";
+            treeNode23.Name = "Node9";
+            treeNode23.Text = "Throttle_Cable_Sheath";
+            treeNode24.Name = "Node10";
+            treeNode24.Text = "Throttle_Plate";
+            treeNode25.Name = "Node11";
+            treeNode25.Text = "Throttle_Rod";
+            treeNode26.Name = "Node12";
+            treeNode26.Text = "91375A088";
+            treeNode27.Name = "Node13";
+            treeNode27.Text = "90107A006_316";
+            treeNode28.Name = "Node14";
+            treeNode28.Text = "91864A017";
+            treeNode29.Name = "Parts";
+            treeNode29.Text = "Parts";
+            treeNode30.Name = "Node2";
+            treeNode30.Text = "Drawing";
+            treeNode31.Name = "Drawings";
+            treeNode31.Text = "Drawings";
             this.fileTreeView.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode47,
-            treeNode60,
-            treeNode62});
+            treeNode16,
+            treeNode29,
+            treeNode31});
             this.fileTreeView.Size = new System.Drawing.Size(472, 894);
             this.fileTreeView.TabIndex = 1;
             this.fileTreeView.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.fileTreeView_AfterSelect);
@@ -370,7 +372,7 @@
             // tabPage1
             // 
             this.tabPage1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(246)))), ((int)(((byte)(227)))));
-            this.tabPage1.Controls.Add(this.panel1);
+            this.tabPage1.Controls.Add(this.previewPictureBox);
             this.tabPage1.Location = new System.Drawing.Point(4, 44);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(10);
@@ -378,15 +380,16 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Preview";
             // 
-            // panel1
+            // previewPictureBox
             // 
-            this.panel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel1.BackgroundImage")));
-            this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(10, 10);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(967, 826);
-            this.panel1.TabIndex = 0;
+            this.previewPictureBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.previewPictureBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.previewPictureBox.Location = new System.Drawing.Point(10, 10);
+            this.previewPictureBox.Name = "previewPictureBox";
+            this.previewPictureBox.Size = new System.Drawing.Size(967, 826);
+            this.previewPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.previewPictureBox.TabIndex = 0;
+            this.previewPictureBox.TabStop = false;
             // 
             // tabPage2
             // 
@@ -515,42 +518,64 @@
             this.currentProjectLabel.Text = "label1";
             this.currentProjectLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // uploadButton
+            // 
+            this.uploadButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(54)))), ((int)(((byte)(66)))));
+            this.uploadButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.uploadButton.Font = new System.Drawing.Font("Verdana", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.uploadButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(139)))), ((int)(((byte)(210)))));
+            this.uploadButton.Location = new System.Drawing.Point(1415, 3);
+            this.uploadButton.Name = "uploadButton";
+            this.uploadButton.Size = new System.Drawing.Size(186, 84);
+            this.uploadButton.TabIndex = 3;
+            this.uploadButton.Text = "Upload";
+            this.uploadButton.UseVisualStyleBackColor = false;
+            this.uploadButton.Click += new System.EventHandler(this.uploadButton_Click);
+            // 
+            // newButton
+            // 
+            this.newButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(54)))), ((int)(((byte)(66)))));
+            this.newButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.newButton.Font = new System.Drawing.Font("Verdana", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.newButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(139)))), ((int)(((byte)(210)))));
+            this.newButton.Location = new System.Drawing.Point(1607, 3);
+            this.newButton.Name = "newButton";
+            this.newButton.Size = new System.Drawing.Size(186, 84);
+            this.newButton.TabIndex = 4;
+            this.newButton.Text = "New";
+            this.newButton.UseVisualStyleBackColor = false;
+            this.newButton.Click += new System.EventHandler(this.newButton_Click);
+            // 
             // tableLayoutPanel3
             // 
             this.tableLayoutPanel3.ColumnCount = 1;
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.Controls.Add(this.button3, 0, 7);
             this.tableLayoutPanel3.Controls.Add(this.button1, 0, 1);
-            this.tableLayoutPanel3.Controls.Add(this.settingsButton, 0, 2);
-            this.tableLayoutPanel3.Controls.Add(this.newProjectButton, 0, 4);
-            this.tableLayoutPanel3.Controls.Add(this.updateButton, 0, 6);
+            this.tableLayoutPanel3.Controls.Add(this.button3, 0, 11);
+            this.tableLayoutPanel3.Controls.Add(this.settingsButton, 0, 10);
+            this.tableLayoutPanel3.Controls.Add(this.updateButton, 0, 8);
+            this.tableLayoutPanel3.Controls.Add(this.solidSettingsButton, 0, 9);
+            this.tableLayoutPanel3.Controls.Add(this.newProjectButton, 0, 3);
+            this.tableLayoutPanel3.Controls.Add(this.editProject, 0, 5);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
-            this.tableLayoutPanel3.RowCount = 8;
+            this.tableLayoutPanel3.RowCount = 12;
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 96F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 96F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 96F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 96F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 96F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 96F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 96F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 96F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 96F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 96F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel3.Size = new System.Drawing.Size(90, 1035);
             this.tableLayoutPanel3.TabIndex = 1;
-            // 
-            // button3
-            // 
-            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(54)))), ((int)(((byte)(66)))));
-            this.button3.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.button3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(139)))), ((int)(((byte)(210)))));
-            this.button3.Location = new System.Drawing.Point(3, 941);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(84, 90);
-            this.button3.TabIndex = 5;
-            this.button3.Text = "Account";
-            this.button3.UseVisualStyleBackColor = false;
             // 
             // button1
             // 
@@ -565,13 +590,24 @@
             this.button1.Text = "Home";
             this.button1.UseVisualStyleBackColor = false;
             // 
+            // button3
+            // 
+            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(54)))), ((int)(((byte)(66)))));
+            this.button3.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.button3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(139)))), ((int)(((byte)(210)))));
+            this.button3.Location = new System.Drawing.Point(3, 941);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(84, 90);
+            this.button3.TabIndex = 5;
+            this.button3.Text = "Account";
+            this.button3.UseVisualStyleBackColor = false;
+            // 
             // settingsButton
             // 
             this.settingsButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(54)))), ((int)(((byte)(66)))));
-            this.settingsButton.Dock = System.Windows.Forms.DockStyle.Fill;
             this.settingsButton.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.settingsButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(139)))), ((int)(((byte)(210)))));
-            this.settingsButton.Location = new System.Drawing.Point(3, 195);
+            this.settingsButton.Location = new System.Drawing.Point(3, 845);
             this.settingsButton.Name = "settingsButton";
             this.settingsButton.Size = new System.Drawing.Size(84, 90);
             this.settingsButton.TabIndex = 2;
@@ -579,12 +615,39 @@
             this.settingsButton.UseVisualStyleBackColor = false;
             this.settingsButton.Click += new System.EventHandler(this.settingsButton_Click);
             // 
+            // updateButton
+            // 
+            this.updateButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(54)))), ((int)(((byte)(66)))));
+            this.updateButton.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.updateButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(139)))), ((int)(((byte)(210)))));
+            this.updateButton.Location = new System.Drawing.Point(3, 653);
+            this.updateButton.Name = "updateButton";
+            this.updateButton.Size = new System.Drawing.Size(84, 90);
+            this.updateButton.TabIndex = 4;
+            this.updateButton.Text = "Update";
+            this.updateButton.UseVisualStyleBackColor = false;
+            this.updateButton.Click += new System.EventHandler(this.updateButton_Click);
+            // 
+            // solidSettingsButton
+            // 
+            this.solidSettingsButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(50)))), ((int)(((byte)(47)))));
+            this.solidSettingsButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.solidSettingsButton.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.solidSettingsButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(246)))), ((int)(((byte)(227)))));
+            this.solidSettingsButton.Location = new System.Drawing.Point(3, 749);
+            this.solidSettingsButton.Name = "solidSettingsButton";
+            this.solidSettingsButton.Size = new System.Drawing.Size(84, 90);
+            this.solidSettingsButton.TabIndex = 6;
+            this.solidSettingsButton.Text = "SldWrk Connect";
+            this.solidSettingsButton.UseVisualStyleBackColor = false;
+            this.solidSettingsButton.Click += new System.EventHandler(this.solidSettingsButton_Click);
+            // 
             // newProjectButton
             // 
             this.newProjectButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(54)))), ((int)(((byte)(66)))));
             this.newProjectButton.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.newProjectButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(139)))), ((int)(((byte)(210)))));
-            this.newProjectButton.Location = new System.Drawing.Point(3, 520);
+            this.newProjectButton.Location = new System.Drawing.Point(3, 291);
             this.newProjectButton.Name = "newProjectButton";
             this.newProjectButton.Size = new System.Drawing.Size(84, 90);
             this.newProjectButton.TabIndex = 3;
@@ -592,18 +655,18 @@
             this.newProjectButton.UseVisualStyleBackColor = false;
             this.newProjectButton.Click += new System.EventHandler(this.newProjectButton_Click);
             // 
-            // updateButton
+            // editProject
             // 
-            this.updateButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(54)))), ((int)(((byte)(66)))));
-            this.updateButton.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.updateButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(139)))), ((int)(((byte)(210)))));
-            this.updateButton.Location = new System.Drawing.Point(3, 845);
-            this.updateButton.Name = "updateButton";
-            this.updateButton.Size = new System.Drawing.Size(84, 90);
-            this.updateButton.TabIndex = 4;
-            this.updateButton.Text = "Update";
-            this.updateButton.UseVisualStyleBackColor = false;
-            this.updateButton.Click += new System.EventHandler(this.updateButton_Click);
+            this.editProject.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(54)))), ((int)(((byte)(66)))));
+            this.editProject.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.editProject.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.editProject.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(139)))), ((int)(((byte)(210)))));
+            this.editProject.Location = new System.Drawing.Point(3, 424);
+            this.editProject.Name = "editProject";
+            this.editProject.Size = new System.Drawing.Size(84, 90);
+            this.editProject.TabIndex = 7;
+            this.editProject.Text = "Edit Project";
+            this.editProject.UseVisualStyleBackColor = false;
             // 
             // tableLayoutPanel4
             // 
@@ -677,34 +740,6 @@
             this.currentProjectField.Size = new System.Drawing.Size(100, 23);
             this.currentProjectField.TabIndex = 0;
             // 
-            // uploadButton
-            // 
-            this.uploadButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(54)))), ((int)(((byte)(66)))));
-            this.uploadButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.uploadButton.Font = new System.Drawing.Font("Verdana", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.uploadButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(139)))), ((int)(((byte)(210)))));
-            this.uploadButton.Location = new System.Drawing.Point(1415, 3);
-            this.uploadButton.Name = "uploadButton";
-            this.uploadButton.Size = new System.Drawing.Size(186, 84);
-            this.uploadButton.TabIndex = 3;
-            this.uploadButton.Text = "Upload";
-            this.uploadButton.UseVisualStyleBackColor = false;
-            this.uploadButton.Click += new System.EventHandler(this.uploadButton_Click);
-            // 
-            // newButton
-            // 
-            this.newButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(54)))), ((int)(((byte)(66)))));
-            this.newButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.newButton.Font = new System.Drawing.Font("Verdana", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.newButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(139)))), ((int)(((byte)(210)))));
-            this.newButton.Location = new System.Drawing.Point(1607, 3);
-            this.newButton.Name = "newButton";
-            this.newButton.Size = new System.Drawing.Size(186, 84);
-            this.newButton.TabIndex = 4;
-            this.newButton.Text = "New";
-            this.newButton.UseVisualStyleBackColor = false;
-            this.newButton.Click += new System.EventHandler(this.newButton_Click);
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -729,6 +764,7 @@
             this.groupBox2.ResumeLayout(false);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.previewPictureBox)).EndInit();
             this.tabPage3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.tableLayoutPanel5.ResumeLayout(false);
@@ -761,7 +797,6 @@
         private GroupBox groupBox2;
         private TabControl tabControl1;
         private TabPage tabPage1;
-        private Panel panel1;
         private TabPage tabPage2;
         private TabPage tabPage3;
         private DataGridView dataGridView1;
@@ -780,5 +815,8 @@
         private Label currentProjectLabel;
         private Button uploadButton;
         private Button newButton;
+        private Button solidSettingsButton;
+        private Button editProject;
+        private PictureBox previewPictureBox;
     }
 }

@@ -12,7 +12,10 @@
           "RestSharp": "109.0.1",
           "System.Data.SQLite": "1.0.117",
           "System.Data.SqlClient": "4.8.5",
-          "FileManager": "1.0.0.0"
+          "FileManager": "1.0.0.0",
+          "SolidWorks.Interop.sldworks": "30.2.0.46",
+          "SolidWorks.Interop.swconst": "30.2.0.46",
+          "SWLib": "1.0.0.0"
         },
         "runtime": {
           "GUILayoutTest1.dll": {}
@@ -219,6 +222,30 @@
             "fileVersion": "1.0.0.0"
           }
         }
+      },
+      "SolidWorks.Interop.sldworks/30.2.0.46": {
+        "runtime": {
+          "SolidWorks.Interop.sldworks.dll": {
+            "assemblyVersion": "30.2.0.46",
+            "fileVersion": "30.2.0.46"
+          }
+        }
+      },
+      "SolidWorks.Interop.swconst/30.2.0.46": {
+        "runtime": {
+          "SolidWorks.Interop.swconst.dll": {
+            "assemblyVersion": "30.2.0.46",
+            "fileVersion": "30.2.0.46"
+          }
+        }
+      },
+      "SWLib/1.0.0.0": {
+        "runtime": {
+          "SWLib.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
       }
     }
   },
@@ -404,6 +431,21 @@
       "hashPath": "system.windows.extensions.4.7.0.nupkg.sha512"
     },
     "FileManager/1.0.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "SolidWorks.Interop.sldworks/30.2.0.46": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "SolidWorks.Interop.swconst/30.2.0.46": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "SWLib/1.0.0.0": {
       "type": "reference",
       "serviceable": false,
       "sha512": ""

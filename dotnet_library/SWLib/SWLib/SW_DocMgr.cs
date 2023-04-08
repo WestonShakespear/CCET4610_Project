@@ -309,14 +309,23 @@ public class SW_DocMgr
                 break;
         }
         if (model != null) {
-            openDocs.Add(name, model);
+            try
+            {
+                openDocs.Add(name, model);
+            } 
+            catch (System.ArgumentException)
+            {
+
+            }
+            
             // 
         }
         return name;
     }
 
     public void savePreviewBMP(string model, string fileLocation, int x, int y) {
-        this.openDocs[model].SaveBMP(fileLocation + model + ".bmp", x, y);
+        this.openDocs[model].ViewZoomtofit2();
+        this.openDocs[model].SaveBMP(fileLocation, x, y);
     }
 
     public void newDoc(string type, string location)

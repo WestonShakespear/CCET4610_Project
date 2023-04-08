@@ -68,12 +68,13 @@ public class API
         return retData;
     }
 
-    public bool sendFile(string filePath, string remoteDir, string fileName) {
+    public bool sendFile(string filePath, string project, string remoteDir, string fileName, bool resource) {
         string url = this.baseURL + "file_upload";
 
         Encode enc = new Encode();
+        string fullPath = filePath + fileName;
 
-        byte[]? data = enc.readFileBytes(filePath + fileName);
+        byte[]? data = enc.readFileBytes(fullPath);
 
         if (data != null) {
             // encode file
@@ -89,8 +90,10 @@ public class API
                 checksum = checksum,
                 filePath = filePath,
                 fileName = fileName,
+                project = project,
                 remoteDir = remoteDir,
-                user = this.user
+                user = this.user,
+                resource = resource.ToString()
             };
             var bodyy = JsonConvert.SerializeObject(body);
             request.AddBody(bodyy, "application/json");

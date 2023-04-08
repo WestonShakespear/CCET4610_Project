@@ -19,8 +19,8 @@ class Program {
         doc.openDoc(root + @"ccet4610_project\testFiles\asm.SLDASM", false);
         doc.openDoc(@"C:\Users\Initec\source\github\ccet4610_project\testFiles\drawing.SLDDRW", false);
         doc.activate(n);
-        doc.newDoc("prt", @"C:\Users\Initec\source\github\ccet4610_project\testFiles\create\testNew.SLDPRT");
-        doc.newDoc("asm", @"C:\Users\Initec\source\github\ccet4610_project\testFiles\create\testNew2.SLDASM");
-        doc.newDoc("drw", @"C:\Users\Initec\source\github\ccet4610_project\testFiles\create\testNew3.SLDDRW");
+        doc.newDoc("prt", @"C:\Users\Initec\source\github\ccet4610_project\testFiles\create\testNew");
+        doc.newDoc("asm", @"C:\Users\Initec\source\github\ccet4610_project\testFiles\create\testNew2");
+        doc.newDoc("drw", @"C:\Users\Initec\source\github\ccet4610_project\testFiles\create\testNew3");
     }
 }

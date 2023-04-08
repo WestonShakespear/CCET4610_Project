@@ -37,3 +37,8 @@ C:\Users\wes\github-repos\ccet4610_project\visual_studio\GUILayoutTest1\GUILayou
 C:\Users\wes\github-repos\ccet4610_project\visual_studio\GUILayoutTest1\GUILayoutTest1\bin\Debug\net7.0-windows\Newtonsoft.Json.dll
 C:\Users\wes\github-repos\ccet4610_project\visual_studio\GUILayoutTest1\GUILayoutTest1\bin\Debug\net7.0-windows\RestSharp.dll
 C:\Users\wes\github-repos\ccet4610_project\visual_studio\GUILayoutTest1\GUILayoutTest1\obj\Debug\net7.0-windows\GUILayoutTest1.NewProject.resources
+C:\Users\wes\github-repos\ccet4610_project\visual_studio\GUILayoutTest1\GUILayoutTest1\bin\Debug\net7.0-windows\SolidWorks.Interop.sldworks.dll
+C:\Users\wes\github-repos\ccet4610_project\visual_studio\GUILayoutTest1\GUILayoutTest1\bin\Debug\net7.0-windows\SolidWorks.Interop.swconst.dll
+C:\Users\wes\github-repos\ccet4610_project\visual_studio\GUILayoutTest1\GUILayoutTest1\bin\Debug\net7.0-windows\SWLib.dll
+C:\Users\wes\github-repos\ccet4610_project\visual_studio\GUILayoutTest1\GUILayoutTest1\bin\Debug\net7.0-windows\SWLib.pdb
+C:\Users\wes\github-repos\ccet4610_project\visual_studio\GUILayoutTest1\GUILayoutTest1\obj\Debug\net7.0-windows\GUILayoutTest1.SolidworksSettings.resources

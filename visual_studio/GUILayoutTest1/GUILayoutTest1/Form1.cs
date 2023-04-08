@@ -11,6 +11,10 @@ using Newtonsoft.Json.Linq;
 
 
 
+using SWLib;
+
+
+
 namespace GUILayoutTest1
 {
     public partial class Form1 : Form
@@ -23,18 +27,57 @@ namespace GUILayoutTest1
         private string user = "weston";
         private string localHead = @"D:\School\4610\API\local\";
 
+
+        private string templateRoot = @"D:\School\4610\sld resource files\";
+
         private string currentProject;
         private string currentFile;
 
         private Dictionary<string, List<string>> tree = new Dictionary<string, List<string>>();
+        private Dictionary<string, string> projectRoots = new Dictionary<string, string>();
+
+
+
+
+        // solidworks api variables
+        SW_Instance swC = new SW_Instance();
+        SW_DocMgr docM = null;
+        private string pid = "";
+
+        bool swConnected = false;
+
         public Form1()
         {
-            InitializeComponent();
+            InitializeComponent();   
         }
 
         private void s(object sender, EventArgs e)
         {
 
+        }
+
+
+        private bool check()
+        {
+            if (api != null && this.swConnected == true)
+            {
+                return true;
+            } else
+            {
+                return false;
+            }
+        }
+
+        private bool checkSW()
+        {
+            if (this.swConnected == true)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -79,30 +122,43 @@ namespace GUILayoutTest1
             string user = settings.user;
             string localHead = settings.localHead;
 
-                
+            bool res = this.connectToServer(url, user, localHead);
+
+            if (res)
+            {
+                this.url = url;
+                this.user = user;
+                this.localHead = localHead;
+            } else
+            {
+                MessageBox.Show("Error Connecting");
+            }
+            
+
+        }
+        
+        private bool connectToServer(string url, string user, string localHead)
+        {
             try
             {
-
                 this.api = new API(url, localHead, user);
                 bool res = api.testConnection();
 
                 if (res == true)
-                {
-                    this.url = url;
-                    this.user = user;
-                    this.localHead = localHead;
-
+                {                    
                     MessageBox.Show("Connection to API successful");
+                    this.update();
+                    return true;
+                } else
+                {
+                    return false;
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Fatal Error");
-
+                return false;
             }
-
-                
-            } 
+        }
 
      
 
@@ -173,7 +229,7 @@ namespace GUILayoutTest1
             }
             else
             {
-                MessageBox.Show("Not connected to API!!");
+                this.connectToServer(this.url, this.user, this.localHead);
             }
         }
 
@@ -232,19 +288,173 @@ namespace GUILayoutTest1
         {
             if (e.Node != null)
             {
-                currentFile = e.Node.Text;
+                this.currentFile = e.Node.Text;
                 currentFileLabel.Text = currentFile;
                 this.updateSelected();
+
+                string urlData = this.url;
+                urlData += "preview/" + currentProject + "/" + this.currentFile;
+
+                Debug.WriteLine(urlData);
+                try
+                {
+                    this.previewPictureBox.Load(urlData);
+                    this.previewPictureBox.Update();
+                }
+                catch (System.Net.WebException)
+                {
+                    Debug.WriteLine("404");
+                }
+                
+               
             }
         }
 
         private void newButton_Click(object sender, EventArgs e)
         {
+            if (this.checkSW() == true)
+            {
+                //this.docM.newDoc("prt", @"C:\Users\Initec\source\github\ccet4610_project\testFiles\create\testNew");
 
+                
+            }
+        }
+
+        private bool createPreview(string filePath, string imPath)
+        {
+            string modelName = docM.openDoc(filePath, false);
+
+            docM.savePreviewBMP(modelName, imPath, 1920, 1080);
+            docM.close(modelName);
+
+            return true;
         }
 
         private void uploadButton_Click(object sender, EventArgs e)
         {
+            if (api != null)
+            {
+                OpenFileDialog uploadFileDialog = new OpenFileDialog();
+                DialogResult result = uploadFileDialog.ShowDialog();
+
+                if (result == DialogResult.OK)
+                {
+                    string fullPath = uploadFileDialog.FileName;
+                    string imPath = fullPath + ".BMP";
+                    bool res = this.createPreview(fullPath, imPath);
+
+                    if (res == true)
+                    {
+                        string[] pathArray = fullPath.Split(@"\");
+
+                        string fileName = pathArray[pathArray.Length - 1];
+                        string imName = fileName + ".BMP";
+
+                        string filePath = "";
+
+                        for (int i = 0; i < pathArray.Length - 1; i++)
+                        {
+                            filePath += pathArray[i] + @"\";
+                        }
+
+                        if (!projectRoots.ContainsKey(this.currentProject))
+                        {
+                            this.getRootForProject();
+                        }
+
+                        string remoteDir = this.splitRootFromFile(projectRoots[this.currentProject], fullPath);
+                        api.sendFile(filePath, currentProject, this.currentProject + @"\" + remoteDir, fileName, false);
+                        api.sendFile(filePath, currentProject, this.currentProject + @"\" + remoteDir, imName, true);
+                    }
+
+                    
+                }
+            }
+            
+            
+        }
+
+        private string splitRootFromFile(string root, string filePath)
+        {
+            string retPath = "";
+
+            string[] rootSplit = root.Split(@"\", StringSplitOptions.RemoveEmptyEntries);
+            string[] filePathSplit = filePath.Split(@"\", StringSplitOptions.RemoveEmptyEntries);
+
+            for(int i = rootSplit.Length; i < filePathSplit.Length - 1; i++)
+            {
+                retPath += filePathSplit[i] + @"\";
+            }
+
+            
+            return retPath;
+        }
+
+        private void getRootForProject()
+        {
+            FolderBrowserDialog rootFolder = new FolderBrowserDialog();
+            DialogResult result = rootFolder.ShowDialog();
+
+            if (result == DialogResult.OK)
+            {
+                string root = rootFolder.SelectedPath;
+                this.projectRoots.Add(this.currentProject, root);
+            }
+        }
+
+        private void solidSettingsButton_Click(object sender, EventArgs e)
+        {
+            var sldwrkSettings = new SolidworksSettings(this.pid);
+
+            sldwrkSettings.ShowDialog();
+
+            var goodBack = Color.FromArgb(133, 153, 0);
+
+            var startBack = Color.FromArgb(181, 137, 0);
+
+            var badBack = Color.FromArgb(220, 50, 47);
+
+            if (sldwrkSettings.create == true)
+            {
+                //start
+                this.pid = this.swC.startSW().ToString();
+            
+                this.swConnected = false;
+
+            } else if (sldwrkSettings.pid != 0)
+            {
+                //connect
+                bool res = this.swC.connectToProcess(sldwrkSettings.pid);
+
+                if (res == true)
+                {
+                    this.swConnected = true;
+                } else
+                {
+                    MessageBox.Show("Error attaching to PID");
+                    this.swConnected = false;
+                }
+                
+            } else
+            {
+                this.swConnected = false;
+            }
+
+
+
+            if (this.swConnected == true)
+            {
+                this.solidSettingsButton.BackColor = goodBack;
+                this.docM = new SW_DocMgr(this.swC);
+            } else if (this.pid != "")
+            {
+                this.solidSettingsButton.BackColor = startBack;
+            }
+            
+            else
+            {
+                this.solidSettingsButton.BackColor = badBack;
+            }
 
         }
     }

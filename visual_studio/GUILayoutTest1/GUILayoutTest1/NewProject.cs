@@ -23,7 +23,10 @@ namespace GUILayoutTest1
         public string prefix = "";
         public string suffix = "";
 
-        private string[] unitList = { "Millimeter", "Inch", "Centimeter", "Meter" };
+        private string[] unitList = { "Millimeter", "Inch", "Meter" };
+
+
+        public string[] templates = {"", "", ""};
 
         public NewProject()
         {
@@ -44,6 +47,25 @@ namespace GUILayoutTest1
             currentUnits = unitList[unitsComboBox.SelectedIndex];
             Debug.WriteLine("selected changed");
             Debug.WriteLine(currentUnits);
+
+
+            for (int i = 0; i < templates.Length; i++)
+            {
+                if (this.templates[i] == "")
+                {
+                    this.templates[i] = currentUnits.ToLower();
+
+                    // workaround add support for drawing templates
+                    if (i == 2)
+                    {
+                        this.templates[i] += "_a landscape";
+                    }
+                }
+
+                
+                
+            }
+
             
         }
 

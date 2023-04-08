@@ -19,6 +19,15 @@
     <Reference Include="FileManager">
       <HintPath>..\..\..\serverTesting\dotnet_server_library\FileManager\bin\Debug\net7.0\FileManager.dll</HintPath>
     </Reference>
+    <Reference Include="SolidWorks.Interop.sldworks">
+      <HintPath>..\..\..\dotnet_library\SWLib\SWLib\bin\Debug\net7.0\SolidWorks.Interop.sldworks.dll</HintPath>
+    </Reference>
+    <Reference Include="SolidWorks.Interop.swconst">
+      <HintPath>..\..\..\dotnet_library\SWLib\SWLib\bin\Debug\net7.0\SolidWorks.Interop.swconst.dll</HintPath>
+    </Reference>
+    <Reference Include="SWLib">
+      <HintPath>..\..\..\dotnet_library\SWLib\SWLib\bin\Debug\net7.0\SWLib.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
   <ItemGroup>
