@@ -1,4 +1,5 @@
 ﻿using Microsoft.VisualBasic.ApplicationServices;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,49 +15,84 @@ namespace GUILayoutTest1
 {
     public partial class Settings : Form
     {
-        private string currentAddress = "";
-        private string currentUser = "";
-        private string currentPath = "";
-
         public string address = "";
         public string user = "";
-        public string localHead = "";
+        public string path = "";
+        public string pid = "";
 
-        public Settings(string url, string localHead, string user)
+        private string url = @"D:\";
+
+        public Settings(string address, string user, string path, string pid)
         {
             InitializeComponent();
-            addressTextBox.Text = url;
-            userTextBox.Text = user;
-            pathTextBox.Text = localHead;
+            this.address = address;
+            this.user = user;
+            this.path = path;
+            this.pid = pid;
+
+        }
+
+        private void updateValues()
+        {
+            this.address = addressTextBox.Text;
+            this.user = userTextBox.Text;
+            this.path = pathTextBox.Text;
+            this.pid = pidTextBox.Text;
         }
 
         private void applyButton_Click(object sender, EventArgs e)
         {
-            address = currentAddress;
-            user = currentUser;
-            localHead = currentPath;
-
+            this.updateValues();
             this.Close();
         }
 
-        private void cancelButton_Click(object sender, EventArgs e)
+        private void pathTextBox_Click(object sender, EventArgs e)
         {
-            this.Close();
+            FolderBrowserDialog rootFolder = new FolderBrowserDialog();
+            DialogResult result = rootFolder.ShowDialog();
+
+            if (result == DialogResult.OK)
+            {
+                pathTextBox.Text = rootFolder.SelectedPath;
+            }
         }
 
-        private void addressTextBox_Leave(object sender, EventArgs e)
+        private void loadButton_Click(object sender, EventArgs e)
         {
-            this.currentAddress = addressTextBox.Text;
-        }
+            OpenFileDialog uploadFileDialog = new OpenFileDialog();
+            DialogResult result = uploadFileDialog.ShowDialog();
 
-        private void userTextBox_Leave(object sender, EventArgs e)
-        {
-            this.currentUser = userTextBox.Text;
-        }
+            if (result == DialogResult.OK)
+            {
+                dynamic o1 = JObject.Parse(File.ReadAllText(uploadFileDialog.FileName));
+                string address = o1.address;
 
-        private void pathTextBox_Leave(object sender, EventArgs e)
-        {
-            this.currentPath = pathTextBox.Text;
+                if (address != null)
+                {
+                    this.addressTextBox.Text = address;
+                }
+
+                string user = o1.user;
+                if (user != null)
+                {
+                    this.userTextBox.Text = user;
+                }
+
+                string root = o1.root;
+                if (root != null)
+                {
+                    this.pathTextBox.Text = root;
+                }
+
+                string pid = o1.pid;
+                if (pid != null)
+                {
+                    this.pidTextBox.Text = pid;
+                }
+            }
+
+            this.updateValues();
+            //this.Close();
         }
     }
 }

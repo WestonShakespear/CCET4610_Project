@@ -429,7 +429,7 @@
             this.tabPage4.Padding = new System.Windows.Forms.Padding(10);
             this.tabPage4.Size = new System.Drawing.Size(987, 846);
             this.tabPage4.TabIndex = 3;
-            this.tabPage4.Text = "Attachments";
+            this.tabPage4.Text = "Properties";
             // 
             // tabPage5
             // 
@@ -486,9 +486,9 @@
             this.currentFileLabel.Font = new System.Drawing.Font("Verdana", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.currentFileLabel.Location = new System.Drawing.Point(6, 41);
             this.currentFileLabel.Name = "currentFileLabel";
-            this.currentFileLabel.Size = new System.Drawing.Size(84, 25);
+            this.currentFileLabel.Size = new System.Drawing.Size(72, 25);
             this.currentFileLabel.TabIndex = 1;
-            this.currentFileLabel.Text = "label1";
+            this.currentFileLabel.Text = "------";
             this.currentFileLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // groupBox4
@@ -513,9 +513,9 @@
             this.currentProjectLabel.Font = new System.Drawing.Font("Verdana", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.currentProjectLabel.Location = new System.Drawing.Point(6, 41);
             this.currentProjectLabel.Name = "currentProjectLabel";
-            this.currentProjectLabel.Size = new System.Drawing.Size(84, 25);
+            this.currentProjectLabel.Size = new System.Drawing.Size(72, 25);
             this.currentProjectLabel.TabIndex = 0;
-            this.currentProjectLabel.Text = "label1";
+            this.currentProjectLabel.Text = "------";
             this.currentProjectLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // uploadButton

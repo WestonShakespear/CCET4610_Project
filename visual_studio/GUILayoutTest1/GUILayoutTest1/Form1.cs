@@ -23,9 +23,10 @@ namespace GUILayoutTest1
 
         
 
-        private string url = "http://127.0.0.1:5000/";
-        private string user = "weston";
-        private string localHead = @"D:\School\4610\API\local\";
+        private string url = "";
+        private string user = "";
+        private string localHead = "";
+        private string pid = "";
 
 
         private string templateRoot = @"D:\School\4610\sld resource files\";
@@ -42,16 +43,56 @@ namespace GUILayoutTest1
         // solidworks api variables
         SW_Instance swC = new SW_Instance();
         SW_DocMgr docM = null;
-        private string pid = "";
 
         bool swConnected = false;
 
         public Form1()
         {
-            InitializeComponent();   
+            InitializeComponent();
+
+            //for testing
+            dynamic o1 = JObject.Parse(File.ReadAllText(@"C:\Users\wes\github-repos\ccet4610_project\test-prog-settings.json"));
+            string address = o1.address;
+
+            if (address != null)
+            {
+                this.url = address;
+            }
+
+            string user = o1.user;
+            if (user != null)
+            {
+                this.user = user;
+            }
+
+            string root = o1.root;
+            if (root != null)
+            {
+                this.localHead = root;
+            }
+
+            string pid = o1.pid;
+            if (pid != null)
+            {
+                this.pid = pid;
+            }
+
+            this.connectToServer(this.url, this.user, this.localHead);
+            this.update();
+
         }
 
         private void s(object sender, EventArgs e)
+        {
+
+        }
+
+        private void apiConnect()
+        {
+
+        }
+
+        private void sldConnect()
         {
 
         }
@@ -80,47 +121,17 @@ namespace GUILayoutTest1
             }
         }
 
-        private void button3_Click(object sender, EventArgs e)
-        {
-            Debug.Write("done");
-            string connectionString = "Data Source=database.db;";
-            string sql = "SELECT * FROM References";
-            SQLiteConnection sqlite_conn = new SQLiteConnection(connectionString);
-       
-            sqlite_conn.Open();
-            SQLiteCommand comm = new SQLiteCommand("Select * From [Ref]", sqlite_conn);
-            using (SQLiteDataReader read = comm.ExecuteReader())
-            {
-                while (read.Read())
-                {
-                    dataGridView1.Rows.Add(new object[] {
-            read.GetValue(0),  // U can use column index
-            read.GetValue(read.GetOrdinal("PatientName")),  // Or column name like this
-            read.GetValue(read.GetOrdinal("PatientAge")),
-            read.GetValue(read.GetOrdinal("PhoneNumber"))
-            });
-                }
-            }
-            sqlite_conn.Close();
-
-
-            Debug.Write("done");
-        
-
-
-           
-        }
-
         private void settingsButton_Click(object sender, EventArgs e)
         {
-            var settings = new Settings(this.url, this.localHead, this.user);
+            var settings = new Settings(this.url, this.user, this.localHead, this.pid);
             settings.ShowDialog();
 
             //Debug.WriteLine("window closed");
 
             string url = settings.address;
             string user = settings.user;
-            string localHead = settings.localHead;
+            string localHead = settings.path;
+            string pid = settings.pid;
 
             bool res = this.connectToServer(url, user, localHead);
 
@@ -129,6 +140,7 @@ namespace GUILayoutTest1
                 this.url = url;
                 this.user = user;
                 this.localHead = localHead;
+                this.pid = pid;
             } else
             {
                 MessageBox.Show("Error Connecting");

@@ -66,6 +66,7 @@ namespace GUILayoutTest1
             } else
             {
                 connectButton.Enabled = false;
+                createButton.Enabled = true;
             }
         }
     }

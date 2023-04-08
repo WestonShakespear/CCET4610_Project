@@ -1,41 +1,76 @@
 ﻿using FileManager;
 using Newtonsoft.Json.Linq;
-
+using Newtonsoft.Json;
 
 class Program {
     static void Main(string[] args) {
 
-        string url = "http://127.0.0.1:5000/";
-        string pathHead = @"D:\School\4610\API\local\";
-        string user = "weston";
-
-        API api = new API(url, pathHead, user);
-
-        Console.WriteLine(api.testConnection());
+        string head = @"D:\School\4610\API\local\";
+        LocalFileManage lFM = new LocalFileManage(head);
 
 
+        lFM.createProject("testA");
+        lFM.createProject("testB");
 
-        //create project
-        // dynamic settings = new JObject();
-        // settings.name = "Project B";
-        // settings.units = "inch";
-        // settings.prefix = "wshakespear";
-        // settings.suffix = "";
+        lFM.listProjects();
 
-        // bool res2 = api.createProject(settings);
-        // Console.WriteLine(res2);
+        lFM.refreshLocalFileList("testA");
+        lFM.refreshLocalFileList("testA");
 
 
 
-        // add file
-        string filePath = @"D:\School\4610\";
 
-        string project = "Project B";
-        string remote_dir = @"Project B\file\";
-        string fileName = "Brake_Disk.SLDPRT.BMP";
-        bool res = api.sendFile(filePath, project, remote_dir, fileName, true);
 
-        Console.WriteLine(res);
+
+
+
+
+
+
+
+
+
+
+
+        // string url = "http://127.0.0.1:5000/";
+        // string pathHead = @"D:\School\4610\API\local\";
+        // string user = "weston";
+
+        // API api = new API(url, pathHead, user);
+
+        // Console.WriteLine(api.testConnection());
+
+
+
+        // //create project
+        // // dynamic settings = new JObject();
+        // // settings.name = "Project B";
+        // // settings.units = "inch";
+        // // settings.prefix = "wshakespear";
+        // // settings.suffix = "";
+
+        // // bool res2 = api.createProject(settings);
+        // // Console.WriteLine(res2);
+
+
+
+        // // add file
+        // string filePath = @"D:\School\4610\";
+
+        // string project = "Project B";
+        // string remote_dir = @"Project B\file\";
+        // string fileName = "Brake_Disk.SLDPRT.BMP";
+        // bool res = api.sendFile(filePath, project, remote_dir, fileName, true);
+
+        // Console.WriteLine(res);
+        
+
+// read JSON directly from a file
+    // using (StreamReader file = File.OpenText(@"c:\videogames.json"))
+    // using (JsonTextReader reader = new JsonTextReader(file))
+    // {
+    //     JObject o2 = (JObject)JToken.ReadFrom(reader);
+}
 
         
 
@@ -184,4 +219,4 @@ class Program {
     //     Console.WriteLine(response.username);
     //     Console.WriteLine(response.password);
     // }
-}
+// }
