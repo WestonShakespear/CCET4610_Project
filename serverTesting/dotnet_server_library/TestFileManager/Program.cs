@@ -6,7 +6,8 @@ class Program {
     static void Main(string[] args) {
 
         string head = @"D:\School\4610\API\local\";
-        LocalFileManage lFM = new LocalFileManage(head);
+        string temp = @"D:\School\4610\sld resource files\";
+        LocalFileManage lFM = new LocalFileManage(head, temp);
 
 
         lFM.createProject("testA");
@@ -14,8 +15,26 @@ class Program {
 
         lFM.listProjects();
 
-        lFM.refreshLocalFileList("testA");
-        lFM.refreshLocalFileList("testA");
+        lFM.refreshLocalFileList();
+        lFM.refreshLocalFileList();
+
+
+
+        List<string> projectNames = new List<string>();
+
+        projectNames.Add("a");
+        projectNames.Add("b");
+        projectNames.Add("c");
+        projectNames.Add("d");
+
+
+        lFM.createRootsFromList(projectNames);
+
+
+        foreach (var a in lFM.getTemplateNames("SLDPRT")){
+            Console.WriteLine(a);
+        }
+        
 
 
 
@@ -31,14 +50,14 @@ class Program {
 
 
 
+        string url = "http://127.0.0.1:5000/";
+        string pathHead = @"D:\School\4610\API\local\";
+        string user = "weston";
 
-        // string url = "http://127.0.0.1:5000/";
-        // string pathHead = @"D:\School\4610\API\local\";
-        // string user = "weston";
+        API api = new API(url, pathHead, user);
 
-        // API api = new API(url, pathHead, user);
-
-        // Console.WriteLine(api.testConnection());
+        Console.WriteLine(api.testConnection());
+        Console.WriteLine(api.listProjects());
 
 
 

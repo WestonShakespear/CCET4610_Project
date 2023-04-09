@@ -14,6 +14,10 @@ public class LocalFileManage
 
     private string localPathHead = "";
 
+    private string localTemplateDir = "";
+
+    private Dictionary<string, List<string>> templates = new Dictionary<string, List<string>>();
+
 
 
     private Dictionary<string, string> localProjects = new Dictionary<string, string>();
@@ -21,9 +25,42 @@ public class LocalFileManage
     private Dictionary<string, List<string>> localFiles = new Dictionary<string, List<string>>();
 
 
-    public LocalFileManage(string setLocalPathHead) {
+    public LocalFileManage(string setLocalPathHead, string setLocalTemplateDir) {
         this.localPathHead = setLocalPathHead;
+        this.localTemplateDir = setLocalTemplateDir;
 
+        this.createTemplateDictionary();
+
+    }
+
+    private void createTemplateDictionary() 
+    {
+        string[] types = {"SLDPRT", "SLDASM", "SLDDRW"};
+
+        foreach (string type in types)
+        {
+            string[] fileList = Directory.GetFiles(this.localTemplateDir, "*." + type, SearchOption.AllDirectories);
+            this.templates[type] = new List<string>();
+
+            foreach (string fileName in fileList) {
+                this.templates[type].Add(fileName);
+            }
+        }
+    }
+
+    public List<string> getTemplateNames(string type) {
+        List<string> ret = new List<string>();
+
+        if (this.templates.ContainsKey(type)) {
+            foreach(string path in this.templates[type])
+            {
+                ret.Add(Path.GetFileNameWithoutExtension(path));
+            }
+        }
+        
+        
+        
+        return ret;
     }
 
     public void listProjects() {
@@ -58,8 +95,30 @@ public class LocalFileManage
         return true;
     }
 
-    public bool refreshLocalFileList(string name) {
+    public bool refreshLocalFileList() {
+        bool res = true;
+        foreach (KeyValuePair<string,string> project in this.localProjects) {
+            res = res && this.refreshLocalProject(project.Key);
+        }
+        
+        return res;
+    }
 
+    public bool createRootsFromList(List<string> roots)
+    {
+        foreach (string root in roots)
+        {
+            this.createProject(root);
+        }
+        
+
+
+        return true;
+    }
+
+
+
+    public bool refreshLocalProject(string name) {
         if (this.localProjects.ContainsKey(name)) {
             string projectPath = this.localPathHead + name;
 
@@ -84,12 +143,6 @@ public class LocalFileManage
     }
 
     public bool addProject(string rootFolder) {
-
-
-        return true;
-    }
-
-    public bool addNewFile(string path) {
 
 
         return true;

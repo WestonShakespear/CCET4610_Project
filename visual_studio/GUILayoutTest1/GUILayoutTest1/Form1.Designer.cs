@@ -122,6 +122,7 @@
             this.tableLayoutPanel8 = new System.Windows.Forms.TableLayoutPanel();
             this.projectNameGroupBox = new System.Windows.Forms.GroupBox();
             this.currentProjectField = new System.Windows.Forms.Label();
+            this.addButton = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -270,6 +271,7 @@
             this.projectTreeView.Size = new System.Drawing.Size(261, 894);
             this.projectTreeView.TabIndex = 0;
             this.projectTreeView.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.projectTreeView_AfterSelect);
+            this.projectTreeView.DoubleClick += new System.EventHandler(this.projectTreeView_DoubleClick);
             // 
             // groupBox3
             // 
@@ -443,19 +445,21 @@
             // 
             // tableLayoutPanel5
             // 
-            this.tableLayoutPanel5.ColumnCount = 8;
+            this.tableLayoutPanel5.ColumnCount = 9;
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 384F));
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 384F));
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 96F));
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 96F));
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 96F));
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 192F));
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 192F));
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 96F));
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 96F));
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 96F));
             this.tableLayoutPanel5.Controls.Add(this.fileGroupBox, 1, 0);
             this.tableLayoutPanel5.Controls.Add(this.groupBox4, 0, 0);
             this.tableLayoutPanel5.Controls.Add(this.uploadButton, 6, 0);
-            this.tableLayoutPanel5.Controls.Add(this.newButton, 7, 0);
+            this.tableLayoutPanel5.Controls.Add(this.newButton, 8, 0);
+            this.tableLayoutPanel5.Controls.Add(this.addButton, 7, 0);
             this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel5.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel5.Name = "tableLayoutPanel5";
@@ -521,12 +525,11 @@
             // uploadButton
             // 
             this.uploadButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(54)))), ((int)(((byte)(66)))));
-            this.uploadButton.Dock = System.Windows.Forms.DockStyle.Fill;
             this.uploadButton.Font = new System.Drawing.Font("Verdana", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.uploadButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(139)))), ((int)(((byte)(210)))));
-            this.uploadButton.Location = new System.Drawing.Point(1415, 3);
+            this.uploadButton.Location = new System.Drawing.Point(1511, 3);
             this.uploadButton.Name = "uploadButton";
-            this.uploadButton.Size = new System.Drawing.Size(186, 84);
+            this.uploadButton.Size = new System.Drawing.Size(66, 66);
             this.uploadButton.TabIndex = 3;
             this.uploadButton.Text = "Upload";
             this.uploadButton.UseVisualStyleBackColor = false;
@@ -535,12 +538,11 @@
             // newButton
             // 
             this.newButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(54)))), ((int)(((byte)(66)))));
-            this.newButton.Dock = System.Windows.Forms.DockStyle.Fill;
             this.newButton.Font = new System.Drawing.Font("Verdana", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.newButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(139)))), ((int)(((byte)(210)))));
-            this.newButton.Location = new System.Drawing.Point(1607, 3);
+            this.newButton.Location = new System.Drawing.Point(1703, 3);
             this.newButton.Name = "newButton";
-            this.newButton.Size = new System.Drawing.Size(186, 84);
+            this.newButton.Size = new System.Drawing.Size(90, 84);
             this.newButton.TabIndex = 4;
             this.newButton.Text = "New";
             this.newButton.UseVisualStyleBackColor = false;
@@ -740,6 +742,18 @@
             this.currentProjectField.Size = new System.Drawing.Size(100, 23);
             this.currentProjectField.TabIndex = 0;
             // 
+            // addButton
+            // 
+            this.addButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(54)))), ((int)(((byte)(66)))));
+            this.addButton.Font = new System.Drawing.Font("Verdana", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.addButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(139)))), ((int)(((byte)(210)))));
+            this.addButton.Location = new System.Drawing.Point(1607, 3);
+            this.addButton.Name = "addButton";
+            this.addButton.Size = new System.Drawing.Size(66, 66);
+            this.addButton.TabIndex = 5;
+            this.addButton.Text = "Upload";
+            this.addButton.UseVisualStyleBackColor = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -818,5 +832,6 @@
         private Button solidSettingsButton;
         private Button editProject;
         private PictureBox previewPictureBox;
+        private Button addButton;
     }
 }

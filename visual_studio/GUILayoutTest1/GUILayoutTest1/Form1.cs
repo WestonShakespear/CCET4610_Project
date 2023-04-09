@@ -21,6 +21,8 @@ namespace GUILayoutTest1
     {
         private API api = null;
 
+        private LocalFileManage lfm = null;
+
         
 
         private string url = "";
@@ -32,6 +34,7 @@ namespace GUILayoutTest1
         private string templateRoot = @"D:\School\4610\sld resource files\";
 
         private string currentProject;
+        private string currentSelectedProject;
         private string currentFile;
 
         private Dictionary<string, List<string>> tree = new Dictionary<string, List<string>>();
@@ -198,6 +201,8 @@ namespace GUILayoutTest1
                     bool res = this.api.createProject(settings);
                     Console.WriteLine(res);
 
+                    this.lfm.createProject(name);
+
                     this.update();
                 }
             } else
@@ -243,18 +248,52 @@ namespace GUILayoutTest1
             {
                 this.connectToServer(this.url, this.user, this.localHead);
             }
+
+            this.updateLocal();
+        }
+
+
+        private void updateLocal()
+        {
+            if (this.lfm == null)
+            {
+                if (this.localHead != "")
+                {
+                    this.lfm = new LocalFileManage(this.localHead + @"\");
+
+                    List<string> projectNames = new List<string>();
+
+                    foreach (KeyValuePair<string,List<string>> projectRoot in this.tree)
+                    {
+                        projectNames.Add(projectRoot.Key);
+                    }
+
+
+                    this.lfm.createRootsFromList(projectNames);
+
+
+
+
+
+                    var a = 0;
+                }
+            }
+            else
+            {
+                this.lfm.refreshLocalFileList();
+            }
         }
 
         private void updateFiles()
         {
-            if (this.currentProject != null)
+            if (this.currentSelectedProject != null)
             {
-                if (tree.ContainsKey(this.currentProject))
+                if (tree.ContainsKey(this.currentSelectedProject))
                 {
                     fileTreeView.BeginUpdate();
                     fileTreeView.Nodes.Clear();
 
-                    foreach (var file in tree[this.currentProject])
+                    foreach (var file in tree[this.currentSelectedProject])
                     {
                         TreeNode node = new TreeNode(file);
                         fileTreeView.Nodes.Add(node);
@@ -286,15 +325,27 @@ namespace GUILayoutTest1
 
         }
 
+
+
+
         private void projectTreeView_AfterSelect(object sender, TreeViewEventArgs e)
         {
             if (e.Node != null)
             {
-                currentProject = e.Node.Text;
-                currentProjectLabel.Text = currentProject;
+                currentSelectedProject = e.Node.Text;
+                
                 this.updateFiles();
             }
         }
+
+        private void projectTreeView_DoubleClick(object sender, EventArgs e)
+        {
+            currentProject = currentSelectedProject;
+            currentProjectLabel.Text = currentProject;
+        }
+
+
+
 
         private void fileTreeView_AfterSelect(object sender, TreeViewEventArgs e)
         {
@@ -469,5 +520,7 @@ namespace GUILayoutTest1
             }
 
         }
+
+     
     }
 }
