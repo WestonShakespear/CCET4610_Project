@@ -13,11 +13,18 @@ public class Encode
 
     public byte[]? readFileBytes(string filePath) {
         try {
-            byte[] binary_data = File.ReadAllBytes(filePath);
+            string temp = filePath + ".temp";
+            File.Copy(filePath, temp);
+            File.Delete(temp);
+            byte[] binary_data = File.ReadAllBytes(temp);
+
+            //todo delete temp
             return binary_data;
         }
         catch (Exception ex)
         {
+            
+            
             Console.WriteLine($"An error occurred. {ex.Message}");
             return null;
         }        

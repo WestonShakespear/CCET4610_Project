@@ -186,7 +186,7 @@ public class SW_DocMgr
 
 
 
-    private ModelDoc2 getModelFromName(string name) {
+    public ModelDoc2 getModelFromName(string name) {
         return this.openDocs[name];
     }
 

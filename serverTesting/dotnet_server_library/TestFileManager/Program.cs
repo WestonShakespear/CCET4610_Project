@@ -32,6 +32,8 @@ class Program {
 
 
         foreach (var a in lFM.getTemplateNames("SLDPRT")){
+
+            Console.WriteLine(lFM.getPathFromTemplateName("SLDPRT", a));
             Console.WriteLine(a);
         }
         

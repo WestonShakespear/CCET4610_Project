@@ -42,3 +42,6 @@ C:\Users\wes\github-repos\ccet4610_project\visual_studio\GUILayoutTest1\GUILayou
 C:\Users\wes\github-repos\ccet4610_project\visual_studio\GUILayoutTest1\GUILayoutTest1\bin\Debug\net7.0-windows\SWLib.dll
 C:\Users\wes\github-repos\ccet4610_project\visual_studio\GUILayoutTest1\GUILayoutTest1\bin\Debug\net7.0-windows\SWLib.pdb
 C:\Users\wes\github-repos\ccet4610_project\visual_studio\GUILayoutTest1\GUILayoutTest1\obj\Debug\net7.0-windows\GUILayoutTest1.SolidworksSettings.resources
+C:\Users\wes\github-repos\ccet4610_project\visual_studio\GUILayoutTest1\GUILayoutTest1\obj\Debug\net7.0-windows\GUILayoutTest1.NewFile.resources
+C:\Users\wes\github-repos\ccet4610_project\visual_studio\GUILayoutTest1\GUILayoutTest1\obj\Debug\net7.0-windows\GUILayoutTest1.NewFileTypeDialog.resources
+C:\Users\wes\github-repos\ccet4610_project\visual_studio\GUILayoutTest1\GUILayoutTest1\obj\Debug\net7.0-windows\GUILayoutTest1.TestForm.resources

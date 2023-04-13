@@ -16,7 +16,7 @@ public class LocalFileManage
 
     private string localTemplateDir = "";
 
-    private Dictionary<string, List<string>> templates = new Dictionary<string, List<string>>();
+    private Dictionary<string, Dictionary<string, string>> templates = new Dictionary<string, Dictionary<string, string>>();
 
 
 
@@ -40,10 +40,10 @@ public class LocalFileManage
         foreach (string type in types)
         {
             string[] fileList = Directory.GetFiles(this.localTemplateDir, "*." + type, SearchOption.AllDirectories);
-            this.templates[type] = new List<string>();
+            this.templates[type] = new Dictionary<string, string>();
 
             foreach (string fileName in fileList) {
-                this.templates[type].Add(fileName);
+                this.templates[type].Add(Path.GetFileNameWithoutExtension(fileName), fileName);
             }
         }
     }
@@ -52,15 +52,33 @@ public class LocalFileManage
         List<string> ret = new List<string>();
 
         if (this.templates.ContainsKey(type)) {
-            foreach(string path in this.templates[type])
+            foreach(KeyValuePair<string, string> template in this.templates[type])
             {
-                ret.Add(Path.GetFileNameWithoutExtension(path));
+                ret.Add(template.Key);
             }
         }
         
         
         
         return ret;
+    }
+
+    public string? getPathFromTemplateName(string type, string name) {
+        if (this.templates.ContainsKey(type)) {
+            if (this.templates[type].ContainsKey(name)) {
+                return this.templates[type][name];
+            }
+            return null;
+        }
+        return null;
+    }
+
+    public bool createFileFromTemplate(string template, string filename) {
+
+        File.Copy(template, filename);
+
+
+        return true;
     }
 
     public void listProjects() {
@@ -181,6 +199,14 @@ public class LocalFileManage
 
 
         return true;
+    }
+
+    public string getPathFromName(string name) {
+        if (this.localProjects.ContainsKey(name)) {
+            return this.localProjects[name]; 
+        } else {
+            return "";
+        }
     }
 
 
