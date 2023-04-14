@@ -8,4 +8,4 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = FileManager
-build_property.ProjectDir = C:\Users\wes\github-repos\ccet4610_project\serverTesting\dotnet_server_library\FileManager\
+build_property.ProjectDir = c:\Users\wes\github-repos\ccet4610_project\serverTesting\dotnet_server_library\FileManager\

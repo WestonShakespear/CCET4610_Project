@@ -15,8 +15,8 @@ public class Encode
         try {
             string temp = filePath + ".temp";
             File.Copy(filePath, temp);
-            File.Delete(temp);
             byte[] binary_data = File.ReadAllBytes(temp);
+            File.Delete(temp);
 
             //todo delete temp
             return binary_data;

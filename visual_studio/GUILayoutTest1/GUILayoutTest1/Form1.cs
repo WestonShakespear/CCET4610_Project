@@ -19,29 +19,39 @@ namespace GUILayoutTest1
 {
     public partial class Form1 : Form
     {
-        private API api = null;
+        private API? api = null;
 
         private LocalFileManage lfm = null;
 
-        
-
+        // application settings
+        private string settingsFilename = "prog-settings.json";
+        private string templateDir = @"D:\School\4610\sld resource files\";
         private string url = "";
         private string user = "";
         private string localHead = "";
         private string pid = "";
-
-        private string settingsFilename = "prog-settings.json";
-
-        private string templateDir = @"D:\School\4610\sld resource files\";
-
+ 
+        // parent folder of executable
+        private string executableDirectory;
 
 
-        private string currentProject;
-        private string currentSelectedProject;
-        private string currentFile;
-
+        
         private Dictionary<string, List<string>> tree = new Dictionary<string, List<string>>();
+
+
+        private Dictionary<string, Dictionary<string, Dictionary<string, string>>> localFiles
+            = new Dictionary<string, Dictionary<string, Dictionary<string, string>>>();
+
+        private Dictionary<string, Dictionary<string, Dictionary<string, string>>> cloudTree
+            = new Dictionary<string, Dictionary<string, Dictionary<string, string>>>();
+
+        // <name, path>
+        // <project, C:\\project\head>
         private Dictionary<string, string> projectRoots = new Dictionary<string, string>();
+
+        private string currentProject = "";
+        private string currentSelectedProject = "";
+        private string currentFile = "";
 
 
         // <name, path>
@@ -58,9 +68,27 @@ namespace GUILayoutTest1
 
 
         // list of custom colors
-        private Color greenColor = Color.FromArgb(133, 153, 0);
+        private Color greenColor = Color.FromArgb(42, 161, 152);
         private Color orangeColor = Color.FromArgb(181, 137, 0);
         private Color redColor = Color.FromArgb(220, 50, 47);
+
+
+
+        
+        private Color statusNew;
+        
+        private Color statusSaved;
+        
+        private Color statusUpToDate;
+
+        
+        private Color statusUpstream;
+
+        // file status
+        //0 // indicator when file is fresh and unsaved
+        //1 // indicator file is saved locally but not backed up
+        //2 // indicator file is the same locally and on cloud
+        //3 // indicator file is only on cloud
 
 
 
@@ -86,11 +114,21 @@ namespace GUILayoutTest1
 
         bool swConnected = false;
 
-        private string executableDirectory;
+        
 
         public Form1()
         {
+
             InitializeComponent();
+
+            this.FormClosing += new FormClosingEventHandler(this.ApplicationClose);
+
+            // init any colors
+            this.sldConnectLabel.BackColor = this.redColor;
+            this.cloudConnectLabel.BackColor = this.redColor;
+
+            this.solidConnectButton.ForeColor = this.greenColor;
+            this.apiConnectButton.ForeColor = this.greenColor;
 
             // find and set location of executable
             var location = System.Reflection.Assembly.GetExecutingAssembly().Location;
@@ -113,10 +151,11 @@ namespace GUILayoutTest1
 
             // try to load global settings, if not found prompt for file
             this.initSettings(false);
+            this.initSolidConnect();
 
             // try to connect to server with settings in config
             this.connectToServer(this.url, this.user, this.localHead);
-            this.update();
+            //this.update();
 
 
             // create timers and start
@@ -124,10 +163,63 @@ namespace GUILayoutTest1
             this.checkTrackedTimer.Interval = 1000;
             this.checkTrackedTimer.Start();
 
-
-            // init any colors
-            this.sldConnectLabel.BackColor = this.redColor;
         }
+
+        
+
+
+        private void update()
+        {
+            if (api != null)
+            {
+                this.tree = new Dictionary<string, List<string>>();
+                this.cloudTree = new Dictionary<string, Dictionary<string, Dictionary<string, string>>>();
+
+
+
+                dynamic res2 = api.listProjects();
+                foreach (dynamic project in res2)
+                {
+                    List<string> data = new List<string>();
+                    string pname = project.name;
+                    dynamic files = project.files;
+
+                    this.cloudTree[pname] = new Dictionary<string, Dictionary<string, string>>();
+
+                    // iterate over filenames
+                    foreach (var file in project["files"].Children())
+                    {
+                        var filename = file.Name;
+                        this.cloudTree[pname][filename] = new Dictionary<string, string>();
+
+                        var value = file.Value;
+
+                        string version = value.version;
+                        this.cloudTree[pname][filename].Add("version", version);
+                        //string relations = value.relations;
+                        //string filename = file["name"];
+                        
+                        //string version = file.version;
+                        data.Add(filename);
+                    }
+
+                    tree.Add(pname, data);
+                }
+
+
+                this.updateProjects();
+                this.updateFiles();
+            }
+            else
+            {
+                this.connectToServer(this.url, this.user, this.localHead);
+            }
+
+            this.updateLocal();
+
+
+        }
+
 
 
         private void initSettings(bool prompt)
@@ -297,29 +389,33 @@ namespace GUILayoutTest1
             string ctrlLicKey = "";
 
             swTaskPane = (TaskpaneView)app.CreateTaskpaneView2(bitmap, toolTip);
+            
 
             taskPaneWinFormControl = new TestForm();
             taskPaneWinFormControl.testButton1.Click += new System.EventHandler(formButton1);
             taskPaneWinFormControl.testButton2.Click += new System.EventHandler(formButton2);
             taskPaneWinFormControl.testButton3.Click += new System.EventHandler(formButton3);
 
-            swTaskPane.DisplayWindowFromHandlex64(taskPaneWinFormControl.Handle.ToInt64());
+            //swTaskPane.DisplayWindowFromHandlex64(taskPaneWinFormControl.Handle.ToInt64());
+
+            Taskpane tp = new Taskpane();
+            swTaskPane.DisplayWindowFromHandlex64(tp.getHandle());
 
 
 
 
-
-            bool result;
-            result = swTaskPane.AddStandardButton((int)swTaskPaneBitmapsOptions_e.swTaskPaneBitmapsOptions_Back, "Back (standard)");
-            result = swTaskPane.AddStandardButton((int)swTaskPaneBitmapsOptions_e.swTaskPaneBitmapsOptions_Next, "Next (standard)");
-            result = swTaskPane.AddStandardButton((int)swTaskPaneBitmapsOptions_e.swTaskPaneBitmapsOptions_Close, "Close (standard)");
-            result = swTaskPane.AddStandardButton((int)swTaskPaneBitmapsOptions_e.swTaskPaneBitmapsOptions_Ok, "OK (standard)");
+            //bool result;
+            //result = swTaskPane.AddStandardButton((int)swTaskPaneBitmapsOptions_e.swTaskPaneBitmapsOptions_Back, "Back (standard)");
+            //result = swTaskPane.AddStandardButton((int)swTaskPaneBitmapsOptions_e.swTaskPaneBitmapsOptions_Next, "Next (standard)");
+            //result = swTaskPane.AddStandardButton((int)swTaskPaneBitmapsOptions_e.swTaskPaneBitmapsOptions_Close, "Close (standard)");
+            //result = swTaskPane.AddStandardButton((int)swTaskPaneBitmapsOptions_e.swTaskPaneBitmapsOptions_Ok, "OK (standard)");
 
 
 
             swTaskPane.TaskPaneActivateNotify += swTaskPane_TaskPaneActivateNotify;
             swTaskPane.TaskPaneDestroyNotify += swTaskPane_TaskPaneDestroyNotify;
             swTaskPane.TaskPaneToolbarButtonClicked += swTaskPane_TaskPaneToolbarButtonClicked;
+
         }
 
         // Taskpane events
@@ -465,6 +561,7 @@ namespace GUILayoutTest1
 
                 //this.docM.openDoc(fullPath, false);
             }
+            this.update();
         }
 
 
@@ -538,25 +635,35 @@ namespace GUILayoutTest1
         
         private bool connectToServer(string url, string user, string localHead)
         {
+            bool result = false;
+
             try
             {
                 this.api = new API(url, localHead, user);
                 bool res = api.testConnection();
 
                 if (res == true)
-                {                    
-                    MessageBox.Show("Connection to API successful");
-                    this.update();
-                    return true;
-                } else
                 {
-                    return false;
+                    result = true;
+                    this.update();
+                    
                 }
             }
             catch (Exception ex)
             {
-                return false;
             }
+
+            if (result == true)
+            {
+                this.cloudConnectLabel.BackColor = this.greenColor;
+                this.apiConnectButton.ForeColor = this.redColor;
+            } else
+            {
+                this.cloudConnectLabel.BackColor = this.redColor;
+                this.apiConnectButton.ForeColor = this.greenColor;
+            }
+
+            return result;
         }
 
      
@@ -601,42 +708,7 @@ namespace GUILayoutTest1
             this.update();
         }
 
-        private void update()
-        {
-            if (api != null)
-            {
-                tree = new Dictionary<string, List<string>>();
-
-
-
-                var res2 = api.listProjects();
-                foreach (var project in res2)
-                {
-                    List<string> data = new List<string>();
-                    string name = project.name;
-
-                    foreach (var file in project.files)
-                    {
-                        string filename = file;
-                        data.Add(filename);
-                    }
-
-                    tree.Add(name, data);
-                }
-
-
-                this.updateProjects();
-                this.updateFiles();
-            }
-            else
-            {
-                this.connectToServer(this.url, this.user, this.localHead);
-            }
-
-            this.updateLocal();
-
-
-        }
+        
 
 
         private void updateLocal()
@@ -704,6 +776,16 @@ namespace GUILayoutTest1
             foreach (KeyValuePair<string, List<string>> entry in this.tree)
             {
                 TreeNode node = new TreeNode(entry.Key);
+                node.ForeColor = this.greenColor;
+                if (entry.Key == this.currentSelectedProject)
+                {
+                    node.NodeFont = new Font("Verdana", 12, FontStyle.Bold);
+                } 
+                else
+                {
+                    node.NodeFont = new Font("Verdana", 12);
+                }
+                
                 projectTreeView.Nodes.Add(node);
             }
 
@@ -765,62 +847,76 @@ namespace GUILayoutTest1
 
         private void newButton_Click(object sender, EventArgs e)
         {
-            Dictionary<string, string> refr = new Dictionary<string, string>();
-
-            if (this.lfm != null && this.currentProject != "")
+            // check for solidworks connection
+            if (this.swConnected)
             {
-                NewFileTypeDialog newTypeDialog = new NewFileTypeDialog(currentProject);
-                newTypeDialog.ShowDialog();
-
-                if (newTypeDialog.type != "")
+                // check if a project is selected
+                if (this.currentSelectedProject == "")
                 {
-                    List<string> templates = this.lfm.getTemplateNames(newTypeDialog.type);
+                    return;
+                }
 
-                    // todo add default template support
-                    NewFile newFileDialog = new NewFile(this.localHead, currentProject, newTypeDialog.type, templates);
-                    newFileDialog.ShowDialog();
+                Dictionary<string, string> refr = new Dictionary<string, string>();
 
-                    
-                    string type = newTypeDialog.type;
-                    string fileName = newFileDialog.fileName;
-                    string fileTemplate = lfm.getPathFromTemplateName(type, newFileDialog.fileTemplate);
+                if (this.lfm != null && this.currentProject != "")
+                {
+                    NewFileTypeDialog newTypeDialog = new NewFileTypeDialog(currentProject);
+                    newTypeDialog.ShowDialog();
 
-                    if (fileName != "" && fileTemplate != "")
+                    if (newTypeDialog.type != "")
                     {
-                        string fileOutputName = this.localHead + currentProject + @"\" + fileName;
-                        this.lfm.createFileFromTemplate(fileTemplate, fileOutputName);
-                        // todo use the solidworks create
+                        List<string> templates = this.lfm.getTemplateNames(newTypeDialog.type);
+
+                        // todo add default template support
+                        NewFile newFileDialog = new NewFile(this.localHead, currentProject, newTypeDialog.type, templates);
+                        newFileDialog.ShowDialog();
 
 
+                        string type = newTypeDialog.type;
+                        string fileName = newFileDialog.fileName;
+                        string fileTemplate = lfm.getPathFromTemplateName(type, newFileDialog.fileTemplate);
 
-
-
-                        this.docM.openDoc(fileOutputName, false);
-
-                        string modelName = Path.GetFileNameWithoutExtension(fileOutputName);
-
-
-                        ModelDoc2 newModel = this.docM.getModelFromName(modelName);
-
-
-
-                        this.trackedFiles.Add(modelName, fileOutputName);
-
-
-                        this.taskPaneWinFormControl.addDocEntry(modelName);
-
-
-                        bool result = type switch
+                        if (fileName != "" && fileTemplate != "")
                         {
-                            "SLDPRT" => this.attachPartEvents(newModel),
-                            "SLDASM" => this.attachAssemblyEvents(newModel),
-                            "SLDDRW" => this.attachDrawingEvents(newModel),
-                            _ => false
-                        };
+                            string fileOutputName = this.localHead + currentProject + @"\" + fileName;
+                            this.lfm.createFileFromTemplate(fileTemplate, fileOutputName);
+                            // todo use the solidworks create
 
+
+
+
+
+                            this.docM.openDoc(fileOutputName, false);
+
+                            string modelName = Path.GetFileNameWithoutExtension(fileOutputName);
+
+
+                            ModelDoc2 newModel = this.docM.getModelFromName(modelName);
+
+
+
+                            this.trackedFiles.Add(modelName, fileOutputName);
+
+
+                            this.taskPaneWinFormControl.addDocEntry(modelName);
+
+
+                            bool result = type switch
+                            {
+                                "SLDPRT" => this.attachPartEvents(newModel),
+                                "SLDASM" => this.attachAssemblyEvents(newModel),
+                                "SLDDRW" => this.attachDrawingEvents(newModel),
+                                _ => false
+                            };
+
+                        }
                     }
                 }
+            } else
+            {
+                MessageBox.Show("Please initialize the SolidWorks connection");
             }
+            
         }
 
         private bool createPreview(string filePath, string imPath, bool closeA)
@@ -911,64 +1007,6 @@ namespace GUILayoutTest1
                 string root = rootFolder.SelectedPath;
                 this.projectRoots.Add(this.currentProject, root);
             }
-        }
-
-        
-
-        private void solidSettingsButton_Click(object sender, EventArgs e)
-        {
-            var sldwrkSettings = new SolidworksSettings(this.pid);
-
-            sldwrkSettings.ShowDialog();
-
-            
-
-            if (sldwrkSettings.create == true)
-            {
-                //start
-                this.pid = this.swC.startSW().ToString();
-            
-                this.swConnected = false;
-
-            } else if (sldwrkSettings.pid != 0)
-            {
-                //connect
-                bool res = this.swC.connectToProcess(sldwrkSettings.pid);
-
-                if (res == true)
-                {
-                    this.swConnected = true;
-                    
-                } else
-                {
-                    MessageBox.Show("Error attaching to PID");
-                    this.swConnected = false;
-                }
-                
-            } else
-            {
-                this.swConnected = false;
-            }
-
-
-
-            if (this.swConnected == true)
-            {
-                this.sldConnectLabel.BackColor = this.greenColor;
-                this.docM = new SW_DocMgr(this.swC);
-                this.app = this.swC.getApp();
-
-                this.createTaskPane(this.app);
-            } else if (this.pid != "")
-            {
-                this.sldConnectLabel.BackColor = this.orangeColor;
-            }
-            
-            else
-            {
-                this.sldConnectLabel.BackColor = this.redColor;
-            }
-
         }
 
         private void projectTreeView_MouseDown(object sender, MouseEventArgs e)
@@ -1107,5 +1145,91 @@ namespace GUILayoutTest1
             return true;
         }
 
+        private void solidConnectButton_Click(object sender, EventArgs e)
+        {
+            this.swConnected = false;
+
+            var sldwrkSettings = new SolidworksSettings(this.pid);
+
+            sldwrkSettings.ShowDialog();
+
+
+
+            if (sldwrkSettings.create == true)
+            {
+                // start
+                this.pid = this.swC.startSW().ToString();
+                this.initSolidConnect();
+            }
+            else if (sldwrkSettings.pid != 0)
+            {
+                // connect
+                bool res = this.swC.connectToProcess(sldwrkSettings.pid);
+                this.swConnected = res;
+
+                if (!this.swConnected)
+                {
+                    // error connecting
+                    MessageBox.Show("Error attaching to PID");
+                }
+            }
+
+
+
+            
+        }
+
+
+
+        private void initSolidConnect()
+        {
+            bool res = this.swC.connectToProcess(Int32.Parse(this.pid));
+            this.swConnected = res;
+
+            if (this.swConnected == true)
+            {
+                this.docM = new SW_DocMgr(this.swC);
+                this.app = this.swC.getApp();
+
+                this.createTaskPane(this.app);
+
+                this.sldConnectLabel.BackColor = this.greenColor;
+                this.solidConnectButton.ForeColor = this.redColor;
+            }
+            else if (this.pid != "")
+            {
+                this.sldConnectLabel.BackColor = this.orangeColor;
+                this.solidConnectButton.ForeColor = this.orangeColor;
+            }
+
+            else
+            {
+                this.sldConnectLabel.BackColor = this.redColor;
+                this.solidConnectButton.ForeColor = this.greenColor;
+            }
+        }
+
+        private void apiConnectButton_Click(object sender, EventArgs e)
+        {
+            if (this.api == null)
+            {
+                this.connectToServer(this.url, this.user, this.localHead);
+                this.update();
+            } else
+            {
+                this.api = null;
+                this.cloudConnectLabel.BackColor = this.redColor;
+                this.apiConnectButton.ForeColor = this.greenColor;
+            }
+            
+        }
+
+        private void ApplicationClose(Object sender, FormClosingEventArgs e)
+        {
+            if (swTaskPane != null)
+            {
+                swTaskPane.DeleteView();
+            }
+        }
     }
 }

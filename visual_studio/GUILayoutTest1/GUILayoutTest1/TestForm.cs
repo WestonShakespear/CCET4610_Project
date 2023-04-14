@@ -29,6 +29,7 @@ namespace GUILayoutTest1
         public TestForm()
         {
             InitializeComponent();
+           
         }
 
 
@@ -56,6 +57,17 @@ namespace GUILayoutTest1
 
 
             this.currentRow++;
+        }
+
+
+        public void updateDocEntry(string name)
+        {
+
+        }
+
+        public void removeDocEntry(string name)
+        {
+
         }
     }
 }
