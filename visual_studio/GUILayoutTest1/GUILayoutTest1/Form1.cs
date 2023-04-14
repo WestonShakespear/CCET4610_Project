@@ -13,8 +13,7 @@ using SolidWorks.Interop.sldworks;
 using SolidWorks.Interop.swconst;
 
 using SWLib;
-
-
+using System.Configuration;
 
 namespace GUILayoutTest1
 {
@@ -31,10 +30,11 @@ namespace GUILayoutTest1
         private string localHead = "";
         private string pid = "";
 
+        private string settingsFilename = "prog-settings.json";
+
         private string templateDir = @"D:\School\4610\sld resource files\";
 
 
-        private string templateRoot = @"D:\School\4610\sld resource files\";
 
         private string currentProject;
         private string currentSelectedProject;
@@ -54,6 +54,13 @@ namespace GUILayoutTest1
         // list of file names that need to be saved
         // reference to tracked files
         private List<string> saveQueue = new List<string>();
+
+
+
+        // list of custom colors
+        private Color greenColor = Color.FromArgb(133, 153, 0);
+        private Color orangeColor = Color.FromArgb(181, 137, 0);
+        private Color redColor = Color.FromArgb(220, 50, 47);
 
 
 
@@ -79,51 +86,143 @@ namespace GUILayoutTest1
 
         bool swConnected = false;
 
+        private string executableDirectory;
+
         public Form1()
         {
             InitializeComponent();
 
-            //for testing
-            this.initSettings();
+            // find and set location of executable
+            var location = System.Reflection.Assembly.GetExecutingAssembly().Location;
+            if (location != null)
+            {
+                var path = Path.GetDirectoryName(location);
+                if (path != null)
+                {
+                    this.executableDirectory = path;
+                }
 
+            }
+
+            if (this.executableDirectory == null)
+            {
+                MessageBox.Show("Error location executable directory, exiting");
+                Application.Exit();
+            }
+
+
+            // try to load global settings, if not found prompt for file
+            this.initSettings(false);
+
+            // try to connect to server with settings in config
             this.connectToServer(this.url, this.user, this.localHead);
             this.update();
 
 
+            // create timers and start
             this.checkTrackedTimer.Tick += new EventHandler(TimerEventProcessor);
             this.checkTrackedTimer.Interval = 1000;
             this.checkTrackedTimer.Start();
+
+
+            // init any colors
+            this.sldConnectLabel.BackColor = this.redColor;
         }
 
 
-        private void initSettings()
+        private void initSettings(bool prompt)
         {
-            // todo read and copy to internal settings path
-            dynamic o1 = JObject.Parse(File.ReadAllText(@"C:\Users\wes\github-repos\ccet4610_project\test-prog-settings.json"));
-            string address = o1.address;
+            string internalSettings = "";
+            bool settingsLoaded = false;
 
-            if (address != null)
+            if (prompt)
             {
-                this.url = address;
+                OpenFileDialog dialog = new OpenFileDialog();
+                DialogResult res = new DialogResult();
+
+                res = dialog.ShowDialog();
+
+                if (res == DialogResult.OK)
+                {
+                    internalSettings = dialog.FileName;
+                }
+            } else
+            {
+                string[] subs = { this.executableDirectory, this.settingsFilename };
+                internalSettings = Path.Combine(subs);
             }
 
-            string user = o1.user;
-            if (user != null)
+            
+            try
             {
+                dynamic o1 = JObject.Parse(File.ReadAllText(internalSettings));
+
+                var address = o1.address;
+                var user = o1.user;
+                var root = o1.root;
+                var pid = o1.pid;
+
+                bool result = (address != null) && (user != null) &&
+                              (root != null) && (pid != null);
+
+                if (result)
+                {
+                    this.url = address;
+                    this.user = user;
+                    this.localHead = root + "\\";
+                    this.pid = pid;
+
+                    settingsLoaded = true;
+                } else
+                {
+                    MessageBox.Show("Settings file is/has become corrupt");
+                }
+            }
+            catch (System.IO.FileNotFoundException)
+            {
+                MessageBox.Show("Settings file not found");
+                settingsLoaded = false;
+            }
+            
+            if (!settingsLoaded)
+            {
+                this.initSettings(true);
+            }
+        }
+
+        // launch settings dialog and create settings
+        private void launchSettingsDialog()
+        {
+            var settings = new Settings(this.url, this.user, this.localHead, this.pid);
+            settings.ShowDialog();
+
+            //Debug.WriteLine("window closed");
+
+            string url = settings.address;
+            string user = settings.user;
+            string localHead = settings.path;
+            string pid = settings.pid;
+
+            bool res = this.connectToServer(url, user, localHead);
+
+            if (res)
+            {
+                this.url = url;
                 this.user = user;
-            }
-
-            string root = o1.root;
-            if (root != null)
-            {
-                this.localHead = root + "\\";
-            }
-
-            string pid = o1.pid;
-            if (pid != null)
-            {
+                this.localHead = localHead;
                 this.pid = pid;
+                this.writeInternalSettings();
             }
+            else
+            {
+                MessageBox.Show("Error Connecting");
+            }
+        }
+
+        // write to internal settings
+        private void writeInternalSettings()
+        {
+
         }
 
 
@@ -183,18 +282,7 @@ namespace GUILayoutTest1
 
 
 
-        private void formButton1(object sender, EventArgs e)
-        {
-            log("Taskpane test button 1: clicked");
-        }
-        private void formButton2(object sender, EventArgs e)
-        {
-            log("Taskpane test button 2: clicked");
-        }
-        private void formButton3(object sender, EventArgs e)
-        {
-            log("Taskpane test button 3: clicked");
-        }
+        
 
 
 
@@ -234,6 +322,7 @@ namespace GUILayoutTest1
             swTaskPane.TaskPaneToolbarButtonClicked += swTaskPane_TaskPaneToolbarButtonClicked;
         }
 
+        // Taskpane events
         int swTaskPane_TaskPaneActivateNotify()
         {
             if (swTaskPane.GetButtonState(0) == false)
@@ -276,6 +365,20 @@ namespace GUILayoutTest1
                     break;
             }
             return 1;
+        }
+
+        // TestForm Taskpane control events
+        private void formButton1(object sender, EventArgs e)
+        {
+            log("Taskpane test button 1: clicked");
+        }
+        private void formButton2(object sender, EventArgs e)
+        {
+            log("Taskpane test button 2: clicked");
+        }
+        private void formButton3(object sender, EventArgs e)
+        {
+            log("Taskpane test button 3: clicked");
         }
 
 
@@ -426,32 +529,11 @@ namespace GUILayoutTest1
             }
         }
 
+        
+
         private void settingsButton_Click(object sender, EventArgs e)
         {
-            var settings = new Settings(this.url, this.user, this.localHead, this.pid);
-            settings.ShowDialog();
-
-            //Debug.WriteLine("window closed");
-
-            string url = settings.address;
-            string user = settings.user;
-            string localHead = settings.path;
-            string pid = settings.pid;
-
-            bool res = this.connectToServer(url, user, localHead);
-
-            if (res)
-            {
-                this.url = url;
-                this.user = user;
-                this.localHead = localHead;
-                this.pid = pid;
-            } else
-            {
-                MessageBox.Show("Error Connecting");
-            }
-            
-
+            this.launchSettingsDialog();
         }
         
         private bool connectToServer(string url, string user, string localHead)
@@ -831,17 +913,15 @@ namespace GUILayoutTest1
             }
         }
 
+        
+
         private void solidSettingsButton_Click(object sender, EventArgs e)
         {
             var sldwrkSettings = new SolidworksSettings(this.pid);
 
             sldwrkSettings.ShowDialog();
 
-            var goodBack = Color.FromArgb(133, 153, 0);
-
-            var startBack = Color.FromArgb(181, 137, 0);
-
-            var badBack = Color.FromArgb(220, 50, 47);
+            
 
             if (sldwrkSettings.create == true)
             {
@@ -874,23 +954,158 @@ namespace GUILayoutTest1
 
             if (this.swConnected == true)
             {
-                this.solidSettingsButton.BackColor = goodBack;
+                this.sldConnectLabel.BackColor = this.greenColor;
                 this.docM = new SW_DocMgr(this.swC);
                 this.app = this.swC.getApp();
 
                 this.createTaskPane(this.app);
             } else if (this.pid != "")
             {
-                this.solidSettingsButton.BackColor = startBack;
+                this.sldConnectLabel.BackColor = this.orangeColor;
             }
             
             else
             {
-                this.solidSettingsButton.BackColor = badBack;
+                this.sldConnectLabel.BackColor = this.redColor;
             }
 
         }
 
-     
+        private void projectTreeView_MouseDown(object sender, MouseEventArgs e)
+        {
+            switch (e.Button) {
+                case MouseButtons.Right:
+                    {
+                        var coordinates = new Point(Cursor.Position.X - this.Left, Cursor.Position.Y - this.Top);
+                        projectContextMenu.Show(this, new Point(coordinates.X, coordinates.Y));
+                    }
+                    break;
+            }
+        }
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        /**
+         * 
+         * RIGHT CLICK CONTEXT MENU EVENTS
+         * 
+         */
+
+        // Project Context Menu
+        private void projectContextMenu_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+            if (e.ClickedItem != null)
+            {
+                Debug.WriteLine(e.ClickedItem.Text);
+
+
+                switch (e.ClickedItem.Text)
+                {
+                    case "Download All":
+                            contextMenuDownloadAll();
+                        break;
+                    case "Upload All":
+                            contextMenuUploadAll();
+                        break;
+                    case "Open All":
+                            contextMenuOpenAll();
+                        break;
+                    case "Close All":
+                            contextMenuCloseAll();
+                        break;
+                }
+            }
+            
+        }
+
+
+        /**
+         * PROJECT CONTEXT MENU ACTIONS
+         */
+        private bool contextMenuDownloadAll()
+        {
+
+
+            return true;
+        }
+
+        private bool contextMenuUploadAll()
+        {
+
+
+            return true;
+        }
+
+        private bool contextMenuOpenAll()
+        {
+
+
+            return true;
+        }
+
+        private bool contextMenuCloseAll()
+        {
+
+
+            return true;
+        }
+
+
+
+
+
+        // File Context Menu
+        private void fileTreeView_MouseDown(object sender, MouseEventArgs e)
+        {
+
+        }
+
+        /**
+         * PROJECT CONTEXT MENU ACTIONS
+         */
+        private bool contextMenuDownloadSingle()
+        {
+
+
+            return true;
+        }
+
+        private bool contextMenuUploadSingle()
+        {
+
+
+            return true;
+        }
+
+        private bool contextMenuOpenSingle()
+        {
+
+
+            return true;
+        }
+
+        private bool contextMenuCloseSingle()
+        {
+
+
+            return true;
+        }
+
     }
 }

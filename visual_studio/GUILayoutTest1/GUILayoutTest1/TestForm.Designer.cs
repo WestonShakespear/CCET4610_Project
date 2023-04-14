@@ -35,14 +35,21 @@
             this.testButton3 = new System.Windows.Forms.Button();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
-            this.activeDocsTableLayout = new System.Windows.Forms.TableLayoutPanel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.activeDocsTableLayout = new System.Windows.Forms.TableLayoutPanel();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
+            this.groupBox1.SuspendLayout();
+            this.tableLayoutPanel5.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -70,7 +77,7 @@
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel2.Controls.Add(this.testButton1, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.testButton2, 0, 1);
-            this.tableLayoutPanel2.Controls.Add(this.testButton3, 0, 2);
+            this.tableLayoutPanel2.Controls.Add(this.groupBox1, 0, 2);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 1174);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
@@ -101,11 +108,11 @@
             // 
             // testButton3
             // 
-            this.testButton3.Location = new System.Drawing.Point(3, 195);
+            this.testButton3.Location = new System.Drawing.Point(3, 3);
             this.testButton3.Name = "testButton3";
-            this.testButton3.Size = new System.Drawing.Size(328, 77);
+            this.testButton3.Size = new System.Drawing.Size(155, 28);
             this.testButton3.TabIndex = 2;
-            this.testButton3.Text = "button3";
+            this.testButton3.Text = "STL";
             this.testButton3.UseVisualStyleBackColor = true;
             // 
             // tableLayoutPanel3
@@ -141,6 +148,42 @@
             this.tableLayoutPanel4.Size = new System.Drawing.Size(328, 40);
             this.tableLayoutPanel4.TabIndex = 0;
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label3.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point);
+            this.label3.Location = new System.Drawing.Point(221, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(104, 40);
+            this.label3.TabIndex = 2;
+            this.label3.Text = "Auto-Sync";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label2.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point);
+            this.label2.Location = new System.Drawing.Point(3, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(103, 40);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "Name";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label1.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point);
+            this.label1.Location = new System.Drawing.Point(112, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(103, 40);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Version";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            // 
             // activeDocsTableLayout
             // 
             this.activeDocsTableLayout.ColumnCount = 3;
@@ -166,41 +209,61 @@
             this.activeDocsTableLayout.Size = new System.Drawing.Size(328, 516);
             this.activeDocsTableLayout.TabIndex = 3;
             // 
-            // label1
+            // groupBox1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label1.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(112, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(103, 40);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Version";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.groupBox1.Controls.Add(this.tableLayoutPanel5);
+            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox1.Location = new System.Drawing.Point(3, 195);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(328, 91);
+            this.groupBox1.TabIndex = 2;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Export";
             // 
-            // label2
+            // tableLayoutPanel5
             // 
-            this.label2.AutoSize = true;
-            this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label2.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(3, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(103, 40);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Name";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.tableLayoutPanel5.ColumnCount = 2;
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel5.Controls.Add(this.button3, 1, 1);
+            this.tableLayoutPanel5.Controls.Add(this.button2, 0, 1);
+            this.tableLayoutPanel5.Controls.Add(this.button1, 1, 0);
+            this.tableLayoutPanel5.Controls.Add(this.testButton3, 0, 0);
+            this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel5.Location = new System.Drawing.Point(3, 19);
+            this.tableLayoutPanel5.Name = "tableLayoutPanel5";
+            this.tableLayoutPanel5.RowCount = 2;
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(322, 69);
+            this.tableLayoutPanel5.TabIndex = 0;
             // 
-            // label3
+            // button1
             // 
-            this.label3.AutoSize = true;
-            this.label3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label3.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point);
-            this.label3.Location = new System.Drawing.Point(221, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(104, 40);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "Auto-Sync";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.button1.Location = new System.Drawing.Point(164, 3);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(155, 28);
+            this.button1.TabIndex = 3;
+            this.button1.Text = "Parasolid";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(3, 37);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(155, 28);
+            this.button2.TabIndex = 4;
+            this.button2.Text = "STEP";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(164, 37);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(155, 28);
+            this.button3.TabIndex = 5;
+            this.button3.Text = "DXF (Sketch)";
+            this.button3.UseVisualStyleBackColor = true;
             // 
             // TestForm
             // 
@@ -215,6 +278,8 @@
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel4.ResumeLayout(false);
             this.tableLayoutPanel4.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.tableLayoutPanel5.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -232,5 +297,10 @@
         private Label label3;
         private Label label2;
         private Label label1;
+        private GroupBox groupBox1;
+        private TableLayoutPanel tableLayoutPanel5;
+        public Button button3;
+        public Button button2;
+        public Button button1;
     }
 }
