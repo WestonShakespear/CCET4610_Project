@@ -45,10 +45,11 @@ namespace GUILayoutTest1
 
         private Color statusNewFile = Color.FromArgb(220, 50, 47);
 
-        private Color statusColorWarning = Color.FromArgb(181, 137, 0);
 
 
-        private Color greenColor = Color.FromArgb(133, 153, 0);
+        private Color greenColor = Color.FromArgb(42, 161, 152);
+        private Color redColor = Color.FromArgb(181, 137, 0);
+        private Color orangeColor = Color.FromArgb(181, 137, 0);
 
 
         private Color backColor = Color.FromArgb(253, 246, 227);
@@ -56,13 +57,12 @@ namespace GUILayoutTest1
 
 
 
-        private Dictionary<string, Label> names = new Dictionary<string, Label>();
-        private Dictionary<string, Label> versions = new Dictionary<string, Label>();
-        private Dictionary<string, CheckBox> buttons = new Dictionary<string, CheckBox>();
+        private Dictionary<string, string> versions = new Dictionary<string, string>();
+        private Dictionary<string, bool> auto = new Dictionary<string, bool>();
 
         private Dictionary<string, int> reference = new Dictionary<string, int>();
 
-        private int currentRow = 1;
+        private int currentRow = 0;
 
 
         public Taskpane()
@@ -271,35 +271,36 @@ namespace GUILayoutTest1
 
         public void addDocEntry(string name, string version)
         {
-            names.Add(name, new Label());
-            names[name].Text = name;
-            names[name].Dock = DockStyle.Fill;
 
-            versions.Add(name, new Label());
-            versions[name].Text = "0";
-            versions[name].Dock = DockStyle.Fill;
-            versions[name].BackColor = this.statusColorWarning;
-
-            buttons.Add(name, new CheckBox());
-            buttons[name].Dock = DockStyle.Fill;
-
+            versions.Add(name, version);
             reference.Add(name, this.currentRow);
 
 
             if (this.currentRow < 24)
             {
                 this.filenameButtons[this.currentRow].Text = name;
-                this.filenameButtons[this.currentRow].BackColor = this.statusNewFile;
                 this.versionLabels[this.currentRow].Text = version;
+                this.versionLabels[this.currentRow].BackColor = this.orangeColor;
             }       
 
 
             this.currentRow++;
         }
 
-        public void updateDocEntry(string name)
+        //status 0 good
+        //status 1 new
+        //status 2 old
+        public void updateDocEntry(string name, string version, int status)
         {
+            this.versions[name] = version;
+            this.versionLabels[this.reference[name]].Text = version;
 
+            this.versionLabels[this.reference[name]].BackColor = status switch
+            {
+                0 => this.greenColor,
+                1 => this.orangeColor,
+                _ => this.redColor
+            };
         }
 
         public void removeDocEntry(string name)

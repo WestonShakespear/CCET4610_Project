@@ -8,34 +8,92 @@ class Program {
         string head = @"D:\School\4610\API\local\";
         string temp = @"D:\School\4610\sld resource files\";
         LocalFileManage lFM = new LocalFileManage(head, temp);
+        
 
 
-        lFM.createProject("testA");
-        lFM.createProject("testB");
+        string url = "http://127.0.0.1:5000/";
+        string pathHead = @"D:\School\4610\API\local\";
+        string user = "weston";
+        Console.WriteLine("SERVER: " + lFM.connectToServer(url, user, pathHead).ToString());
 
-        lFM.listProjects();
-
+        
+        lFM.updateCloudTree();
+       // Console.WriteLine(lFM.listTree(false));
         lFM.refreshLocalFileList();
-        lFM.refreshLocalFileList();
+        Console.WriteLine(lFM.listTree(true));
+        
+        // dynamic settings = new JObject();
+        // settings.name = "debugProject";
+        // settings.units = "";
+        // settings.prefix = "";
+        // settings.suffix = "";
+        Console.WriteLine(lFM.getFullPathFromName("file5.SLDPRT"));
+        // lFM.createProject(settings);
+        // lFM.createFileFromTemplate("inch", lFM.comb(head, "debugProject", "file5.SLDPRT"), false);
+        // Console.WriteLine(lFM.listTree(true));
+        
+        // lFM.uploadFile("file5.SLDPRT");
+        
+
+        //test create new project
+        
+
+        //lFM.listCloudLookup();
+
+        //Console.WriteLine(lFM.getCloudFileVersion("abc.SLDPRT"));
+
+        
+
+
+        /////////////////////////////
+        //lFM.updateCloudTree();
+
+
+        
+
+        
+        // lFM.addLocalProject("testB");
+
+        // lFM.listProjects();
+
+        // 
+        // lFM.refreshLocalFileList();
 
 
 
-        List<string> projectNames = new List<string>();
+        // List<string> projectNames = new List<string>();
 
-        projectNames.Add("a");
-        projectNames.Add("b");
-        projectNames.Add("c");
-        projectNames.Add("d");
+        // projectNames.Add("a");
+        // projectNames.Add("b");
+        // projectNames.Add("c");
+        // projectNames.Add("d");
+
+        // Console.WriteLine("\n\r\n\rCREATING ROOTS");
+        // lFM.updateLocalProjectsFromList(projectNames);
+
+        // Console.Write(lFM.projectFromFilename(lFM.comb(head, "a\\b\\c", "file.SLDPRT")));
 
 
-        lFM.createRootsFromList(projectNames);
+        
+        // lFM.createFileFromTemplate("inch", lFM.comb(head, "a", "file.SLDPRT"), true);
+        // lFM.createFileFromTemplate("inch", lFM.comb(head, "a\\b", "file2.SLDPRT"), true);
 
 
-        foreach (var a in lFM.getTemplateNames("SLDPRT")){
 
-            Console.WriteLine(lFM.getPathFromTemplateName("SLDPRT", a));
-            Console.WriteLine(a);
-        }
+        // Console.WriteLine("\n\r\n\rlocalTree");
+        // Console.WriteLine(lFM.listTree(true));
+        // Console.WriteLine("\n\r\n\rcloudTree");
+        // Console.WriteLine(lFM.listTree(false));
+        // Console.WriteLine("\n\r\n\r");
+
+
+        // foreach (var a in lFM.getTemplateNames("SLDPRT")){
+
+        //     Console.WriteLine(lFM.getPathFromTemplateName("SLDPRT", a));
+        //     Console.WriteLine(a);
+        // }
+
+
         
 
 
@@ -52,14 +110,12 @@ class Program {
 
 
 
-        string url = "http://127.0.0.1:5000/";
-        string pathHead = @"D:\School\4610\API\local\";
-        string user = "weston";
+        
 
         API api = new API(url, pathHead, user);
 
-        Console.WriteLine(api.testConnection());
-        Console.WriteLine(api.listProjects());
+        // Console.WriteLine(api.testConnection());
+        // Console.WriteLine(api.listProjects());
 
 
 

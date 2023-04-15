@@ -129,11 +129,16 @@
             this.tableLayoutPanel8 = new System.Windows.Forms.TableLayoutPanel();
             this.projectNameGroupBox = new System.Windows.Forms.GroupBox();
             this.currentProjectField = new System.Windows.Forms.Label();
-            this.projectContextMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.downloadAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.uploadAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.openAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.closeAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.fileContextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
+            this.mergeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
+            this.projectContextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.toolStripMenuItem5 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem6 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem7 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem8 = new System.Windows.Forms.ToolStripMenuItem();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -160,7 +165,8 @@
             this.tableLayoutPanel7.SuspendLayout();
             this.tableLayoutPanel9.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
-            this.projectContextMenu.SuspendLayout();
+            this.fileContextMenuStrip.SuspendLayout();
+            this.projectContextMenuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -848,40 +854,75 @@
             this.currentProjectField.Size = new System.Drawing.Size(100, 23);
             this.currentProjectField.TabIndex = 0;
             // 
-            // projectContextMenu
+            // fileContextMenuStrip
             // 
-            this.projectContextMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.downloadAllToolStripMenuItem,
-            this.uploadAllToolStripMenuItem,
-            this.openAllToolStripMenuItem,
-            this.closeAllToolStripMenuItem});
-            this.projectContextMenu.Name = "projectContextMenu";
-            this.projectContextMenu.Size = new System.Drawing.Size(146, 92);
-            this.projectContextMenu.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.projectContextMenu_ItemClicked);
+            this.fileContextMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItem2,
+            this.toolStripMenuItem3,
+            this.mergeToolStripMenuItem,
+            this.toolStripMenuItem4});
+            this.fileContextMenuStrip.Name = "fileContextMenuStrip";
+            this.fileContextMenuStrip.Size = new System.Drawing.Size(181, 114);
+            this.fileContextMenuStrip.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.fileContextMenuStrip_ItemClicked);
             // 
-            // downloadAllToolStripMenuItem
+            // toolStripMenuItem2
             // 
-            this.downloadAllToolStripMenuItem.Name = "downloadAllToolStripMenuItem";
-            this.downloadAllToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
-            this.downloadAllToolStripMenuItem.Text = "Download All";
+            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItem2.Text = "Open";
             // 
-            // uploadAllToolStripMenuItem
+            // toolStripMenuItem3
             // 
-            this.uploadAllToolStripMenuItem.Name = "uploadAllToolStripMenuItem";
-            this.uploadAllToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
-            this.uploadAllToolStripMenuItem.Text = "Upload All";
+            this.toolStripMenuItem3.Name = "toolStripMenuItem3";
+            this.toolStripMenuItem3.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItem3.Text = "Sync";
             // 
-            // openAllToolStripMenuItem
+            // mergeToolStripMenuItem
             // 
-            this.openAllToolStripMenuItem.Name = "openAllToolStripMenuItem";
-            this.openAllToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
-            this.openAllToolStripMenuItem.Text = "Open All";
+            this.mergeToolStripMenuItem.Name = "mergeToolStripMenuItem";
+            this.mergeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.mergeToolStripMenuItem.Text = "Merge";
             // 
-            // closeAllToolStripMenuItem
+            // toolStripMenuItem4
             // 
-            this.closeAllToolStripMenuItem.Name = "closeAllToolStripMenuItem";
-            this.closeAllToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
-            this.closeAllToolStripMenuItem.Text = "Close All";
+            this.toolStripMenuItem4.Name = "toolStripMenuItem4";
+            this.toolStripMenuItem4.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItem4.Text = "Close";
+            // 
+            // projectContextMenuStrip
+            // 
+            this.projectContextMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItem5,
+            this.toolStripMenuItem6,
+            this.toolStripMenuItem7,
+            this.toolStripMenuItem8});
+            this.projectContextMenuStrip.Name = "projectContextMenuStrip";
+            this.projectContextMenuStrip.Size = new System.Drawing.Size(146, 92);
+            this.projectContextMenuStrip.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.projectContextMenuStrip_ItemClicked);
+            // 
+            // toolStripMenuItem5
+            // 
+            this.toolStripMenuItem5.Name = "toolStripMenuItem5";
+            this.toolStripMenuItem5.Size = new System.Drawing.Size(145, 22);
+            this.toolStripMenuItem5.Text = "Download All";
+            // 
+            // toolStripMenuItem6
+            // 
+            this.toolStripMenuItem6.Name = "toolStripMenuItem6";
+            this.toolStripMenuItem6.Size = new System.Drawing.Size(145, 22);
+            this.toolStripMenuItem6.Text = "Upload All";
+            // 
+            // toolStripMenuItem7
+            // 
+            this.toolStripMenuItem7.Name = "toolStripMenuItem7";
+            this.toolStripMenuItem7.Size = new System.Drawing.Size(145, 22);
+            this.toolStripMenuItem7.Text = "Open All";
+            // 
+            // toolStripMenuItem8
+            // 
+            this.toolStripMenuItem8.Name = "toolStripMenuItem8";
+            this.toolStripMenuItem8.Size = new System.Drawing.Size(145, 22);
+            this.toolStripMenuItem8.Text = "Close All";
             // 
             // Form1
             // 
@@ -921,7 +962,8 @@
             this.tableLayoutPanel7.PerformLayout();
             this.tableLayoutPanel9.ResumeLayout(false);
             this.tableLayoutPanel4.ResumeLayout(false);
-            this.projectContextMenu.ResumeLayout(false);
+            this.fileContextMenuStrip.ResumeLayout(false);
+            this.projectContextMenuStrip.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -977,5 +1019,19 @@
         private Label sldConnectLabel;
         private TableLayoutPanel tableLayoutPanel9;
         private Button apiConnectButton;
+        private ContextMenuStrip fileContextMenu;
+        private ToolStripMenuItem openToolStripMenuItem;
+        private ToolStripMenuItem syncToolStripMenuItem;
+        private ToolStripMenuItem closeToolStripMenuItem;
+        private ContextMenuStrip fileContextMenuStrip;
+        private ToolStripMenuItem toolStripMenuItem2;
+        private ToolStripMenuItem toolStripMenuItem3;
+        private ToolStripMenuItem mergeToolStripMenuItem;
+        private ToolStripMenuItem toolStripMenuItem4;
+        private ContextMenuStrip projectContextMenuStrip;
+        private ToolStripMenuItem toolStripMenuItem5;
+        private ToolStripMenuItem toolStripMenuItem6;
+        private ToolStripMenuItem toolStripMenuItem7;
+        private ToolStripMenuItem toolStripMenuItem8;
     }
 }

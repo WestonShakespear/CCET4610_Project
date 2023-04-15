@@ -72,9 +72,10 @@ public class API
         string url = this.baseURL + "file_upload";
 
         Encode enc = new Encode();
-        string fullPath = filePath + fileName;
 
-        byte[]? data = enc.readFileBytes(fullPath);
+        string[] fullPath = {filePath, remoteDir, fileName};
+
+        byte[]? data = enc.readFileBytes(Path.Combine(fullPath));
 
         if (data != null) {
             // encode file
