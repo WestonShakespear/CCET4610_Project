@@ -28,6 +28,7 @@ class Program {
         // settings.prefix = "";
         // settings.suffix = "";
         Console.WriteLine(lFM.getFullPathFromName("file5.SLDPRT"));
+        Console.WriteLine(lFM.testForLocalFile("file5.SLDPRT"));
         // lFM.createProject(settings);
         // lFM.createFileFromTemplate("inch", lFM.comb(head, "debugProject", "file5.SLDPRT"), false);
         // Console.WriteLine(lFM.listTree(true));

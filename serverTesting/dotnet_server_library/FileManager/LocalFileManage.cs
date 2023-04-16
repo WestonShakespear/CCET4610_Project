@@ -352,52 +352,39 @@ public class LocalFileManage
     }
 
     public bool refreshLocalProject(string pname) {
+        string search = this.comb(this.localPathHead, pname);
+
         if (!this.localTree.ContainsKey(pname)) {
             this.localTree[pname] = new Dictionary<string, Dictionary<string, string>>();
 
             string[] peerDirs = Directory.GetDirectories(this.localPathHead, "*", SearchOption.TopDirectoryOnly);
-            string search = this.comb(this.localPathHead, pname);
+            
 
             if (peerDirs.Contains(search)) {
                 // Console.WriteLine(pname);
-                string[] fileList = Directory.GetFiles(search, "*", SearchOption.AllDirectories);
-                foreach (string filepath in fileList)
-                {
-                    string filename = Path.GetFileName(filepath);
-                    
-                    // Console.WriteLine(filename);
-                    if (this.cloudTree[pname].ContainsKey(filename))
-                    {
-                        // Console.WriteLine("Found info for: " + filename);
-                        this.localTree[pname][filename] = this.cloudTree[pname][filename];
-                        this.localLookup[filename] = pname;
-                    }
-                    
-                }
+                
                 
             } else {
                 this.addFolder(search);
             }
-
-
-            // string projectPath = this.localPathHead + name;
-
-            // string[] fileList = Directory.GetFiles(projectPath, "*", SearchOption.AllDirectories);
-
-            // foreach (string file in fileList) {
-            //     bool inFileList = this.localFiles[name].Contains(file);
-
-            //     if (!inFileList) {
-            //         this.localFiles[name].Add(file);
-            //     }
-            //     Console.WriteLine(file + "  " + inFileList.ToString());
-            // }
-
+            return true;
+        } else {
+            string[] fileList = Directory.GetFiles(search, "*", SearchOption.AllDirectories);
+            foreach (string filepath in fileList)
+            {
+                string filename = Path.GetFileName(filepath);
+                
+                // Console.WriteLine(filename);
+                if (this.cloudTree[pname].ContainsKey(filename))
+                {
+                    // Console.WriteLine("Found info for: " + filename);
+                    this.localTree[pname][filename] = this.cloudTree[pname][filename];
+                    this.localLookup[filename] = pname;
+                }
+                
+            }
             return true;
         }
-
-
-        
 
         return false;
     }
@@ -406,6 +393,46 @@ public class LocalFileManage
 
 
         return true;
+    }
+
+    //status 0 good
+    //status 1 new
+    //status 2 old
+    public int? getFileStatus(string filename)
+    {
+        string pname = this.cloudLookup[filename];
+        string localVersion = "";
+        string cloudVersion = "";        
+
+        if(this.localTree[pname].ContainsKey(filename))
+        {
+            localVersion = this.localTree[pname][filename]["version"];
+        } else {
+            return null;
+        }
+
+        if (this.cloudTree[pname].ContainsKey(filename))
+        {
+            cloudVersion = this.cloudTree[pname][filename]["version"];
+        } else {
+            return null;
+        }
+
+        int lV = Int32.Parse(localVersion);
+        int cV = Int32.Parse(cloudVersion);
+
+        if (lV == cV)
+        {
+            return 0;
+        } 
+        else if (lV > cV)
+        {
+            return 1;
+        } 
+        else
+        {
+            return 2;
+        }
     }
 
 
@@ -581,6 +608,15 @@ public class LocalFileManage
 
         return null;
         
+    }
+
+    public bool testForLocalFile(string name)
+    {
+        if (this.localLookup.ContainsKey(name))
+        {
+            return true;
+        }
+        return false;
     }
 
 

@@ -15,6 +15,8 @@ using SolidWorks.Interop.swconst;
 using SWLib;
 using System.Configuration;
 using System.Runtime.CompilerServices;
+using System.IO;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace GUILayoutTest1
 {
@@ -137,7 +139,7 @@ namespace GUILayoutTest1
             if (this.executableDirectory == null)
             {
                 MessageBox.Show("Error location executable directory, exiting");
-                Application.Exit();
+                System.Windows.Forms.Application.Exit();
             }
 
 
@@ -214,7 +216,7 @@ namespace GUILayoutTest1
 
             }
 
-
+            this.lfm.updateCloudTree();
             this.lfm.refreshLocalFileList();
         }
 
@@ -270,19 +272,32 @@ namespace GUILayoutTest1
                 return;
             }
 
-            string fullPath = this.lfm.getFullPathFromName(name);
-            bool res = this.createPreview(fullPath, fullPath + ".BMP", false);
-
-            if (res)
+            if (this.autoSync.ContainsKey(name))
             {
-                this.lfm.uploadFile(name);
+                if (this.autoSync[name] == false)
+                {
+                    this.taskPaneView.updateDocEntry(name, this.lfm.getLocalFileVersion(name), 1);
+                    return;
+                } else
+                {
+                    string fullPath = this.lfm.getFullPathFromName(name);
+                    bool res = this.createPreview(fullPath, fullPath + ".BMP", false);
+
+                    if (res)
+                    {
+                        this.lfm.uploadFile(name);
+                    }
+
+                    this.update();
+                    //status 0 good
+                    //status 1 new
+                    //status 2 old
+                    this.taskPaneView.updateDocEntry(name, this.lfm.getLocalFileVersion(name), 0);
+                }
+
             }
 
-            this.update();
-            //status 0 good
-            //status 1 new
-            //status 2 old
-            this.taskPaneView.updateDocEntry(name, this.lfm.getLocalFileVersion(name), 0);
+            
         }
 
 
@@ -293,18 +308,6 @@ namespace GUILayoutTest1
         {
             Debug.WriteLine(text);
         }
-
-
-
-
-
-
-
-
-
-
-
-
 
         private bool isAPIConnected()
         {
@@ -344,12 +347,18 @@ namespace GUILayoutTest1
 
 
         
-        private void addTrackedFile(string name)
+        private void addTrackedFile(string name, int status)
         {
-            string version = this.lfm.getLocalFileVersion(name);
+            
+            string? version = this.lfm.getLocalFileVersion(name);
 
+            if (version == null)
+            {
+                version = "0";
+            }
             this.trackedFiles.Add(name, version);
-            this.taskPaneView.addDocEntry(name, version);
+            this.autoSync.Add(name, true);
+            this.taskPaneView.addDocEntry(name, version, status);
         }
 
 
@@ -463,37 +472,39 @@ namespace GUILayoutTest1
 
         private void openTreeFile(bool ro)
         {
+            if (this.lfm == null)
+            {
+                return;
+            }
+
+            if (this.lfm.testForLocalFile(this.currentFile))
+            {
+                string openPath = this.lfm.getFullPathFromName(this.currentFile);
+                string ext = Path.GetExtension(openPath);
+                string modelName = Path.GetFileNameWithoutExtension(openPath);
+
+                this.docM.openDoc(openPath, ro); 
+                ModelDoc2 newModel = this.docM.getModelFromName(modelName);
+
+                bool result = ext switch
+                {
+                    ".SLDPRT" => this.attachPartEvents(newModel),
+                    ".SLDASM" => this.attachAssemblyEvents(newModel),
+                    ".SLDDRW" => this.attachDrawingEvents(newModel),
+                    _ => false
+                };
 
 
-            //string pname = this.cloudLookup[this.currentFile];
-
-            
-
-
-            //var obj = this.cloudTree[pname][this.currentFile];
-            //string path = obj["path"];
-            //string ext = Path.GetExtension(path);
-
-            //string[] comb = { this.localHead, path };
-            //string openPath = Path.Combine(comb);
-            //Debug.WriteLine(this.currentFile);
-            //this.docM.openDoc(openPath, ro);
-
-            //if (!ro)
-            //{
-               //this.addTrackedFile(this.currentFile, openPath);
-
-               // string modelName = Path.GetFileNameWithoutExtension(path);
-               // ModelDoc2 newModel = this.docM.getModelFromName(modelName);
-
-               // bool result = ext switch
-               // {
-               //     ".SLDPRT" => this.attachPartEvents(newModel),
-               //     ".SLDASM" => this.attachAssemblyEvents(newModel),
-               //     ".SLDDRW" => this.attachDrawingEvents(newModel),
-               //     _ => false
-               // };
-           // }
+                int? status = this.lfm.getFileStatus(this.currentFile);
+                if (status.HasValue)
+                {
+                    this.addTrackedFile(this.currentFile, (int)status);
+                }
+                
+            } else
+            {
+                MessageBox.Show("file not downloaded");
+            }
 
         }
 
@@ -782,7 +793,7 @@ namespace GUILayoutTest1
 
 
 
-                    this.addTrackedFile(Path.GetFileName(fileOutputName));
+                    this.addTrackedFile(Path.GetFileName(fileOutputName), 1);
 
 
                     bool result = type switch
@@ -1025,10 +1036,20 @@ namespace GUILayoutTest1
 
 
 
+        private Dictionary<string, bool> autoSync = new Dictionary<string, bool>();
 
 
-
-
+        private void taskAutoSyncChanged(object sender, EventArgs args, string name, bool value)
+        {
+            if (this.autoSync.ContainsKey(name))
+            {
+                this.autoSync[name] = value;
+            }
+        }
+        private void taskNameClicked(object sender, EventArgs args, string name)
+        {
+            this.docM.activate(Path.GetFileNameWithoutExtension(name));
+        }
 
 
 
@@ -1051,6 +1072,8 @@ namespace GUILayoutTest1
             //swTaskPane.DisplayWindowFromHandlex64(taskPaneWinFormControl.Handle.ToInt64());
 
             this.taskPaneView = new Taskpane();
+            this.taskPaneView.AutoSyncChanged += this.taskAutoSyncChanged;
+            this.taskPaneView.NameClicked += this.taskNameClicked;
             swTaskPane.DisplayWindowFromHandlex64(this.taskPaneView.getHandle());
 
 

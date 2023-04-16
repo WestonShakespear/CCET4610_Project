@@ -7,6 +7,7 @@ using System.Security.Cryptography.Xml;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Linq;
 
 namespace GUILayoutTest1
 {
@@ -61,8 +62,15 @@ namespace GUILayoutTest1
         private Dictionary<string, bool> auto = new Dictionary<string, bool>();
 
         private Dictionary<string, int> reference = new Dictionary<string, int>();
+        private string[] backRef = new string[24];
 
         private int currentRow = 0;
+
+        public delegate void AutoSyncHandler(object sender, EventArgs e, string name, bool value);
+        public event AutoSyncHandler AutoSyncChanged;
+
+        public delegate void NameClickHandler(object sender, EventArgs e, string name);
+        public event NameClickHandler NameClicked;
 
 
         public Taskpane()
@@ -158,6 +166,8 @@ namespace GUILayoutTest1
                 this.versionLabels[i] = new Label();
                 this.versionLabels[i].Dock = DockStyle.Fill;
                 this.versionLabels[i].TextAlign = ContentAlignment.MiddleCenter;
+                this.versionLabels[i].ForeColor = this.backColor;
+                this.versionLabels[i].Font = new Font("Times New Roman", 12, FontStyle.Bold);
 
                 this.autoButtons[i] = new Button();
                 this.autoButtons[i].Name = i.ToString();
@@ -269,11 +279,14 @@ namespace GUILayoutTest1
 
 
 
-        public void addDocEntry(string name, string version)
+        public void addDocEntry(string name, string version, int status)
         {
 
             versions.Add(name, version);
             reference.Add(name, this.currentRow);
+            auto.Add(name, true);
+
+            backRef[this.currentRow] = name;
 
 
             if (this.currentRow < 24)
@@ -281,9 +294,10 @@ namespace GUILayoutTest1
                 this.filenameButtons[this.currentRow].Text = name;
                 this.versionLabels[this.currentRow].Text = version;
                 this.versionLabels[this.currentRow].BackColor = this.orangeColor;
-            }       
+            }
 
-
+            this.updateLabel(this.currentRow, status);
+            this.updateAutoButtons();
             this.currentRow++;
         }
 
@@ -295,7 +309,14 @@ namespace GUILayoutTest1
             this.versions[name] = version;
             this.versionLabels[this.reference[name]].Text = version;
 
-            this.versionLabels[this.reference[name]].BackColor = status switch
+            int index = this.reference[name];
+
+            this.updateLabel(index, status);
+        }
+
+        public void updateLabel(int index, int status)
+        {
+            this.versionLabels[index].BackColor = status switch
             {
                 0 => this.greenColor,
                 1 => this.orangeColor,
@@ -319,7 +340,8 @@ namespace GUILayoutTest1
                 Button? btn = sender as Button;
                 if (btn != null)
                 {
-                    MessageBox.Show(btn.Name);
+                    string name = this.backRef[Int32.Parse(btn.Name)];
+                    this.NameClicked(sender, args, name);
                 }
             }
             
@@ -334,8 +356,30 @@ namespace GUILayoutTest1
                 Button? btn = sender as Button;
                 if (btn != null)
                 {
-                    MessageBox.Show(btn.Name);
+                    string name = this.backRef[Int32.Parse(btn.Name)];
+
+                    this.auto[name] = !this.auto[name];
+                    this.AutoSyncChanged(sender, args, name, this.auto[name]);
+
+                    this.updateAutoButtons();
+
+
                 }
+            }
+        }
+
+        private void updateAutoButtons()
+        {
+            foreach (KeyValuePair<string, bool> autoCell in this.auto)
+            {
+                Color back = this.greenColor;
+
+                if (!autoCell.Value)
+                {
+                    back = this.redColor;
+                }
+                int index = this.reference[autoCell.Key];
+                this.autoButtons[index].BackColor = back;
             }
         }
 
