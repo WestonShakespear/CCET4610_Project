@@ -20,7 +20,7 @@ class Program {
         lFM.updateCloudTree();
        // Console.WriteLine(lFM.listTree(false));
         lFM.refreshLocalFileList();
-        Console.WriteLine(lFM.listTree(true));
+        Console.WriteLine(lFM.listTree(false));
         
         // dynamic settings = new JObject();
         // settings.name = "debugProject";
@@ -29,6 +29,11 @@ class Program {
         // settings.suffix = "";
         Console.WriteLine(lFM.getFullPathFromName("file5.SLDPRT"));
         Console.WriteLine(lFM.testForLocalFile("file5.SLDPRT"));
+
+
+        string name = "23.SLDPRT";
+        lFM.downloadfile(name);
+
         // lFM.createProject(settings);
         // lFM.createFileFromTemplate("inch", lFM.comb(head, "debugProject", "file5.SLDPRT"), false);
         // Console.WriteLine(lFM.listTree(true));

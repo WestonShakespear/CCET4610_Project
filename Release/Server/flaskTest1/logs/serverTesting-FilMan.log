@@ -1,0 +1,363 @@
+2023-03-18 17:38:32,282 - serverTesting-FilMan - DEBUG - Attempting to save bolt.SLDPRT in ./static/data/project/subbolt.SLDPRT
+2023-03-18 17:40:19,087 - serverTesting-FilMan - DEBUG - Attempting to save bolt.SLDPRT in ./static/data/project/sub/bolt.SLDPRT
+2023-03-18 17:40:52,850 - serverTesting-FilMan - DEBUG - Attempting to save bolt.SLDPRT in ./static/data/project/sub/bolt.SLDPRT
+2023-03-18 17:40:52,850 - serverTesting-FilMan - ERROR - bolt.SLDPRT already exists
+2023-03-18 17:48:36,086 - serverTesting-FilMan - DEBUG - Attempting to save bolt.SLDPRT in ./static/data/project/sub/bolt.SLDPRT
+2023-03-18 17:48:54,551 - serverTesting-FilMan - DEBUG - Attempting to save bolt.SLDPRT in ./static/data/project/sub/bolt.SLDPRT
+2023-03-18 17:49:28,678 - serverTesting-FilMan - DEBUG - Attempting to save bolt.SLDPRT in ./static/data/project/sub/bolt.SLDPRT
+2023-03-18 17:49:56,978 - serverTesting-FilMan - DEBUG - Attempting to save bolt.SLDPRT in ./static/data/project/sub/bolt.SLDPRT
+2023-03-18 17:51:04,135 - serverTesting-FilMan - DEBUG - Attempting to save bolt.SLDPRT in ./static/data/project/sub/bolt.SLDPRT
+2023-03-18 17:51:58,118 - serverTesting-FilMan - DEBUG - Attempting to save bolt.SLDPRT in ./static/data/project/sub/bolt.SLDPRT
+2023-03-18 17:52:24,325 - serverTesting-FilMan - DEBUG - Attempting to save bolt.SLDPRT in ./static/data/project/sub/bolt.SLDPRT
+2023-03-18 17:53:13,159 - serverTesting-FilMan - DEBUG - Attempting to save bolt.SLDPRT in ./static/data/project/sub/bolt.SLDPRT
+2023-03-18 17:53:24,100 - serverTesting-FilMan - DEBUG - Attempting to save bolt.SLDPRT in ./static/data/project/sub/bolt.SLDPRT
+2023-03-18 17:53:39,219 - serverTesting-FilMan - DEBUG - Attempting to save bolt.SLDPRT in ./static/data/project/sub/bolt.SLDPRT
+2023-03-18 17:54:37,087 - serverTesting-FilMan - DEBUG - Attempting to save bolt.SLDPRT in ./static/data/project/sub/bolt.SLDPRT
+2023-03-18 17:54:53,859 - serverTesting-FilMan - DEBUG - Attempting to save bolt.SLDPRT in ./static/data/project/sub/bolt.SLDPRT
+2023-03-18 17:55:33,722 - serverTesting-FilMan - DEBUG - Attempting to save bolt.SLDPRT in ./static/data/project/sub/bolt.SLDPRT
+2023-03-18 17:56:06,446 - serverTesting-FilMan - DEBUG - Attempting to save bolt.SLDPRT in ./static/data/project/sub/bolt.SLDPRT
+2023-03-18 17:56:34,205 - serverTesting-FilMan - DEBUG - Attempting to save bolt.SLDPRT in ./static/data/project/sub/bolt.SLDPRT
+2023-03-18 17:56:54,863 - serverTesting-FilMan - DEBUG - Attempting to save bolt.SLDPRT in ./static/data/project/sub/bolt.SLDPRT
+2023-03-18 17:58:32,221 - serverTesting-FilMan - DEBUG - Attempting to save bolt.SLDPRT in ./static/data/project/sub/bolt.SLDPRT
+2023-03-18 17:58:32,225 - serverTesting-FilMan - DEBUG - Saving \\wsl$\Ubuntu\home\westonshakespear\ccet4610\flaskTest1\test\ [SUCCESS]
+2023-03-18 17:58:53,684 - serverTesting-FilMan - DEBUG - Attempting to save bolt.SLDPRT in ./static/data/project/sub/bolt.SLDPRT
+2023-03-18 17:58:53,684 - serverTesting-FilMan - ERROR - bolt.SLDPRT already exists
+2023-03-18 18:31:00,249 - serverTesting-FilMan - DEBUG - Attempting to save bolt.SLDPRT in ./static/data/project/sub/bolt.SLDPRT
+2023-03-18 18:31:00,249 - serverTesting-FilMan - ERROR - bolt.SLDPRT already exists
+2023-03-18 18:31:20,743 - serverTesting-FilMan - DEBUG - Attempting to save bolt.SLDPRT in ./static/data/project/sub/bolt.SLDPRT
+2023-03-18 18:31:20,744 - serverTesting-FilMan - ERROR - bolt.SLDPRT already exists
+2023-03-18 18:31:47,111 - serverTesting-FilMan - DEBUG - Attempting to save bolt.SLDPRT in ./static/data/project/sub/bolt.SLDPRT
+2023-03-18 18:31:47,111 - serverTesting-FilMan - ERROR - bolt.SLDPRT already exists
+2023-03-18 18:31:50,446 - serverTesting-FilMan - DEBUG - Attempting to save bolt.SLDPRT in ./static/data/project/sub/bolt.SLDPRT
+2023-03-18 18:31:50,447 - serverTesting-FilMan - ERROR - bolt.SLDPRT already exists
+2023-03-18 18:32:27,516 - serverTesting-FilMan - DEBUG - Attempting to save bolt.SLDPRT in ./static/data/project/sub/bolt.SLDPRT
+2023-03-18 18:32:27,522 - serverTesting-FilMan - DEBUG - Saving \\wsl$\Ubuntu\home\westonshakespear\ccet4610\flaskTest1\test\ [SUCCESS]
+2023-03-18 18:32:47,043 - serverTesting-FilMan - DEBUG - Attempting to save bolt.SLDPRT in ./static/data/project/sub/bolt.SLDPRT
+2023-03-18 18:32:47,043 - serverTesting-FilMan - ERROR - bolt.SLDPRT already exists
+2023-03-18 18:36:02,466 - serverTesting-FilMan - DEBUG - Attempting to save bolt.SLDPRT in ./static/data/project/sub/bolt.SLDPRT
+2023-03-18 18:36:02,467 - serverTesting-FilMan - ERROR - bolt.SLDPRT already exists
+2023-03-18 20:02:30,645 - serverTesting-FilMan - DEBUG - Attempting to save bolt.SLDPRT in ./static/data/project/sub/bolt.SLDPRT
+2023-03-18 20:02:30,645 - serverTesting-FilMan - ERROR - bolt.SLDPRT already exists
+2023-03-18 20:03:24,373 - serverTesting-FilMan - DEBUG - Attempting to save bolt.SLDPRT in ./static/data/project/sub/bolt.SLDPRT
+2023-03-18 20:03:24,373 - serverTesting-FilMan - ERROR - bolt.SLDPRT already exists
+2023-03-25 11:10:17,467 - serverTesting-FilMan - DEBUG - Attempting to save bolt.SLDPRT in ./static/data/project/sub/bolt.SLDPRT
+2023-03-25 11:10:17,468 - serverTesting-FilMan - ERROR - bolt.SLDPRT already exists
+2023-03-25 11:16:14,774 - serverTesting-FilMan - DEBUG - Attempting to save bolt.SLDPRT in ./static/data/project/sub/bolt.SLDPRT
+2023-03-25 11:16:14,775 - serverTesting-FilMan - ERROR - bolt.SLDPRT already exists
+2023-03-25 11:18:44,628 - serverTesting-FilMan - DEBUG - Attempting to save bolt.SLDPRT in ./static/data/project/sub/bolt.SLDPRT
+2023-03-25 11:18:44,628 - serverTesting-FilMan - ERROR - bolt.SLDPRT already exists
+2023-03-25 11:19:12,995 - serverTesting-FilMan - DEBUG - Attempting to save bolt.SLDPRT in ./static/data/project/sub/bolt.SLDPRT
+2023-03-25 11:19:12,996 - serverTesting-FilMan - ERROR - bolt.SLDPRT already exists
+2023-03-25 15:39:47,575 - serverTesting-FilMan - DEBUG - Attempting to save bolt.SLDPRT in ./static/data/test/filebolt.SLDPRT
+2023-03-25 15:39:47,579 - serverTesting-FilMan - DEBUG - Saving \\wsl$\Ubuntu\home\westonshakespear\ccet4610\flaskTest1\test\ [SUCCESS]
+2023-03-25 15:40:26,148 - serverTesting-FilMan - DEBUG - Attempting to save bolt.SLDPRT in ./static/data/test/file/bolt.SLDPRT
+2023-03-25 15:40:26,152 - serverTesting-FilMan - DEBUG - Saving \\wsl$\Ubuntu\home\westonshakespear\ccet4610\flaskTest1\test\ [SUCCESS]
+2023-03-25 15:42:30,578 - serverTesting-FilMan - DEBUG - Attempting to save bolt.SLDPRT in ./static/data/test/file/bolt.SLDPRT
+2023-03-25 15:42:30,584 - serverTesting-FilMan - DEBUG - Saving \\wsl$\Ubuntu\home\westonshakespear\ccet4610\flaskTest1\test\ [SUCCESS]
+2023-03-25 15:43:14,550 - serverTesting-FilMan - DEBUG - Attempting to save bolt.SLDPRT in ./static/data/test/file/bolt.SLDPRT
+2023-03-25 15:43:14,555 - serverTesting-FilMan - DEBUG - Saving \\wsl$\Ubuntu\home\westonshakespear\ccet4610\flaskTest1\test\ [SUCCESS]
+2023-03-25 15:44:39,584 - serverTesting-FilMan - DEBUG - Attempting to save bolt.SLDPRT in ./static/data/test/file/bolt.SLDPRT
+2023-03-25 15:44:39,584 - serverTesting-FilMan - ERROR - bolt.SLDPRT already exists
+2023-03-25 15:44:52,097 - serverTesting-FilMan - DEBUG - Attempting to save bolt.SLDPRT in ./static/data/test/file/bolt.SLDPRT
+2023-03-25 15:45:13,513 - serverTesting-FilMan - DEBUG - Attempting to save bolt.SLDPRT in ./static/data/New Project Name/file/bolt.SLDPRT
+2023-03-25 15:45:13,517 - serverTesting-FilMan - DEBUG - Saving \\wsl$\Ubuntu\home\westonshakespear\ccet4610\flaskTest1\test\ [SUCCESS]
+2023-03-25 15:54:37,849 - serverTesting-FilMan - DEBUG - Attempting to save bolt.SLDPRT in ./static/data/New Project Name/file/bolt.SLDPRT
+2023-03-25 15:54:37,852 - serverTesting-FilMan - DEBUG - Saving \\wsl$\Ubuntu\home\westonshakespear\ccet4610\flaskTest1\test\ [SUCCESS]
+2023-03-25 15:54:57,735 - serverTesting-FilMan - DEBUG - Attempting to save bolt.SLDPRT in ./static/data/New Project Name/file/bolt.SLDPRT
+2023-03-25 15:54:57,739 - serverTesting-FilMan - DEBUG - Saving \\wsl$\Ubuntu\home\westonshakespear\ccet4610\flaskTest1\test\ [SUCCESS]
+2023-03-25 15:55:27,794 - serverTesting-FilMan - DEBUG - Attempting to save bolt.SLDPRT in ./static/data/New Project Name/file/bolt.SLDPRT
+2023-03-25 15:55:27,799 - serverTesting-FilMan - DEBUG - Saving \\wsl$\Ubuntu\home\westonshakespear\ccet4610\flaskTest1\test\ [SUCCESS]
+2023-03-25 15:55:46,639 - serverTesting-FilMan - DEBUG - Attempting to save bolt.SLDPRT in ./static/data/New Project Name/file/bolt.SLDPRT
+2023-03-25 15:55:46,643 - serverTesting-FilMan - DEBUG - Saving \\wsl$\Ubuntu\home\westonshakespear\ccet4610\flaskTest1\test\ [SUCCESS]
+2023-03-25 16:20:02,986 - serverTesting-FilMan - DEBUG - Attempting to save bolt.SLDPRT in ./static/data/Project B/file/bolt.SLDPRT
+2023-03-25 16:20:02,990 - serverTesting-FilMan - DEBUG - Saving \\wsl$\Ubuntu\home\westonshakespear\ccet4610\flaskTest1\test\ [SUCCESS]
+2023-03-25 17:28:09,422 - serverTesting-FilMan - DEBUG - Attempting to save Brake_Disk.SLDPRT in ./static/data/Project B/file/Brake_Disk.SLDPRT
+2023-03-25 17:28:09,426 - serverTesting-FilMan - DEBUG - Saving D:\School\4610\ [SUCCESS]
+2023-03-25 19:35:44,795 - serverTesting-FilMan - DEBUG - Attempting to save 0.5-1 washer 91525A334_316 Stainless Steel Washer.SLDPRT in ./static/data/Scissor Lift/hardware/0.5-1 washer 91525A334_316 Stainless Steel Washer.SLDPRT
+2023-03-25 19:35:44,800 - serverTesting-FilMan - DEBUG - Saving D:\School\4610\API\local\Scissor Lift\hardware\0.5-1 washer 91525A334_316 Stainless Steel Washer.SLDPRT [SUCCESS]
+2023-04-08 12:24:05,296 - serverTesting-FilMan - DEBUG - Attempting to save Brake_Disk.SLDPRT in ./static/data/Project B/file/Brake_Disk.SLDPRT
+2023-04-08 12:24:05,297 - serverTesting-FilMan - ERROR - Brake_Disk.SLDPRT already exists
+2023-04-08 12:24:13,939 - serverTesting-FilMan - DEBUG - Attempting to save Brake_Disk.SLDPRT in ./static/data/Project B/file/Brake_Disk.SLDPRT
+2023-04-08 12:24:13,939 - serverTesting-FilMan - ERROR - Brake_Disk.SLDPRT already exists
+2023-04-08 12:25:38,535 - serverTesting-FilMan - DEBUG - Attempting to save Brake_Disk.SLDPRT in ./static/data/Project B/file/Brake_Disk.SLDPRT
+2023-04-08 12:25:38,536 - serverTesting-FilMan - ERROR - Brake_Disk.SLDPRT already exists
+2023-04-08 12:25:48,927 - serverTesting-FilMan - DEBUG - Attempting to save Brake_Disk.SLDPRT in ./static/data/Project B/file/Brake_Disk.SLDPRT
+2023-04-08 12:25:48,928 - serverTesting-FilMan - ERROR - Brake_Disk.SLDPRT already exists
+2023-04-08 12:59:08,655 - serverTesting-FilMan - DEBUG - Attempting to save Brake_Disk.SLDPRT.1 in ./static/data/Project B/file/Brake_Disk.SLDPRT.1
+2023-04-08 12:59:08,659 - serverTesting-FilMan - DEBUG - Saving D:\School\4610\ [SUCCESS]
+2023-04-08 12:59:57,129 - serverTesting-FilMan - DEBUG - Attempting to save Brake_Disk.SLDPRT.1 in ./static/data/Project B/file/Brake_Disk.SLDPRT.1
+2023-04-08 12:59:57,133 - serverTesting-FilMan - DEBUG - Saving D:\School\4610\ [SUCCESS]
+2023-04-08 13:15:40,312 - serverTesting-FilMan - DEBUG - Attempting to save Brake_Disk.SLDPRT.1 in ./static/data/Project B/file/Brake_Disk.SLDPRT.1
+2023-04-08 13:15:40,312 - serverTesting-FilMan - ERROR - Brake_Disk.SLDPRT.1 already exists
+2023-04-08 13:16:28,510 - serverTesting-FilMan - DEBUG - Attempting to save Brake_Disk.SLDPRT in ./static/data/Project B/file/Brake_Disk.SLDPRT
+2023-04-08 13:16:28,513 - serverTesting-FilMan - DEBUG - Saving D:\School\4610\.2 [SUCCESS]
+2023-04-08 13:17:13,165 - serverTesting-FilMan - DEBUG - Attempting to save Brake_Disk.SLDPRT in ./static/data/Project B/file/Brake_Disk.SLDPRT
+2023-04-08 13:17:13,165 - serverTesting-FilMan - ERROR - Brake_Disk.SLDPRT already exists
+2023-04-08 13:18:14,985 - serverTesting-FilMan - DEBUG - Attempting to save Brake_Disk.SLDPRT in ./static/data/Project B/file/Brake_Disk.SLDPRT
+2023-04-08 13:18:14,985 - serverTesting-FilMan - ERROR - Brake_Disk.SLDPRT already exists
+2023-04-08 13:18:23,664 - serverTesting-FilMan - DEBUG - Attempting to save Brake_Disk.SLDPRT in ./static/data/Project B/file/Brake_Disk.SLDPRT
+2023-04-08 13:18:23,664 - serverTesting-FilMan - ERROR - Brake_Disk.SLDPRT already exists
+2023-04-08 13:19:10,904 - serverTesting-FilMan - DEBUG - Attempting to save Brake_Disk.SLDPRT in ./static/data/Project B/file/Brake_Disk.SLDPRT
+2023-04-08 13:19:10,904 - serverTesting-FilMan - ERROR - Brake_Disk.SLDPRT already exists
+2023-04-08 13:19:58,259 - serverTesting-FilMan - DEBUG - Attempting to save Brake_Disk.SLDPRT.7 in ./static/data/Project B/file/Brake_Disk.SLDPRT.7
+2023-04-08 13:19:58,265 - serverTesting-FilMan - DEBUG - Saving D:\School\4610\ [SUCCESS]
+2023-04-08 13:20:06,666 - serverTesting-FilMan - DEBUG - Attempting to save Brake_Disk.SLDPRT.8 in ./static/data/Project B/file/Brake_Disk.SLDPRT.8
+2023-04-08 13:20:06,670 - serverTesting-FilMan - DEBUG - Saving D:\School\4610\ [SUCCESS]
+2023-04-08 13:20:09,807 - serverTesting-FilMan - DEBUG - Attempting to save Brake_Disk.SLDPRT.9 in ./static/data/Project B/file/Brake_Disk.SLDPRT.9
+2023-04-08 13:20:09,810 - serverTesting-FilMan - DEBUG - Saving D:\School\4610\ [SUCCESS]
+2023-04-08 13:20:13,425 - serverTesting-FilMan - DEBUG - Attempting to save Brake_Disk.SLDPRT.10 in ./static/data/Project B/file/Brake_Disk.SLDPRT.10
+2023-04-08 13:20:13,429 - serverTesting-FilMan - DEBUG - Saving D:\School\4610\ [SUCCESS]
+2023-04-08 13:27:25,594 - serverTesting-FilMan - DEBUG - Attempting to save Brake_Disk.SLDPRT.11 in ./static/data/Project B/file/Brake_Disk.SLDPRT.11
+2023-04-08 13:27:25,598 - serverTesting-FilMan - DEBUG - Saving D:\School\4610\ [SUCCESS]
+2023-04-08 13:27:29,546 - serverTesting-FilMan - DEBUG - Attempting to save Brake_Disk.SLDPRT.12 in ./static/data/Project B/file/Brake_Disk.SLDPRT.12
+2023-04-08 13:27:29,550 - serverTesting-FilMan - DEBUG - Saving D:\School\4610\ [SUCCESS]
+2023-04-08 13:34:52,642 - serverTesting-FilMan - DEBUG - Attempting to save Brake_Disk.SLDPRT.BMP in ./static/data/Project B/file/Brake_Disk.SLDPRT.BMP
+2023-04-08 13:34:52,648 - serverTesting-FilMan - DEBUG - Saving D:\School\4610\ [SUCCESS]
+2023-04-08 13:53:16,083 - serverTesting-FilMan - DEBUG - Attempting to save Brake_Disk.SLDPRT.BMP in ./static/data/resourcesBrake_Disk.SLDPRT.BMP
+2023-04-08 13:54:15,541 - serverTesting-FilMan - DEBUG - Attempting to save Brake_Disk.SLDPRT.BMP in ./static/data/resources/Brake_Disk.SLDPRT.BMP
+2023-04-08 13:55:35,208 - serverTesting-FilMan - DEBUG - Attempting to save Brake_Disk.SLDPRT.BMP in ./static/data/Project B/resources/Brake_Disk.SLDPRT.BMP
+2023-04-08 13:55:35,214 - serverTesting-FilMan - DEBUG - Saving D:\School\4610\ [SUCCESS]
+2023-04-08 14:16:25,805 - serverTesting-FilMan - DEBUG - Attempting to save bolt.SLDPRT.1 in ./static/data/Project B/bolt.SLDPRT.1
+2023-04-08 14:16:25,809 - serverTesting-FilMan - DEBUG - Saving D:\School\4610\API\local\project\sub\ [SUCCESS]
+2023-04-08 14:18:52,786 - serverTesting-FilMan - DEBUG - Attempting to save bolt.SLDPRT.2 in ./static/data/Project B/bolt.SLDPRT.2
+2023-04-08 14:18:52,789 - serverTesting-FilMan - DEBUG - Saving D:\School\4610\API\local\project\sub\ [SUCCESS]
+2023-04-08 14:18:52,956 - serverTesting-FilMan - DEBUG - Attempting to save bolt.SLDPRT.BMP in ./static/data/Project B/resources/bolt.SLDPRT.BMP
+2023-04-08 14:18:52,962 - serverTesting-FilMan - DEBUG - Saving D:\School\4610\API\local\project\sub\ [SUCCESS]
+2023-04-08 14:19:25,578 - serverTesting-FilMan - DEBUG - Attempting to save 90044A271_Black-Oxide Alloy Steel Socket Head Screw.SLDPRT.1 in ./static/data/Project B/90044A271_Black-Oxide Alloy Steel Socket Head Screw.SLDPRT.1
+2023-04-08 14:19:25,584 - serverTesting-FilMan - DEBUG - Saving D:\School\4610\API\local\project\sub\ [SUCCESS]
+2023-04-08 14:19:25,716 - serverTesting-FilMan - DEBUG - Attempting to save 90044A271_Black-Oxide Alloy Steel Socket Head Screw.SLDPRT.BMP in ./static/data/Project B/resources/90044A271_Black-Oxide Alloy Steel Socket Head Screw.SLDPRT.BMP
+2023-04-08 14:19:25,722 - serverTesting-FilMan - DEBUG - Saving D:\School\4610\API\local\project\sub\ [SUCCESS]
+2023-04-08 14:22:14,475 - serverTesting-FilMan - DEBUG - Attempting to save 90044A271_Black-Oxide Alloy Steel Socket Head Screw.SLDPRT.2 in ./static/data/Project B/90044A271_Black-Oxide Alloy Steel Socket Head Screw.SLDPRT.2
+2023-04-08 14:22:14,480 - serverTesting-FilMan - DEBUG - Saving D:\School\4610\API\local\project\sub\ [SUCCESS]
+2023-04-08 14:22:14,658 - serverTesting-FilMan - DEBUG - Attempting to save 90044A271_Black-Oxide Alloy Steel Socket Head Screw.SLDPRT.BMP in ./static/data/Project B/resources/90044A271_Black-Oxide Alloy Steel Socket Head Screw.SLDPRT.BMP
+2023-04-08 14:22:14,658 - serverTesting-FilMan - ERROR - 90044A271_Black-Oxide Alloy Steel Socket Head Screw.SLDPRT.BMP already exists
+2023-04-08 14:23:15,985 - serverTesting-FilMan - DEBUG - Attempting to save 90044A271_Black-Oxide Alloy Steel Socket Head Screw.SLDPRT.3 in ./static/data/Project B/90044A271_Black-Oxide Alloy Steel Socket Head Screw.SLDPRT.3
+2023-04-08 14:23:15,990 - serverTesting-FilMan - DEBUG - Saving D:\School\4610\API\local\project\sub\ [SUCCESS]
+2023-04-08 14:23:16,184 - serverTesting-FilMan - DEBUG - Attempting to save 90044A271_Black-Oxide Alloy Steel Socket Head Screw.SLDPRT.BMP in ./static/data/Project B/resources/90044A271_Black-Oxide Alloy Steel Socket Head Screw.SLDPRT.BMP
+2023-04-08 14:23:16,184 - serverTesting-FilMan - ERROR - 90044A271_Black-Oxide Alloy Steel Socket Head Screw.SLDPRT.BMP already exists
+2023-04-08 14:24:34,341 - serverTesting-FilMan - DEBUG - Attempting to save 90044A271_Black-Oxide Alloy Steel Socket Head Screw.SLDPRT.4 in ./static/data/Project B/90044A271_Black-Oxide Alloy Steel Socket Head Screw.SLDPRT.4
+2023-04-08 14:24:34,346 - serverTesting-FilMan - DEBUG - Saving D:\School\4610\API\local\project\sub\ [SUCCESS]
+2023-04-08 14:24:34,602 - serverTesting-FilMan - DEBUG - Attempting to save 90044A271_Black-Oxide Alloy Steel Socket Head Screw.SLDPRT.BMP in ./static/data/Project B/resources/90044A271_Black-Oxide Alloy Steel Socket Head Screw.SLDPRT.BMP
+2023-04-08 14:24:34,602 - serverTesting-FilMan - ERROR - 90044A271_Black-Oxide Alloy Steel Socket Head Screw.SLDPRT.BMP already exists
+2023-04-08 14:28:10,971 - serverTesting-FilMan - DEBUG - Attempting to save 90044A271_Black-Oxide Alloy Steel Socket Head Screw.SLDPRT.5 in ./static/data/Project B/90044A271_Black-Oxide Alloy Steel Socket Head Screw.SLDPRT.5
+2023-04-08 14:28:10,976 - serverTesting-FilMan - DEBUG - Saving D:\School\4610\API\local\project\sub\ [SUCCESS]
+2023-04-08 14:28:11,229 - serverTesting-FilMan - DEBUG - Attempting to save 90044A271_Black-Oxide Alloy Steel Socket Head Screw.SLDPRT.BMP in ./static/data/Project B/resources/90044A271_Black-Oxide Alloy Steel Socket Head Screw.SLDPRT.BMP
+2023-04-08 14:28:11,229 - serverTesting-FilMan - ERROR - 90044A271_Black-Oxide Alloy Steel Socket Head Screw.SLDPRT.BMP already exists
+2023-04-08 14:29:59,829 - serverTesting-FilMan - DEBUG - Attempting to save 90044A271_Black-Oxide Alloy Steel Socket Head Screw.SLDPRT.6 in ./static/data/Project B/90044A271_Black-Oxide Alloy Steel Socket Head Screw.SLDPRT.6
+2023-04-08 14:29:59,833 - serverTesting-FilMan - DEBUG - Saving D:\School\4610\API\local\project\sub\ [SUCCESS]
+2023-04-08 14:30:00,085 - serverTesting-FilMan - DEBUG - Attempting to save 90044A271_Black-Oxide Alloy Steel Socket Head Screw.SLDPRT.BMP in ./static/data/Project B/resources/90044A271_Black-Oxide Alloy Steel Socket Head Screw.SLDPRT.BMP
+2023-04-08 14:30:00,086 - serverTesting-FilMan - ERROR - 90044A271_Black-Oxide Alloy Steel Socket Head Screw.SLDPRT.BMP already exists
+2023-04-08 14:31:29,264 - serverTesting-FilMan - DEBUG - Attempting to save 90044A271_Black-Oxide Alloy Steel Socket Head Screw.SLDPRT.7 in ./static/data/Project B/90044A271_Black-Oxide Alloy Steel Socket Head Screw.SLDPRT.7
+2023-04-08 14:31:29,269 - serverTesting-FilMan - DEBUG - Saving D:\School\4610\API\local\project\sub\ [SUCCESS]
+2023-04-08 14:31:29,524 - serverTesting-FilMan - DEBUG - Attempting to save 90044A271_Black-Oxide Alloy Steel Socket Head Screw.SLDPRT.BMP in ./static/data/Project B/resources/90044A271_Black-Oxide Alloy Steel Socket Head Screw.SLDPRT.BMP
+2023-04-08 14:31:29,532 - serverTesting-FilMan - DEBUG - Saving D:\School\4610\API\local\project\sub\ [SUCCESS]
+2023-04-08 21:20:49,106 - serverTesting-FilMan - DEBUG - Attempting to save partMAYBE.SLDPRT.1 in ./static/data/Project C2/Project C2/partMAYBE.SLDPRT.1
+2023-04-08 21:20:49,111 - serverTesting-FilMan - DEBUG - Saving D:\School\4610\API\local\Project C2\ [SUCCESS]
+2023-04-08 21:20:49,421 - serverTesting-FilMan - DEBUG - Attempting to save partMAYBE.SLDPRT.BMP in ./static/data/Project C2/resources/partMAYBE.SLDPRT.BMP
+2023-04-08 21:20:49,426 - serverTesting-FilMan - DEBUG - Saving D:\School\4610\API\local\Project C2\ [SUCCESS]
+2023-04-08 21:25:33,069 - serverTesting-FilMan - DEBUG - Attempting to save abc123.SLDPRT.1 in ./static/data/Project C2/abc123.SLDPRT.1
+2023-04-08 21:25:33,073 - serverTesting-FilMan - DEBUG - Saving D:\School\4610\API\local\Project C2\ [SUCCESS]
+2023-04-08 21:25:33,386 - serverTesting-FilMan - DEBUG - Attempting to save abc123.SLDPRT.BMP in ./static/data/Project C2/resources/abc123.SLDPRT.BMP
+2023-04-08 21:25:33,394 - serverTesting-FilMan - DEBUG - Saving D:\School\4610\API\local\Project C2\ [SUCCESS]
+2023-04-08 21:28:27,753 - serverTesting-FilMan - DEBUG - Attempting to save testHOPE.SLDPRT.1 in ./static/data/Test C/testHOPE.SLDPRT.1
+2023-04-08 21:28:27,756 - serverTesting-FilMan - DEBUG - Saving D:\School\4610\API\local\Test C\ [SUCCESS]
+2023-04-08 21:28:28,022 - serverTesting-FilMan - DEBUG - Attempting to save testHOPE.SLDPRT.BMP in ./static/data/Test C/resources/testHOPE.SLDPRT.BMP
+2023-04-08 21:28:28,027 - serverTesting-FilMan - DEBUG - Saving D:\School\4610\API\local\Test C\ [SUCCESS]
+2023-04-08 21:35:55,530 - serverTesting-FilMan - DEBUG - Attempting to save TestHOPE3.SLDPRT.BMP in ./static/data/Test C/resources/TestHOPE3.SLDPRT.BMP
+2023-04-08 21:35:55,536 - serverTesting-FilMan - DEBUG - Saving D:\School\4610\API\local\Test C\ [SUCCESS]
+2023-04-08 21:39:06,659 - serverTesting-FilMan - DEBUG - Attempting to save FirstPart.SLDPRT.BMP in ./static/data/Does It Work/resources/FirstPart.SLDPRT.BMP
+2023-04-08 21:39:06,665 - serverTesting-FilMan - DEBUG - Saving D:\School\4610\API\local\Does It Work\ [SUCCESS]
+2023-04-08 21:41:48,881 - serverTesting-FilMan - DEBUG - Attempting to save next.SLDPRT.BMP in ./static/data/Project C2/resources/next.SLDPRT.BMP
+2023-04-08 21:41:48,885 - serverTesting-FilMan - DEBUG - Saving D:\School\4610\API\local\Project C2\ [SUCCESS]
+2023-04-08 21:42:17,975 - serverTesting-FilMan - DEBUG - Attempting to save next.SLDPRT.BMP in ./static/data/Project C2/resources/next.SLDPRT.BMP
+2023-04-08 21:42:17,980 - serverTesting-FilMan - DEBUG - Saving D:\School\4610\API\local\Project C2\ [SUCCESS]
+2023-04-08 21:45:27,710 - serverTesting-FilMan - DEBUG - Attempting to save shakespear_weston_crankshaftsupport.SLDPRT.1 in ./static/data/Project C2/shakespear_weston_crankshaftsupport.SLDPRT.1
+2023-04-08 21:45:27,715 - serverTesting-FilMan - DEBUG - Saving C:\Users\wes\Desktop\ [SUCCESS]
+2023-04-08 21:45:28,039 - serverTesting-FilMan - DEBUG - Attempting to save shakespear_weston_crankshaftsupport.SLDPRT.BMP in ./static/data/Project C2/resources/shakespear_weston_crankshaftsupport.SLDPRT.BMP
+2023-04-08 21:45:28,047 - serverTesting-FilMan - DEBUG - Saving C:\Users\wes\Desktop\ [SUCCESS]
+2023-04-08 21:48:30,902 - serverTesting-FilMan - DEBUG - Attempting to save second.SLDPRT.BMP in ./static/data/Does It Work/resources/second.SLDPRT.BMP
+2023-04-08 21:48:30,910 - serverTesting-FilMan - DEBUG - Saving D:\School\4610\API\local\Does It Work\ [SUCCESS]
+2023-04-11 14:28:47,836 - serverTesting-FilMan - DEBUG - Attempting to save ff.SLDPRT.1 in ./static/data/Project C2/ff.SLDPRT.1
+2023-04-11 14:28:47,845 - serverTesting-FilMan - DEBUG - Saving D:\School\4610\API\local\Project C2\ [SUCCESS]
+2023-04-11 14:28:48,107 - serverTesting-FilMan - DEBUG - Attempting to save ff.SLDPRT.BMP in ./static/data/Project C2/resources/ff.SLDPRT.BMP
+2023-04-11 14:28:48,115 - serverTesting-FilMan - DEBUG - Saving D:\School\4610\API\local\Project C2\ [SUCCESS]
+2023-04-11 14:29:28,429 - serverTesting-FilMan - DEBUG - Attempting to save iThinkItWorks.SLDPRT.1 in ./static/data/Project C2/iThinkItWorks.SLDPRT.1
+2023-04-11 14:29:28,432 - serverTesting-FilMan - DEBUG - Saving D:\School\4610\API\local\Project C2\ [SUCCESS]
+2023-04-11 14:29:28,717 - serverTesting-FilMan - DEBUG - Attempting to save iThinkItWorks.SLDPRT.BMP in ./static/data/Project C2/resources/iThinkItWorks.SLDPRT.BMP
+2023-04-11 14:29:28,725 - serverTesting-FilMan - DEBUG - Saving D:\School\4610\API\local\Project C2\ [SUCCESS]
+2023-04-13 20:14:05,410 - serverTesting-FilMan - DEBUG - Attempting to save thirdPart.SLDPRT.1 in ./static/data/BeginAgain/thirdPart.SLDPRT.1
+2023-04-13 20:14:05,414 - serverTesting-FilMan - DEBUG - Saving D:\School\4610\API\local\BeginAgain\ [SUCCESS]
+2023-04-13 20:14:05,788 - serverTesting-FilMan - DEBUG - Attempting to save thirdPart.SLDPRT.BMP in ./static/data/BeginAgain/resources/thirdPart.SLDPRT.BMP
+2023-04-13 20:14:05,799 - serverTesting-FilMan - DEBUG - Saving D:\School\4610\API\local\BeginAgain\ [SUCCESS]
+2023-04-13 20:14:28,027 - serverTesting-FilMan - DEBUG - Attempting to save thirdPart.SLDPRT.1 in ./static/data/BeginAgain/thirdPart.SLDPRT.1
+2023-04-13 20:14:28,027 - serverTesting-FilMan - ERROR - thirdPart.SLDPRT.1 already exists
+2023-04-13 20:14:28,286 - serverTesting-FilMan - DEBUG - Attempting to save thirdPart.SLDPRT.BMP in ./static/data/BeginAgain/resources/thirdPart.SLDPRT.BMP
+2023-04-13 20:14:28,294 - serverTesting-FilMan - DEBUG - Saving D:\School\4610\API\local\BeginAgain\ [SUCCESS]
+2023-04-13 20:16:13,345 - serverTesting-FilMan - DEBUG - Attempting to save fourth.SLDPRT.1 in ./static/data/BeginAgain/fourth.SLDPRT.1
+2023-04-13 20:16:13,350 - serverTesting-FilMan - DEBUG - Saving D:\School\4610\API\local\BeginAgain\ [SUCCESS]
+2023-04-13 20:16:13,620 - serverTesting-FilMan - DEBUG - Attempting to save fourth.SLDPRT.BMP in ./static/data/BeginAgain/resources/fourth.SLDPRT.BMP
+2023-04-13 20:16:13,632 - serverTesting-FilMan - DEBUG - Saving D:\School\4610\API\local\BeginAgain\ [SUCCESS]
+2023-04-13 20:17:13,401 - serverTesting-FilMan - DEBUG - Attempting to save fifth.SLDPRT.1 in ./static/data/BeginAgain/fifth.SLDPRT.1
+2023-04-13 20:17:13,406 - serverTesting-FilMan - DEBUG - Saving D:\School\4610\API\local\BeginAgain\ [SUCCESS]
+2023-04-13 20:17:13,698 - serverTesting-FilMan - DEBUG - Attempting to save fifth.SLDPRT.BMP in ./static/data/BeginAgain/resources/fifth.SLDPRT.BMP
+2023-04-13 20:17:13,707 - serverTesting-FilMan - DEBUG - Saving D:\School\4610\API\local\BeginAgain\ [SUCCESS]
+2023-04-13 20:18:31,097 - serverTesting-FilMan - DEBUG - Attempting to save sixth.SLDPRT.1 in ./static/data/BeginAgain/sixth.SLDPRT.1
+2023-04-13 20:18:31,101 - serverTesting-FilMan - DEBUG - Saving D:\School\4610\API\local\BeginAgain\ [SUCCESS]
+2023-04-13 20:18:31,353 - serverTesting-FilMan - DEBUG - Attempting to save sixth.SLDPRT.BMP in ./static/data/BeginAgain/resources/sixth.SLDPRT.BMP
+2023-04-13 20:18:31,361 - serverTesting-FilMan - DEBUG - Saving D:\School\4610\API\local\BeginAgain\ [SUCCESS]
+2023-04-13 21:10:42,321 - serverTesting-FilMan - DEBUG - Attempting to save aa.SLDPRT.BMP in ./static/data/ProjectA/resources/aa.SLDPRT.BMP
+2023-04-13 21:10:42,330 - serverTesting-FilMan - DEBUG - Saving D:\School\4610\API\local\ProjectA\ [SUCCESS]
+2023-04-13 21:13:37,892 - serverTesting-FilMan - DEBUG - Attempting to save abc.SLDPRT.1 in ./static/data/ProjA/abc.SLDPRT.1
+2023-04-13 21:13:37,894 - serverTesting-FilMan - DEBUG - Saving D:\School\4610\API\local\ProjA\ [SUCCESS]
+2023-04-13 21:13:38,144 - serverTesting-FilMan - DEBUG - Attempting to save abc.SLDPRT.BMP in ./static/data/ProjA/resources/abc.SLDPRT.BMP
+2023-04-13 21:13:38,149 - serverTesting-FilMan - DEBUG - Saving D:\School\4610\API\local\ProjA\ [SUCCESS]
+2023-04-14 09:49:53,920 - serverTesting-FilMan - DEBUG - Attempting to save def.SLDPRT.BMP in ./static/data/ProjA/resources/def.SLDPRT.BMP
+2023-04-14 09:49:53,928 - serverTesting-FilMan - DEBUG - Saving D:\School\4610\API\local\ProjA\ [SUCCESS]
+2023-04-14 09:50:36,804 - serverTesting-FilMan - DEBUG - Attempting to save geh.SLDPRT.BMP in ./static/data/ProjA/resources/geh.SLDPRT.BMP
+2023-04-14 09:50:36,813 - serverTesting-FilMan - DEBUG - Saving D:\School\4610\API\local\ProjA\ [SUCCESS]
+2023-04-14 09:53:08,110 - serverTesting-FilMan - DEBUG - Attempting to save ggg.SLDPRT.1 in ./static/data/ProjA/ggg.SLDPRT.1
+2023-04-14 09:53:08,113 - serverTesting-FilMan - DEBUG - Saving D:\School\4610\API\local\ProjA\ [SUCCESS]
+2023-04-14 09:53:08,377 - serverTesting-FilMan - DEBUG - Attempting to save ggg.SLDPRT.BMP in ./static/data/ProjA/resources/ggg.SLDPRT.BMP
+2023-04-14 09:53:08,385 - serverTesting-FilMan - DEBUG - Saving D:\School\4610\API\local\ProjA\ [SUCCESS]
+2023-04-14 10:35:30,846 - serverTesting-FilMan - DEBUG - Attempting to save test2.SLDASM.1 in ./static/data/another project/test2.SLDASM.1
+2023-04-14 10:35:30,850 - serverTesting-FilMan - DEBUG - Saving D:\School\4610\API\local\another project\ [SUCCESS]
+2023-04-14 10:35:31,111 - serverTesting-FilMan - DEBUG - Attempting to save test2.SLDASM.BMP in ./static/data/another project/resources/test2.SLDASM.BMP
+2023-04-14 10:35:31,119 - serverTesting-FilMan - DEBUG - Saving D:\School\4610\API\local\another project\ [SUCCESS]
+2023-04-14 10:35:42,816 - serverTesting-FilMan - DEBUG - Attempting to save test.SLDPRT.1 in ./static/data/another project/test.SLDPRT.1
+2023-04-14 10:35:42,820 - serverTesting-FilMan - DEBUG - Saving D:\School\4610\API\local\another project\ [SUCCESS]
+2023-04-14 10:35:43,062 - serverTesting-FilMan - DEBUG - Attempting to save test.SLDPRT.BMP in ./static/data/another project/resources/test.SLDPRT.BMP
+2023-04-14 10:35:43,069 - serverTesting-FilMan - DEBUG - Saving D:\School\4610\API\local\another project\ [SUCCESS]
+2023-04-14 15:53:44,871 - serverTesting-FilMan - DEBUG - Attempting to save test2.SLDASM.2 in ./static/data/another project/test2.SLDASM.2
+2023-04-14 15:53:44,875 - serverTesting-FilMan - DEBUG - Saving D:\School\4610\API\local\another project\ [SUCCESS]
+2023-04-14 15:53:45,217 - serverTesting-FilMan - DEBUG - Attempting to save test2.SLDASM.BMP in ./static/data/another project/resources/test2.SLDASM.BMP
+2023-04-14 15:53:45,224 - serverTesting-FilMan - DEBUG - Saving D:\School\4610\API\local\another project\ [SUCCESS]
+2023-04-14 15:54:09,445 - serverTesting-FilMan - DEBUG - Attempting to save test2.SLDASM.3 in ./static/data/another project/test2.SLDASM.3
+2023-04-14 15:54:09,448 - serverTesting-FilMan - DEBUG - Saving D:\School\4610\API\local\another project\ [SUCCESS]
+2023-04-14 15:54:09,771 - serverTesting-FilMan - DEBUG - Attempting to save test2.SLDASM.BMP in ./static/data/another project/resources/test2.SLDASM.BMP
+2023-04-14 15:54:09,779 - serverTesting-FilMan - DEBUG - Saving D:\School\4610\API\local\another project\ [SUCCESS]
+2023-04-15 15:55:20,590 - serverTesting-FilMan - DEBUG - Attempting to save file.SLDPRT.1 in ./static/data/debugProject/file.SLDPRTfile.SLDPRT.1
+2023-04-15 15:55:20,594 - serverTesting-FilMan - DEBUG - Saving D:\School\4610\API\local\debugProject\file.SLDPRT [SUCCESS]
+2023-04-15 15:55:20,620 - serverTesting-FilMan - DEBUG - Attempting to save file.SLDPRT.BMP in ./static/data/debugProject/resources/file.SLDPRT.BMP
+2023-04-15 15:55:20,624 - serverTesting-FilMan - DEBUG - Saving D:\School\4610\API\local\debugProject\file.SLDPRT [SUCCESS]
+2023-04-15 16:00:03,777 - serverTesting-FilMan - DEBUG - Attempting to save file2.SLDPRT.1 in ./static/data/debugProject/file2.SLDPRTfile2.SLDPRT.1
+2023-04-15 16:00:03,780 - serverTesting-FilMan - DEBUG - Saving D:\School\4610\API\local\debugProject\file2.SLDPRT [SUCCESS]
+2023-04-15 16:00:03,811 - serverTesting-FilMan - DEBUG - Attempting to save file2.SLDPRT.BMP in ./static/data/debugProject/resources/file2.SLDPRT.BMP
+2023-04-15 16:00:03,815 - serverTesting-FilMan - DEBUG - Saving D:\School\4610\API\local\debugProject\file2.SLDPRT [SUCCESS]
+2023-04-15 16:14:14,315 - serverTesting-FilMan - DEBUG - Attempting to save file3.SLDPRT.1 in ./static/data/debugProjectfile3.SLDPRT.1
+2023-04-15 16:14:14,317 - serverTesting-FilMan - DEBUG - Saving D:\School\4610\API\local\ [SUCCESS]
+2023-04-15 16:18:02,198 - serverTesting-FilMan - DEBUG - Attempting to save file4.SLDPRT.1 in ./static/data/debugProjectfile4.SLDPRT.1
+2023-04-15 16:18:02,201 - serverTesting-FilMan - DEBUG - Saving D:\School\4610\API\local\ [SUCCESS]
+2023-04-15 16:18:02,355 - serverTesting-FilMan - DEBUG - Attempting to save file4.SLDPRT.BMP in ./static/data/debugProject/resources/file4.SLDPRT.BMP
+2023-04-15 16:18:02,361 - serverTesting-FilMan - DEBUG - Saving D:\School\4610\API\local\ [SUCCESS]
+2023-04-15 16:20:34,656 - serverTesting-FilMan - DEBUG - Attempting to save file5.SLDPRT.1 in ./static/data/debugProjectfile5.SLDPRT.1
+2023-04-15 16:20:34,658 - serverTesting-FilMan - DEBUG - Saving debugProject [SUCCESS]
+2023-04-15 16:20:34,807 - serverTesting-FilMan - DEBUG - Attempting to save file5.SLDPRT.BMP in ./static/data/debugProject/resources/file5.SLDPRT.BMP
+2023-04-15 16:20:34,813 - serverTesting-FilMan - DEBUG - Saving D:\School\4610\API\local\ [SUCCESS]
+2023-04-15 16:23:38,652 - serverTesting-FilMan - DEBUG - Attempting to save file5.SLDPRT.2 in ./static/data/debugProject/file5.SLDPRT.2
+2023-04-15 16:23:38,655 - serverTesting-FilMan - DEBUG - Saving debugProject [SUCCESS]
+2023-04-15 16:23:38,860 - serverTesting-FilMan - DEBUG - Attempting to save file5.SLDPRT.BMP in ./static/data/debugProject/resources//file5.SLDPRT.BMP
+2023-04-15 16:23:45,825 - serverTesting-FilMan - DEBUG - Attempting to save file5.SLDPRT.3 in ./static/data/debugProject/file5.SLDPRT.3
+2023-04-15 16:23:45,829 - serverTesting-FilMan - DEBUG - Saving debugProject [SUCCESS]
+2023-04-15 16:23:46,002 - serverTesting-FilMan - DEBUG - Attempting to save file5.SLDPRT.BMP in ./static/data/debugProject/resources//file5.SLDPRT.BMP
+2023-04-15 16:23:50,289 - serverTesting-FilMan - DEBUG - Attempting to save file5.SLDPRT.4 in ./static/data/debugProject/file5.SLDPRT.4
+2023-04-15 16:23:50,292 - serverTesting-FilMan - DEBUG - Saving debugProject [SUCCESS]
+2023-04-15 16:23:50,468 - serverTesting-FilMan - DEBUG - Attempting to save file5.SLDPRT.BMP in ./static/data/debugProject/resources//file5.SLDPRT.BMP
+2023-04-15 16:23:53,812 - serverTesting-FilMan - DEBUG - Attempting to save file5.SLDPRT.5 in ./static/data/debugProject/file5.SLDPRT.5
+2023-04-15 16:23:53,815 - serverTesting-FilMan - DEBUG - Saving debugProject [SUCCESS]
+2023-04-15 16:23:53,987 - serverTesting-FilMan - DEBUG - Attempting to save file5.SLDPRT.BMP in ./static/data/debugProject/resources//file5.SLDPRT.BMP
+2023-04-15 16:37:50,117 - serverTesting-FilMan - DEBUG - Attempting to save file9.SLDPRT.1 in ./static/data/debugProject/file9.SLDPRT.1
+2023-04-15 16:37:50,120 - serverTesting-FilMan - DEBUG - Saving debugProject [SUCCESS]
+2023-04-15 16:37:50,349 - serverTesting-FilMan - DEBUG - Attempting to save file9.SLDPRT.BMP in ./static/data/debugProject/resources//file9.SLDPRT.BMP
+2023-04-15 16:38:07,745 - serverTesting-FilMan - DEBUG - Attempting to save file9.SLDPRT.2 in ./static/data/debugProject/file9.SLDPRT.2
+2023-04-15 16:38:07,747 - serverTesting-FilMan - DEBUG - Saving debugProject [SUCCESS]
+2023-04-15 16:38:08,038 - serverTesting-FilMan - DEBUG - Attempting to save file9.SLDPRT.BMP in ./static/data/debugProject/resources//file9.SLDPRT.BMP
+2023-04-15 16:39:56,631 - serverTesting-FilMan - DEBUG - Attempting to save file10.SLDPRT.1 in ./static/data/debugProject/file10.SLDPRT.1
+2023-04-15 16:39:56,634 - serverTesting-FilMan - DEBUG - Saving debugProject [SUCCESS]
+2023-04-15 16:39:56,872 - serverTesting-FilMan - DEBUG - Attempting to save file10.SLDPRT.BMP in ./static/data/debugProject/resources//file10.SLDPRT.BMP
+2023-04-15 16:40:02,503 - serverTesting-FilMan - DEBUG - Attempting to save file10.SLDPRT.2 in ./static/data/debugProject/file10.SLDPRT.2
+2023-04-15 16:40:02,506 - serverTesting-FilMan - DEBUG - Saving debugProject [SUCCESS]
+2023-04-15 16:40:02,763 - serverTesting-FilMan - DEBUG - Attempting to save file10.SLDPRT.BMP in ./static/data/debugProject/resources//file10.SLDPRT.BMP
+2023-04-15 16:40:05,518 - serverTesting-FilMan - DEBUG - Attempting to save file10.SLDPRT.3 in ./static/data/debugProject/file10.SLDPRT.3
+2023-04-15 16:40:05,521 - serverTesting-FilMan - DEBUG - Saving debugProject [SUCCESS]
+2023-04-15 16:40:05,734 - serverTesting-FilMan - DEBUG - Attempting to save file10.SLDPRT.BMP in ./static/data/debugProject/resources//file10.SLDPRT.BMP
+2023-04-15 16:49:30,860 - serverTesting-FilMan - DEBUG - Attempting to save file11.SLDPRT.1 in ./static/data/debugProject/file11.SLDPRT.1
+2023-04-15 16:49:30,863 - serverTesting-FilMan - DEBUG - Saving debugProject [SUCCESS]
+2023-04-15 16:49:31,112 - serverTesting-FilMan - DEBUG - Attempting to save file11.SLDPRT.BMP in ./static/data/debugProject/resources//file11.SLDPRT.BMP
+2023-04-15 16:53:49,221 - serverTesting-FilMan - DEBUG - Attempting to save anotherOne.SLDPRT.1 in ./static/data/debugProject/anotherOne.SLDPRT.1
+2023-04-15 16:53:49,224 - serverTesting-FilMan - DEBUG - Saving debugProject [SUCCESS]
+2023-04-15 16:53:49,490 - serverTesting-FilMan - DEBUG - Attempting to save anotherOne.SLDPRT.BMP in ./static/data/debugProject/resources//anotherOne.SLDPRT.BMP
+2023-04-15 17:34:50,778 - serverTesting-FilMan - DEBUG - Attempting to save file21.SLDPRT.1 in ./static/data/debugProject/file21.SLDPRT.1
+2023-04-15 17:34:50,781 - serverTesting-FilMan - DEBUG - Saving debugProject [SUCCESS]
+2023-04-15 17:34:51,034 - serverTesting-FilMan - DEBUG - Attempting to save file21.SLDPRT.BMP in ./static/data/debugProject/resources//file21.SLDPRT.BMP
+2023-04-15 17:37:35,203 - serverTesting-FilMan - DEBUG - Attempting to save 23.SLDPRT.1 in ./static/data/debugProject/23.SLDPRT.1
+2023-04-15 17:37:35,206 - serverTesting-FilMan - DEBUG - Saving debugProject [SUCCESS]
+2023-04-15 17:37:35,535 - serverTesting-FilMan - DEBUG - Attempting to save 23.SLDPRT.BMP in ./static/data/debugProject/resources//23.SLDPRT.BMP
+2023-04-15 17:39:56,609 - serverTesting-FilMan - DEBUG - Attempting to save 24.SLDPRT.1 in ./static/data/debugProject/24.SLDPRT.1
+2023-04-15 17:39:56,612 - serverTesting-FilMan - DEBUG - Saving debugProject [SUCCESS]
+2023-04-15 17:39:56,863 - serverTesting-FilMan - DEBUG - Saving debugProject/resources/ [SUCCESS]
+2023-04-15 17:40:15,988 - serverTesting-FilMan - DEBUG - Attempting to save 24.SLDPRT.2 in ./static/data/debugProject/24.SLDPRT.2
+2023-04-15 17:40:15,991 - serverTesting-FilMan - DEBUG - Saving debugProject [SUCCESS]
+2023-04-15 17:40:16,245 - serverTesting-FilMan - DEBUG - Saving debugProject/resources/ [SUCCESS]
+2023-04-15 17:41:55,202 - serverTesting-FilMan - DEBUG - Attempting to save 25.SLDPRT.1 in ./static/data/debugProject/25.SLDPRT.1
+2023-04-15 17:41:55,205 - serverTesting-FilMan - DEBUG - Saving debugProject [SUCCESS]
+2023-04-15 17:41:55,491 - serverTesting-FilMan - DEBUG - Saving debugProject/resources/ [SUCCESS]
+2023-04-15 17:42:11,140 - serverTesting-FilMan - DEBUG - Attempting to save 25.SLDPRT.2 in ./static/data/debugProject/25.SLDPRT.2
+2023-04-15 17:42:11,143 - serverTesting-FilMan - DEBUG - Saving debugProject [SUCCESS]
+2023-04-15 17:42:11,387 - serverTesting-FilMan - DEBUG - Saving debugProject/resources/ [SUCCESS]
+2023-04-15 17:43:40,165 - serverTesting-FilMan - DEBUG - Attempting to save 26.SLDPRT.1 in ./static/data/debugProject/26.SLDPRT.1
+2023-04-15 17:43:40,168 - serverTesting-FilMan - DEBUG - Saving debugProject [SUCCESS]
+2023-04-15 17:43:40,440 - serverTesting-FilMan - DEBUG - Saving debugProject/resources/ [SUCCESS]
+2023-04-15 17:43:56,612 - serverTesting-FilMan - DEBUG - Attempting to save 26.SLDPRT.2 in ./static/data/debugProject/26.SLDPRT.2
+2023-04-15 17:43:56,615 - serverTesting-FilMan - DEBUG - Saving debugProject [SUCCESS]
+2023-04-15 17:43:56,855 - serverTesting-FilMan - DEBUG - Saving debugProject/resources/ [SUCCESS]
+2023-04-15 17:46:01,809 - serverTesting-FilMan - DEBUG - Attempting to save 56.SLDPRT.1 in ./static/data/debugProject/56.SLDPRT.1
+2023-04-15 17:46:01,812 - serverTesting-FilMan - DEBUG - Saving debugProject [SUCCESS]
+2023-04-15 17:46:02,078 - serverTesting-FilMan - DEBUG - Saving debugProject/resources/ [SUCCESS]
+2023-04-15 17:46:19,158 - serverTesting-FilMan - DEBUG - Attempting to save 56.SLDPRT.2 in ./static/data/debugProject/56.SLDPRT.2
+2023-04-15 17:46:19,161 - serverTesting-FilMan - DEBUG - Saving debugProject [SUCCESS]
+2023-04-15 17:46:19,397 - serverTesting-FilMan - DEBUG - Saving debugProject/resources/ [SUCCESS]
+2023-04-15 17:47:09,764 - serverTesting-FilMan - DEBUG - Attempting to save assy.SLDASM.1 in ./static/data/debugProject/assy.SLDASM.1
+2023-04-15 17:47:09,769 - serverTesting-FilMan - DEBUG - Saving debugProject [SUCCESS]
+2023-04-15 17:47:10,008 - serverTesting-FilMan - DEBUG - Saving debugProject/resources/ [SUCCESS]
+2023-04-15 17:47:26,958 - serverTesting-FilMan - DEBUG - Attempting to save assy.SLDASM.2 in ./static/data/debugProject/assy.SLDASM.2
+2023-04-15 17:47:26,961 - serverTesting-FilMan - DEBUG - Saving debugProject [SUCCESS]
+2023-04-15 17:47:27,210 - serverTesting-FilMan - DEBUG - Saving debugProject/resources/ [SUCCESS]
+2023-04-15 17:47:39,383 - serverTesting-FilMan - DEBUG - Attempting to save assy.SLDASM.3 in ./static/data/debugProject/assy.SLDASM.3
+2023-04-15 17:47:39,386 - serverTesting-FilMan - DEBUG - Saving debugProject [SUCCESS]
+2023-04-15 17:47:39,637 - serverTesting-FilMan - DEBUG - Saving debugProject/resources/ [SUCCESS]
+2023-04-15 17:47:57,225 - serverTesting-FilMan - DEBUG - Attempting to save assy.SLDASM.4 in ./static/data/debugProject/assy.SLDASM.4
+2023-04-15 17:47:57,228 - serverTesting-FilMan - DEBUG - Saving debugProject [SUCCESS]
+2023-04-15 17:47:57,447 - serverTesting-FilMan - DEBUG - Saving debugProject/resources/ [SUCCESS]
+2023-04-15 18:06:37,404 - serverTesting-FilMan - DEBUG - Attempting to save 1776.SLDPRT.1 in ./static/data/debugProject/1776.SLDPRT.1
+2023-04-15 18:06:37,407 - serverTesting-FilMan - DEBUG - Saving debugProject [SUCCESS]
+2023-04-15 18:06:37,669 - serverTesting-FilMan - DEBUG - Saving debugProject/resources/ [SUCCESS]
+2023-04-15 18:06:40,251 - serverTesting-FilMan - DEBUG - Attempting to save 1776.SLDPRT.2 in ./static/data/debugProject/1776.SLDPRT.2
+2023-04-15 18:06:40,253 - serverTesting-FilMan - DEBUG - Saving debugProject [SUCCESS]
+2023-04-15 18:06:40,510 - serverTesting-FilMan - DEBUG - Saving debugProject/resources/ [SUCCESS]
+2023-04-15 18:06:42,291 - serverTesting-FilMan - DEBUG - Attempting to save 1776.SLDPRT.3 in ./static/data/debugProject/1776.SLDPRT.3
+2023-04-15 18:06:42,294 - serverTesting-FilMan - DEBUG - Saving debugProject [SUCCESS]
+2023-04-15 18:06:42,537 - serverTesting-FilMan - DEBUG - Saving debugProject/resources/ [SUCCESS]
+2023-04-15 18:06:44,247 - serverTesting-FilMan - DEBUG - Attempting to save 1776.SLDPRT.4 in ./static/data/debugProject/1776.SLDPRT.4
+2023-04-15 18:06:44,250 - serverTesting-FilMan - DEBUG - Saving debugProject [SUCCESS]
+2023-04-15 18:06:44,465 - serverTesting-FilMan - DEBUG - Saving debugProject/resources/ [SUCCESS]
+2023-04-15 18:53:30,232 - serverTesting-FilMan - DEBUG - Attempting to save 1776.SLDPRT.5 in ./static/data/debugProject/1776.SLDPRT.5
+2023-04-15 18:53:30,235 - serverTesting-FilMan - DEBUG - Saving debugProject [SUCCESS]
+2023-04-15 18:53:30,491 - serverTesting-FilMan - DEBUG - Saving debugProject/resources/ [SUCCESS]
+2023-04-15 19:07:56,078 - serverTesting-FilMan - DEBUG - Attempting to save 1776.SLDPRT.6 in ./static/data/debugProject/1776.SLDPRT.6
+2023-04-15 19:07:56,081 - serverTesting-FilMan - DEBUG - Saving debugProject [SUCCESS]
+2023-04-15 19:07:56,318 - serverTesting-FilMan - DEBUG - Saving debugProject/resources/ [SUCCESS]
+2023-04-15 19:47:35,389 - serverTesting-FilMan - DEBUG - Attempting to save 24.SLDPRT.3 in ./static/data/debugProject/24.SLDPRT.3
+2023-04-15 19:47:35,392 - serverTesting-FilMan - DEBUG - Saving debugProject [SUCCESS]
+2023-04-15 19:47:35,709 - serverTesting-FilMan - DEBUG - Saving debugProject/resources/ [SUCCESS]
+2023-04-15 19:47:54,776 - serverTesting-FilMan - DEBUG - Attempting to save 24.SLDPRT.4 in ./static/data/debugProject/24.SLDPRT.4
+2023-04-15 19:47:54,780 - serverTesting-FilMan - DEBUG - Saving debugProject [SUCCESS]
+2023-04-15 19:47:55,022 - serverTesting-FilMan - DEBUG - Saving debugProject/resources/ [SUCCESS]
+2023-04-17 16:22:12,836 - serverTesting-FilMan - DEBUG - Attempting to save 23.SLDPRT.2 in ./static/data/debugProject/23.SLDPRT.2
+2023-04-17 16:22:12,843 - serverTesting-FilMan - DEBUG - Saving debugProject [SUCCESS]
+2023-04-17 16:22:13,202 - serverTesting-FilMan - DEBUG - Saving debugProject/resources/ [SUCCESS]
+2023-04-17 18:57:22,029 - serverTesting-FilMan - DEBUG - Attempting to save thisProject.SLDPRT.1 in ./static/data/new project1/thisProject.SLDPRT.1
+2023-04-17 18:57:22,032 - serverTesting-FilMan - DEBUG - Saving new project1 [SUCCESS]
+2023-04-17 18:57:39,935 - serverTesting-FilMan - DEBUG - Attempting to save thisANOther.SLDPRT.1 in ./static/data/new project1/thisANOther.SLDPRT.1
+2023-04-17 18:57:39,938 - serverTesting-FilMan - DEBUG - Saving new project1 [SUCCESS]
+2023-04-17 22:06:48,431 - serverTesting-FilMan - DEBUG - Attempting to save thisProject.SLDPRT.2 in ./static/data/new project1/thisProject.SLDPRT.2
+2023-04-17 22:06:48,434 - serverTesting-FilMan - DEBUG - Saving new project1 [SUCCESS]

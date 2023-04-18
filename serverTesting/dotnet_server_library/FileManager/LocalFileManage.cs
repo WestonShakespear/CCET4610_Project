@@ -398,42 +398,42 @@ public class LocalFileManage
     //status 0 good
     //status 1 new
     //status 2 old
-    public int? getFileStatus(string filename)
-    {
-        string pname = this.cloudLookup[filename];
-        string localVersion = "";
-        string cloudVersion = "";        
+    // public int? getFileStatus(string filename)
+    // {
+    //     string pname = this.cloudLookup[filename];
+    //     string localVersion = "";
+    //     string cloudVersion = "";        
 
-        if(this.localTree[pname].ContainsKey(filename))
-        {
-            localVersion = this.localTree[pname][filename]["version"];
-        } else {
-            return null;
-        }
+    //     if(this.localTree[pname].ContainsKey(filename))
+    //     {
+    //         localVersion = this.localTree[pname][filename]["version"];
+    //     } else {
+    //         return null;
+    //     }
 
-        if (this.cloudTree[pname].ContainsKey(filename))
-        {
-            cloudVersion = this.cloudTree[pname][filename]["version"];
-        } else {
-            return null;
-        }
+    //     if (this.cloudTree[pname].ContainsKey(filename))
+    //     {
+    //         cloudVersion = this.cloudTree[pname][filename]["version"];
+    //     } else {
+    //         return null;
+    //     }
 
-        int lV = Int32.Parse(localVersion);
-        int cV = Int32.Parse(cloudVersion);
+    //     int lV = Int32.Parse(localVersion);
+    //     int cV = Int32.Parse(cloudVersion);
 
-        if (lV == cV)
-        {
-            return 0;
-        } 
-        else if (lV > cV)
-        {
-            return 1;
-        } 
-        else
-        {
-            return 2;
-        }
-    }
+    //     if (lV == cV)
+    //     {
+    //         return 0;
+    //     } 
+    //     else if (lV > cV)
+    //     {
+    //         return 1;
+    //     } 
+    //     else
+    //     {
+    //         return 2;
+    //     }
+    // }
 
 
 
@@ -615,6 +615,52 @@ public class LocalFileManage
         if (this.localLookup.ContainsKey(name))
         {
             return true;
+        }
+        return false;
+    }
+
+    //status 0 good synced
+    //status 1 new  push
+    //status 2 old  pull
+    public int? getFileStatus(string name)
+    {
+        if(this.cloudLookup.ContainsKey(name))
+        {
+            string pname = this.cloudLookup[name];
+
+            if (this.localLookup.ContainsKey(name))
+            {
+                string c = this.cloudTree[pname][name]["version"];
+                string l = this.localTree[pname][name]["version"];
+                if (c == l)
+                {
+                    return 0;
+                } else if (Int32.Parse(c) > Int32.Parse(l))
+                {
+                    return 2;
+                } else {
+                    return 1;
+                }
+            } else {
+                return 2;
+            }
+        } else {
+            return null;
+        }
+    }
+
+    public bool downloadfile(string name)
+    {
+        if (this.cloudLookup.ContainsKey(name) && api != null)
+        {
+            string pname = this.cloudLookup[name];
+            string localPath = this.comb(this.localPathHead, this.cloudTree[pname][name]["path"], name);
+
+            Console.WriteLine("Project: " + pname);
+            Console.WriteLine("Name: " + name);
+            Console.WriteLine("path: " + localPath);
+
+            return this.api.recvFile(pname, name, localPath);
         }
         return false;
     }

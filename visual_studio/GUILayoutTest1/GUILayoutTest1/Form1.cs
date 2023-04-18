@@ -17,6 +17,9 @@ using System.Configuration;
 using System.Runtime.CompilerServices;
 using System.IO;
 using static System.Net.Mime.MediaTypeNames;
+using System.Linq;
+using System.Security.Cryptography;
+using System.Xml.Linq;
 
 namespace GUILayoutTest1
 {
@@ -65,9 +68,12 @@ namespace GUILayoutTest1
         // checks for files that need to be saved
         private System.Windows.Forms.Timer checkTrackedTimer = new System.Windows.Forms.Timer();
 
+        private System.Windows.Forms.Timer checkDocTimer = new System.Windows.Forms.Timer();
+
         // list of file names that need to be saved
         // reference to tracked files
         private List<string> saveQueue = new List<string>();
+        private Dictionary<string, bool> openQueue = new Dictionary<string, bool>();
 
 
 
@@ -107,6 +113,9 @@ namespace GUILayoutTest1
 
         bool swConnected = false;
         bool apiConnected = false;
+
+
+        private bool checkDocFlag = false;
 
 
 
@@ -157,6 +166,9 @@ namespace GUILayoutTest1
             this.checkTrackedTimer.Tick += new EventHandler(TimerTrackedEventProcessor);
             this.checkTrackedTimer.Interval = 1000;
             this.checkTrackedTimer.Start();
+
+            this.checkDocTimer.Tick += new EventHandler(TimerCheckDocEventProcessor);
+            this.checkDocTimer.Interval = 1000;
 
         }
 
@@ -220,13 +232,14 @@ namespace GUILayoutTest1
             this.lfm.refreshLocalFileList();
         }
 
-        private void TimerTrackedEventProcessor(Object myObject, EventArgs myEventArgs)
-        {
-            this.debugTimerEvents();
 
+
+
+        private void saveQueueProcessing()
+        {
             List<string> complete = new List<string>();
 
-            foreach( string item in this.saveQueue)
+            foreach (string item in this.saveQueue)
             {
                 this.fileSaved(item);
                 // pop item
@@ -236,7 +249,97 @@ namespace GUILayoutTest1
             foreach (string item in complete)
             {
                 this.saveQueue.Remove(item);
-            }  
+            }
+        }
+
+        private void openQueueProcessing()
+        {
+            List<string> exist = new List<string>();
+
+            foreach (KeyValuePair<string, bool> item in this.openQueue)
+            {
+                if (Path.Exists(item.Key))
+                {
+                    exist.Add(item.Key);
+                    this.openFile(item.Key, item.Value);
+                }
+
+            }
+
+            foreach (string item in exist)
+            {
+                this.openQueue.Remove(item);
+            }
+        }
+
+        private void closeCheckProcessing()
+        {
+            if (this.sld == null)
+            {
+                return;
+            }
+            var value = this.sld.EnumDocuments2();
+
+            List<string> openDocNames = new List<string>();
+
+            if (value != null)
+            {
+                ModelDoc2 model;
+
+                while (1 == 1)
+                {
+                    int fetched = 0;
+                    value.Next(1, out model, ref fetched);
+
+                    if (model == null)
+                    {
+                        break;
+                    }
+                    try
+                    {
+                        openDocNames.Add(Path.GetFileName(model.GetPathName()));
+                    }
+                    catch (System.Runtime.InteropServices.COMException e)
+                    {
+
+                    }
+                    
+
+                }
+            }
+
+            // loop and remove
+            // if value was null this will be all
+            foreach (KeyValuePair<string, string> trackedFile in this.trackedFiles)
+            {
+                string name = trackedFile.Key;
+
+                if (!openDocNames.Contains(name))
+                {
+                    this.removeClosedDocument(name);
+                }
+            }
+        }
+
+        private void removeClosedDocument(string name)
+        {
+            this.autoSync[name] = true;
+            this.taskPaneView.removeDocEntry(name);
+
+            this.trackedFiles.Remove(name);
+            this.autoSync.Remove(name);
+        }
+
+        private void TimerTrackedEventProcessor(Object myObject, EventArgs myEventArgs)
+        {
+            this.debugTimerEvents();
+
+            this.saveQueueProcessing();
+
+            this.openQueueProcessing();
+
+            this.closeCheckProcessing();
+
         }
 
 
@@ -246,6 +349,12 @@ namespace GUILayoutTest1
             foreach (string item in this.saveQueue)
             {
                 Debug.WriteLine("    -" + item);
+            }
+
+            Debug.WriteLine("open queue: " + this.saveQueue.Count.ToString());
+            foreach (KeyValuePair<string, bool> item in this.openQueue)
+            {
+                Debug.WriteLine("    -" + item.Key);
             }
 
 
@@ -417,6 +526,13 @@ namespace GUILayoutTest1
             }
         }
 
+
+        
+
+
+
+
+
         
 
 
@@ -425,32 +541,13 @@ namespace GUILayoutTest1
 
 
 
-
-
-
-
-
-        
 
 
         /**
          * PROJECT CONTEXT MENU ACTIONS
          */
-        private bool contextMenuDownloadAll()
-        {
-
-
-            return true;
-        }
 
         private bool contextMenuUploadAll()
-        {
-
-
-            return true;
-        }
-
-        private bool contextMenuOpenAll()
         {
 
 
@@ -467,77 +564,107 @@ namespace GUILayoutTest1
 
 
 
-
         
 
-        private void openTreeFile(bool ro)
+        private void openExistingFile(string name, bool ro)
+        {
+            //try
+           // {
+                string openPath = this.lfm.getFullPathFromName(name);
+                this.openQueue.Add(openPath, ro);
+            //}
+           // catch (System.ArgumentException e)
+            //{
+
+            //}
+            
+        }
+
+        
+        private void openTreeProject(bool ro)
+        {
+            foreach (string filename in this.tree[this.currentSelectedProject])
+            {
+                this.openFileAndPrompt(filename, ro, false);
+            }
+        }
+        private void downloadTreeProject()
+        {
+            foreach (string a in this.tree[this.currentSelectedProject])
+            {
+                this.downloadTreeFile(a);
+            }
+        }
+
+        private void downloadTreeFile(string name)
+        {
+            string openPath = this.lfm.getFullPathFromName(name);
+
+            if(!lfm.downloadfile(name))
+            {
+                MessageBox.Show("Error downloading: " + name);
+                return;
+            }
+            this.updateLocal();
+
+        }
+        
+
+
+
+
+        private void openFileAndPrompt(string filename, bool ro, bool prompt)
         {
             if (this.lfm == null)
             {
                 return;
             }
-
-            if (this.lfm.testForLocalFile(this.currentFile))
-            {
-                string openPath = this.lfm.getFullPathFromName(this.currentFile);
-                string ext = Path.GetExtension(openPath);
-                string modelName = Path.GetFileNameWithoutExtension(openPath);
-
-                this.docM.openDoc(openPath, ro); 
-                ModelDoc2 newModel = this.docM.getModelFromName(modelName);
-
-                bool result = ext switch
-                {
-                    ".SLDPRT" => this.attachPartEvents(newModel),
-                    ".SLDASM" => this.attachAssemblyEvents(newModel),
-                    ".SLDDRW" => this.attachDrawingEvents(newModel),
-                    _ => false
-                };
-
-
-                int? status = this.lfm.getFileStatus(this.currentFile);
-                if (status.HasValue)
-                {
-                    this.addTrackedFile(this.currentFile, (int)status);
-                }
-                
-            } else
-            {
-                MessageBox.Show("file not downloaded");
-            }
-
-        }
-
-        /**
-         * PROJECT CONTEXT MENU ACTIONS
-         */
-        private bool contextMenuDownloadSingle()
-        {
             
+            if (!this.lfm.testForLocalFile(filename))
+            {
+                if (prompt)
+                {
+                    DialogResult res = MessageBox.Show("File does not exist locally, download?", "", MessageBoxButtons.YesNo);
 
-            return true;
+                    if (res != DialogResult.Yes)
+                    {
+                        return;
+                    }
+                }
+                this.downloadTreeFile(filename);
+                
+            }
+            this.openExistingFile(filename, ro);
         }
 
-        private bool contextMenuUploadSingle()
+
+        private void openFile(string openPath, bool ro)
         {
+            string ext = Path.GetExtension(openPath);
+            string modelname = Path.GetFileNameWithoutExtension(openPath);
+            string filename = Path.GetFileName(openPath);
+
+            this.docM.openDoc(openPath, ro);
+            ModelDoc2 newModel = this.docM.getModelFromName(modelname);
+
+            bool result = ext switch
+            {
+                ".SLDPRT" => this.attachPartEvents(newModel),
+                ".SLDASM" => this.attachAssemblyEvents(newModel),
+                ".SLDDRW" => this.attachDrawingEvents(newModel),
+                _ => false
+            };
 
 
-            return true;
+            int? status = this.lfm.getFileStatus(filename);
+            if (status.HasValue)
+            {
+                this.addTrackedFile(filename, (int)status);
+                this.createEvent();
+            }
         }
 
-        private bool contextMenuOpenSingle()
-        {
 
-
-            return true;
-        }
-
-        private bool contextMenuCloseSingle()
-        {
-
-
-            return true;
-        }
 
 
 
@@ -555,6 +682,10 @@ namespace GUILayoutTest1
             catch (System.Net.WebException)
             {
                 Debug.WriteLine("404");
+            }
+            catch (System.ArgumentException)
+            {
+                Debug.WriteLine("fatal");
             }
         }
 
@@ -577,11 +708,11 @@ namespace GUILayoutTest1
                 node.ForeColor = this.greenColor;
                 if (entry.Key == this.currentSelectedProject)
                 {
-                    node.NodeFont = new Font("Verdana", 12, FontStyle.Bold);
+                    node.NodeFont = new Font("Calibri", 16, FontStyle.Bold);
                 }
                 else
                 {
-                    node.NodeFont = new Font("Verdana", 12);
+                    node.NodeFont = new Font("Calibri", 16);
                 }
 
                 projectTreeView.Nodes.Add(node);
@@ -599,6 +730,7 @@ namespace GUILayoutTest1
                 currentSelectedProject = e.Node.Text;
 
                 this.updateFileTree();
+                //this.updateProjectTree();
             }
         }
         private void projectTreeClicked(MouseEventArgs e)
@@ -608,7 +740,7 @@ namespace GUILayoutTest1
                 case MouseButtons.Right:
                     {
                         var coordinates = new Point(Cursor.Position.X - this.Left, Cursor.Position.Y - this.Top);
-                        projectContextMenuStrip.Show(this, new Point(coordinates.X, coordinates.Y));
+                        projectContextMenuStrip.Show(this, new Point(coordinates.X - 20, coordinates.Y - 40));
                     }
                     break;
             }
@@ -617,10 +749,12 @@ namespace GUILayoutTest1
         {
             currentProject = currentSelectedProject;
             currentProjectLabel.Text = currentProject;
+
+            this.updateProjectTree();
         }
 
 
-
+        private Color[] status = { Color.FromArgb(42, 161, 152), Color.FromArgb(181, 137, 0), Color.FromArgb(220, 50, 47) };
 
         //----------------------------------FILE TREE LOGIC----------------------------------//
         private void updateFileTree()
@@ -632,10 +766,33 @@ namespace GUILayoutTest1
                     fileTreeView.BeginUpdate();
                     fileTreeView.Nodes.Clear();
 
+                    Dictionary<string, string> nodeTypes = new Dictionary<string, string>();
+                    nodeTypes.Add("Parts", ".SLDPRT");
+                    nodeTypes.Add("Assemblies", ".SLDASM");
+                    nodeTypes.Add("Drawings", ".SLDDRW");
+
+                    Dictionary<string, TreeNode> topNodes = new Dictionary<string, TreeNode>();
+
+                    foreach(KeyValuePair<string, string> defNode in nodeTypes)
+                    {
+                        topNodes.Add(defNode.Value, new TreeNode(defNode.Key));
+
+                        this.fileTreeView.Nodes.Add(topNodes[defNode.Value]);
+                    }
+
+
                     foreach (var file in tree[this.currentSelectedProject])
                     {
                         TreeNode node = new TreeNode(file);
-                        fileTreeView.Nodes.Add(node);
+
+                        int? st = this.lfm.getFileStatus(file);
+                        if (st != null)
+                        {
+                            node.ForeColor = status[(int)st];
+                        }
+
+                        string ext = Path.GetExtension(file);
+                        topNodes[ext].Nodes.Add(node);
 
                     }
 
@@ -664,11 +821,62 @@ namespace GUILayoutTest1
                 case MouseButtons.Right:
                     {
                         var coordinates = new Point(Cursor.Position.X - this.Left, Cursor.Position.Y - this.Top);
-                        fileContextMenuStrip.Show(this, new Point(coordinates.X, coordinates.Y));
+                        fileContextMenuStrip.Show(this, new Point(coordinates.X - 20, coordinates.Y - 40));
                     }
                     break;
             }
         }
+
+
+
+
+
+
+
+        private void TimerCheckDocEventProcessor(Object myObject, EventArgs myEventArgs)
+        {
+            
+
+
+        }
+
+
+
+
+
+        private void createEvent()
+        {
+            this.sld = (SldWorks)this.app;
+            this.sld.ActiveDocChangeNotify += this.SldWorks_ActiveDocChangeNotify;
+            this.sld.DocumentLoadNotify2 += this.SldWorks_DocumentLoadNotify;
+            this.sld.FileNewNotify2 += this.SldWorks_FileNewNotify;
+            //this.sld.FileCloseNotify += this.SldWorks_FileCloseNotify;
+        }
+
+        private int SldWorks_ActiveDocChangeNotify()
+        {
+            log("Event: SldWorks: Document Changed");
+
+            if (this.checkDocFlag == false)
+            {
+                this.checkDocFlag = true;
+            }
+            
+
+            return 1;
+        }
+        private int SldWorks_DocumentLoadNotify(string docTitle, string docPath)
+        {
+            log("Event: SldWorks: " + docTitle + " Loaded");
+            return 1;
+        }
+        private int SldWorks_FileNewNotify(object NewDoc, int DocType, string TemplateName)
+        {
+            log("Event: SldWorks: New " + TemplateName + " created");
+            return 1;
+        }
+
+
 
 
 
@@ -709,8 +917,13 @@ namespace GUILayoutTest1
             {
                 this.docM = new SW_DocMgr(this.swC);
                 this.app = this.swC.getApp();
+                this.sld = (SldWorks)this.app;
+
+                
 
                 this.createTaskPane(this.app);
+                //this.connectAppEventHandlers();
+                
 
                 this.sldConnectLabel.BackColor = this.greenColor;
                 this.solidConnectButton.ForeColor = this.redColor;
@@ -850,13 +1063,16 @@ namespace GUILayoutTest1
                 switch (e.ClickedItem.Text)
                 {
                     case "Download All":
-                        contextMenuDownloadAll();
+                        this.downloadTreeProject();
                         break;
                     case "Upload All":
                         contextMenuUploadAll();
                         break;
                     case "Open All":
-                        contextMenuOpenAll();
+                        this.openTreeProject(false);
+                        break;
+                    case "Read Only":
+                        MessageBox.Show("readonlyy");
                         break;
                     case "Close All":
                         contextMenuCloseAll();
@@ -880,7 +1096,11 @@ namespace GUILayoutTest1
                 {
                     case "Open":
                         //contextMenuDownloadAll();
-                        this.openTreeFile(false);
+                        this.openFileAndPrompt(this.currentFile, false, true);
+                        break;
+                    case "Download":
+                        //contextMenuDownloadAll();
+                        this.downloadTreeFile(this.currentFile);
                         break;
                     case "Sync":
                         //contextMenuUploadAll();
@@ -888,8 +1108,8 @@ namespace GUILayoutTest1
                     case "Merge":
                         //contextMenuOpenAll();
                         break;
-                    case "View":
-                        this.openTreeFile(true);
+                    case "Read Only":
+                        //this.openTreeFile(true);
                         break;
                     case "Close":
                         //contextMenuCloseAll();
@@ -1320,8 +1540,29 @@ namespace GUILayoutTest1
 
         }
 
+        private void projectTreeView_DrawNode(object sender, DrawTreeNodeEventArgs e)
+        {
+            if (e.Node == null) return;
 
+            // if treeview's HideSelection property is "True", 
+            // this will always returns "False" on unfocused treeview
+            var selected = (e.State & TreeNodeStates.Selected) == TreeNodeStates.Selected;
+            var unfocused = !e.Node.TreeView.Focused;
 
+            // we need to do owner drawing only on a selected node
+            // and when the treeview is unfocused, else let the OS do it for us
+            if (selected && unfocused)
+            {
+                var font = e.Node.NodeFont ?? e.Node.TreeView.Font;
+                
+                TextRenderer.DrawText(e.Graphics, e.Node.Text, font, e.Bounds, SystemColors.HighlightText, TextFormatFlags.GlyphOverhangPadding);
+            }
+            else
+            {
+                e.DrawDefault = true;
+            }
+        }
+        
     }
 }
 

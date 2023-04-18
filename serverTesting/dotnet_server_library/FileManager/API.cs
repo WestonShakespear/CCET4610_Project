@@ -114,13 +114,13 @@ public class API
     }
 
 
-    public bool recvFile(string remoteDir, string fileName) {
+    public bool recvFile(string project, string fileName, string localPath) {
         string url = this.baseURL + "file_download";
 
         var client = new RestClient(url);
         var request = new RestRequest(url, Method.Get);
         request.AddParameter("fileName", fileName);
-        request.AddParameter("remoteDir", remoteDir);
+        request.AddParameter("project", project);
 
         RestResponse response = client.Execute(request);
 
@@ -130,52 +130,40 @@ public class API
         if (output != null) {
             dynamic responseData =  JsonConvert.DeserializeObject(output);
 
-            string checksum = responseData.checksum;
+            try {
+                string checksum = responseData.checksum;
             string content = responseData.content;
 
             Decode dec = new Decode();
             Encode enc = new Encode();
 
-            if (enc.getFileChecksum(content) == checksum) {
-                byte[] fileData = dec.decodeFileB64(content);
+                if (enc.getFileChecksum(content) == checksum)
+                {
+                    byte[] fileData = dec.decodeFileB64(content);
 
-                return this.saveFile(fileData, remoteDir, fileName);
+                    return this.saveFile(fileData, localPath);
+                }
             }
+            catch (Microsoft.CSharp.RuntimeBinder.RuntimeBinderException e)
+            {
+                return false;
+            }
+            
         }
-        
         return false;
 
     }
 
 
-    public bool saveFile(byte[] fileData, string remoteDir, string fileName) {
-
-        string location = this.localPathHead + remoteDir + fileName;
-        string[] needed = remoteDir.Split(@"\");
-        
-        string[] dirs;
-        string currentPath = this.localPathHead;
-        string sub;
-
-        for(int i = 0; i < needed.Length - 1;i++) {
-            dirs = Directory.GetDirectories(currentPath, "*", SearchOption.TopDirectoryOnly);
-            sub = currentPath + needed[i];
-            //Console.WriteLine("Searching: " + currentPath+ " for: " + sub);
-
-            if (!dirs.Any(sub.Contains)) {
-                Directory.CreateDirectory(sub);
-            }
-
-            currentPath += needed[i];
-
-            if (i != needed.Length - 1) {
-                currentPath += @"\";
-            } 
+    public bool saveFile(byte[] fileData, string localPath) {
+        try{
+            using var writer = new BinaryWriter(File.OpenWrite(localPath));
+            writer.Write(fileData);
         }
-
-        using var writer = new BinaryWriter(File.OpenWrite(location));
-        writer.Write(fileData);
-
+        catch (System.IO.IOException e)
+        {
+            return false;
+        }
         return true;
     }
 

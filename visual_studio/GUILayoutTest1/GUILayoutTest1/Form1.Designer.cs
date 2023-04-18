@@ -134,6 +134,7 @@
             this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
             this.mergeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
+            this.closeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.projectContextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.toolStripMenuItem5 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem6 = new System.Windows.Forms.ToolStripMenuItem();
@@ -254,8 +255,9 @@
             // 
             this.projectTreeView.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(246)))), ((int)(((byte)(227)))));
             this.projectTreeView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.projectTreeView.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.projectTreeView.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.projectTreeView.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(110)))), ((int)(((byte)(117)))));
+            this.projectTreeView.FullRowSelect = true;
             this.projectTreeView.ItemHeight = 40;
             this.projectTreeView.Location = new System.Drawing.Point(10, 29);
             this.projectTreeView.Name = "projectTreeView";
@@ -291,6 +293,7 @@
             treeNode13});
             this.projectTreeView.Size = new System.Drawing.Size(261, 894);
             this.projectTreeView.TabIndex = 0;
+            this.projectTreeView.DrawNode += new System.Windows.Forms.DrawTreeNodeEventHandler(this.projectTreeView_DrawNode);
             this.projectTreeView.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.projectTreeView_AfterSelect);
             this.projectTreeView.DoubleClick += new System.EventHandler(this.projectTreeView_DoubleClick);
             this.projectTreeView.MouseDown += new System.Windows.Forms.MouseEventHandler(this.projectTreeView_MouseDown);
@@ -313,8 +316,10 @@
             // 
             this.fileTreeView.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(246)))), ((int)(((byte)(227)))));
             this.fileTreeView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.fileTreeView.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.fileTreeView.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.fileTreeView.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(110)))), ((int)(((byte)(117)))));
+            this.fileTreeView.FullRowSelect = true;
+            this.fileTreeView.HideSelection = false;
             this.fileTreeView.ItemHeight = 40;
             this.fileTreeView.Location = new System.Drawing.Point(10, 29);
             this.fileTreeView.Name = "fileTreeView";
@@ -860,34 +865,41 @@
             this.toolStripMenuItem2,
             this.toolStripMenuItem3,
             this.mergeToolStripMenuItem,
-            this.toolStripMenuItem4});
+            this.toolStripMenuItem4,
+            this.closeToolStripMenuItem});
             this.fileContextMenuStrip.Name = "fileContextMenuStrip";
-            this.fileContextMenuStrip.Size = new System.Drawing.Size(181, 114);
+            this.fileContextMenuStrip.Size = new System.Drawing.Size(129, 114);
             this.fileContextMenuStrip.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.fileContextMenuStrip_ItemClicked);
             // 
             // toolStripMenuItem2
             // 
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(128, 22);
             this.toolStripMenuItem2.Text = "Open";
             // 
             // toolStripMenuItem3
             // 
             this.toolStripMenuItem3.Name = "toolStripMenuItem3";
-            this.toolStripMenuItem3.Size = new System.Drawing.Size(180, 22);
-            this.toolStripMenuItem3.Text = "Sync";
+            this.toolStripMenuItem3.Size = new System.Drawing.Size(128, 22);
+            this.toolStripMenuItem3.Text = "Download";
             // 
             // mergeToolStripMenuItem
             // 
             this.mergeToolStripMenuItem.Name = "mergeToolStripMenuItem";
-            this.mergeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.mergeToolStripMenuItem.Text = "Merge";
+            this.mergeToolStripMenuItem.Size = new System.Drawing.Size(128, 22);
+            this.mergeToolStripMenuItem.Text = "Upload";
             // 
             // toolStripMenuItem4
             // 
             this.toolStripMenuItem4.Name = "toolStripMenuItem4";
-            this.toolStripMenuItem4.Size = new System.Drawing.Size(180, 22);
-            this.toolStripMenuItem4.Text = "Close";
+            this.toolStripMenuItem4.Size = new System.Drawing.Size(128, 22);
+            this.toolStripMenuItem4.Text = "Merge";
+            // 
+            // closeToolStripMenuItem
+            // 
+            this.closeToolStripMenuItem.Name = "closeToolStripMenuItem";
+            this.closeToolStripMenuItem.Size = new System.Drawing.Size(128, 22);
+            this.closeToolStripMenuItem.Text = "Close";
             // 
             // projectContextMenuStrip
             // 

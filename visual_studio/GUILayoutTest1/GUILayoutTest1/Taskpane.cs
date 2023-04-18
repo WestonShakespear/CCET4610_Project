@@ -301,9 +301,9 @@ namespace GUILayoutTest1
             this.currentRow++;
         }
 
-        //status 0 good
-        //status 1 new
-        //status 2 old
+        //status 0 good synced
+        //status 1 new  push
+        //status 2 old  pull
         public void updateDocEntry(string name, string version, int status)
         {
             this.versions[name] = version;
@@ -326,7 +326,15 @@ namespace GUILayoutTest1
 
         public void removeDocEntry(string name)
         {
+            int i = this.reference[name];
+            this.filenameButtons[i].Text = "";
+            this.versionLabels[i].Text = "";
+            this.versionLabels[i].BackColor = this.backColor;
+            this.autoButtons[i].BackColor = this.backColor;
 
+            versions.Remove(name);
+            reference.Remove(name);
+            auto.Remove(name);
         }
 
 
