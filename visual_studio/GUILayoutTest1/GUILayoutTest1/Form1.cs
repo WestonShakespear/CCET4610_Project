@@ -31,10 +31,12 @@ namespace GUILayoutTest1
 
         // application settings
         private string settingsFilename = "prog-settings.json";
-        private string templateDir = @"D:\School\4610\sld resource files\";
+
+        
         private string url = "";
         private string user = "";
         private string localHead = "";
+        private string templateDir = "";
         private string pid = "";
 
         // parent folder of executable
@@ -1463,16 +1465,18 @@ namespace GUILayoutTest1
                 var address = o1.address;
                 var user = o1.user;
                 var root = o1.root;
+                var temp = o1.template;
                 var pid = o1.pid;
 
                 bool result = (address != null) && (user != null) &&
-                              (root != null) && (pid != null);
+                              (root != null) && (pid != null) && (temp != null);
 
                 if (result)
                 {
                     this.url = address;
                     this.user = user;
                     this.localHead = root + "\\";
+                    this.templateDir = temp + "\\";
                     this.pid = pid;
 
                     settingsLoaded = true;
