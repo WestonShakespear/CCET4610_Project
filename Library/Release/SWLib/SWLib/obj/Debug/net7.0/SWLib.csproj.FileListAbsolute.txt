@@ -1,0 +1,15 @@
+C:\Users\wes\github-repos\ccet4610_project\dotnet_library\SWLib\SWLib\bin\Debug\net7.0\SWLib.deps.json
+C:\Users\wes\github-repos\ccet4610_project\dotnet_library\SWLib\SWLib\bin\Debug\net7.0\SWLib.dll
+C:\Users\wes\github-repos\ccet4610_project\dotnet_library\SWLib\SWLib\bin\Debug\net7.0\SWLib.pdb
+C:\Users\wes\github-repos\ccet4610_project\dotnet_library\SWLib\SWLib\bin\Debug\net7.0\SolidWorks.Interop.sldworks.dll
+C:\Users\wes\github-repos\ccet4610_project\dotnet_library\SWLib\SWLib\bin\Debug\net7.0\SolidWorks.Interop.swconst.dll
+C:\Users\wes\github-repos\ccet4610_project\dotnet_library\SWLib\SWLib\obj\Debug\net7.0\SWLib.csproj.AssemblyReference.cache
+C:\Users\wes\github-repos\ccet4610_project\dotnet_library\SWLib\SWLib\obj\Debug\net7.0\SWLib.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\wes\github-repos\ccet4610_project\dotnet_library\SWLib\SWLib\obj\Debug\net7.0\SWLib.AssemblyInfoInputs.cache
+C:\Users\wes\github-repos\ccet4610_project\dotnet_library\SWLib\SWLib\obj\Debug\net7.0\SWLib.AssemblyInfo.cs
+C:\Users\wes\github-repos\ccet4610_project\dotnet_library\SWLib\SWLib\obj\Debug\net7.0\SWLib.csproj.CoreCompileInputs.cache
+C:\Users\wes\github-repos\ccet4610_project\dotnet_library\SWLib\SWLib\obj\Debug\net7.0\SWLib.csproj.CopyComplete
+C:\Users\wes\github-repos\ccet4610_project\dotnet_library\SWLib\SWLib\obj\Debug\net7.0\SWLib.dll
+C:\Users\wes\github-repos\ccet4610_project\dotnet_library\SWLib\SWLib\obj\Debug\net7.0\refint\SWLib.dll
+C:\Users\wes\github-repos\ccet4610_project\dotnet_library\SWLib\SWLib\obj\Debug\net7.0\SWLib.pdb
+C:\Users\wes\github-repos\ccet4610_project\dotnet_library\SWLib\SWLib\obj\Debug\net7.0\ref\SWLib.dll

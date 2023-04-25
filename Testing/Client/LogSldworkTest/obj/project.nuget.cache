@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "dgSpecHash": "9qtPsSpyOlxI6Y+PKW/GoZqrv791iDyO9j/6sohEKAJkWobxwUS6NaSob7v19th31ptMlK6vgdnEtn629NipRw==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\wes\\github-repos\\ccet4610_project\\visual_studio\\LogSldworkTest\\LogSldworkTest.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\wes\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\3.1.32\\microsoft.netcore.app.host.win-x64.3.1.32.nupkg.sha512",
+    "C:\\Users\\wes\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\3.1.10\\microsoft.aspnetcore.app.ref.3.1.10.nupkg.sha512",
+    "C:\\Users\\wes\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\3.1.0\\microsoft.windowsdesktop.app.ref.3.1.0.nupkg.sha512",
+    "C:\\Users\\wes\\.nuget\\packages\\microsoft.netcore.app.ref\\3.1.0\\microsoft.netcore.app.ref.3.1.0.nupkg.sha512"
+  ],
+  "logs": []
+}
