@@ -6,7 +6,7 @@
 
 
 1. Download the zip folder containing the code and runtime using the button above.
-[Download ZIP Button Location](download.jpg)
+![Download ZIP Button Location](/download.jpg)
 2. Overall these files are about 700MB so take care where it gets unzipped.
 3. Once the file has been unzipped double click on the **Launch_Client.bat** batch file.
 4. Anti-virus may not trust this software as it's not signed and is launching from a somewhat "sketch" batch file.
