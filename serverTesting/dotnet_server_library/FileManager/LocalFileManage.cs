@@ -503,7 +503,7 @@ public class LocalFileManage
     }
 
 
-    public bool serverUploadFile(string filePath)
+    public bool serverUploadFile(string filePath, string relations)
     {
         string filename = Path.GetFileName(filePath);
         string imagename = filename + ".BMP";
@@ -523,17 +523,17 @@ public class LocalFileManage
         if (api != null)
         {
             string root = this.localPathHead;
-            api.sendFile(root, pname, remoteDir, filename, false);
-            api.sendFile(root, pname, remoteDir, imagename, true);
+            api.sendFile(root, pname, remoteDir, filename, relations, false);
+            api.sendFile(root, pname, remoteDir, imagename, relations, true);
 
             return true;
         }
         return false;
     }
 
-    public bool uploadFile(string filename)
+    public bool uploadFile(string filename, string relations)
     {
-        this.serverUploadFile(filename);
+        this.serverUploadFile(filename, relations);
         this.incEntryVersion(filename);
 
         return true;

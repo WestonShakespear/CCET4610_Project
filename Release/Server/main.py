@@ -74,6 +74,10 @@ def file_upload():
     up_filepath = json_data["filePath"]
     up_filename = json_data["fileName"]
     up_project = json_data["project"]
+    up_relations = json_data["relations"]
+
+    print("relations received----")
+    print(up_relations)
 
     up_remotedir = json_data["remoteDir"]
     up_remotedir = up_remotedir.replace("\\", "/")
@@ -110,30 +114,19 @@ def file_upload():
             filename = up_filename + ".1"
             if not fileMan.saveB64(up_content, up_remotedir, filename):
                 return "error saving new file"
-            db.addFileEntry(up_filename, up_remotedir, up_checksum, up_user)
+            db.addFileEntry(up_filename, up_remotedir, up_checksum, up_user, up_relations)
 
         else:
             # update file
             version = str(int(check) + 1)
             filename = up_filename + "." + version
             if not fileMan.saveB64(up_content, up_remotedir, filename):
+                print("broekn")
                 return "error saving updated file"
 
-            print(db.updateFileEntry(up_filename, up_remotedir, up_checksum, up_user, version))
+            print(db.updateFileEntry(up_filename, up_remotedir, up_checksum, up_user, up_relations, version))
             print("update file", version)
             
-        
-
-
-    # if (fileMan.getStringChecksum(up_content.encode("utf-8")) == up_checksum):
-    #     fileMan.saveB64(up_content, up_filepath, up_filename, up_remotedir)
-
-    #     if (up_preview == "False"):
-    #         # add entry to db
-    #         db.addFileEntry(up_filename, up_remotedir, up_checksum, up_user)
-
-    #     return "good"
-    # else:
     return "good"
     
 @app.route("/file_download", methods=["GET"])
@@ -183,8 +176,9 @@ def create_project():
             'success': 'false'
         }
 
-        if db.createProject(request_json):
-            response_json['success'] = 'true'
+        if fileMan.createProject(request_json['name']):
+            if db.createProject(request_json):
+                response_json['success'] = 'true'
 
         response = jsonify(response_json)
 
@@ -229,6 +223,6 @@ if __name__ == "__main__":
 
 
     # start flask app
-    app.run(host='0.0.0.0', port=5000)
+    app.run(host='0.0.0.0', port=8080)
 
     

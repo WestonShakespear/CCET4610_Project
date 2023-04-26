@@ -68,7 +68,7 @@ public class API
         return retData;
     }
 
-    public bool sendFile(string filePath, string project, string remoteDir, string fileName, bool resource) {
+    public bool sendFile(string filePath, string project, string remoteDir, string fileName, string relations, bool resource) {
         string url = this.baseURL + "file_upload";
 
         Encode enc = new Encode();
@@ -94,6 +94,7 @@ public class API
                 project = project,
                 remoteDir = remoteDir,
                 user = this.user,
+                relations = relations,
                 resource = resource.ToString()
             };
             var bodyy = JsonConvert.SerializeObject(body);

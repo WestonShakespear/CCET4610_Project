@@ -20,6 +20,9 @@ using static System.Net.Mime.MediaTypeNames;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Xml.Linq;
+using System.Text.Json.Nodes;
+using Newtonsoft.Json;
+using System.Windows.Forms;
 
 namespace GUILayoutTest1
 {
@@ -153,13 +156,19 @@ namespace GUILayoutTest1
                 System.Windows.Forms.Application.Exit();
             }
 
+            string[] comb = { this.executableDirectory, "sld resource files" };
+            this.templateDir = Path.Combine(comb);
+
 
             // try to load global settings, if not found prompt for file
             this.initSettings(false);
-            
+
 
             // try to connect to server with settings in config
-            this.initAPIConnect(this.url, this.user, this.localHead);
+            if (this.lfm != null)
+            {
+                this.initAPIConnect(this.url, this.user, this.localHead);
+            }
             this.initSolidConnect();
             //this.update();
 
@@ -206,20 +215,13 @@ namespace GUILayoutTest1
 
         private void updateLocal()
         {
-            // Create the local file manager if it doesn't exist
-            
-
-            // Create folder roots as long as there is a local head
-            if (this.localHead != "")
+            if (this.localHead != "\\" && this.localHead != "")
             {
                 List<string> projectNames = new List<string>();
-
-                //this.projectRoots = new Dictionary<string, string>();
 
                 foreach (KeyValuePair<string, List<string>> projectRoot in this.tree)
                 {
                     projectNames.Add(projectRoot.Key);
-                    //this.projectRoots.Add(projectRoot.Key, this.localHead + this.lfm.getPathFromName(projectRoot.Key));
                 }
 
 
@@ -373,7 +375,31 @@ namespace GUILayoutTest1
 
 
 
+        private string getFileDependents(string name)
+        {
+            dynamic rJSON = new JObject();
+            rJSON.relationCount = 0;
+            rJSON.relations = new JArray();
 
+            string modelname = Path.GetFileNameWithoutExtension(name);
+
+            var dep = this.docM.getDependents(modelname);
+            if (dep != null)
+            {
+                Dictionary<string, Dictionary<string, string>> dependents = dep;
+
+                int num = 0;
+                foreach (KeyValuePair<string, Dictionary<string, string>> depSingle in dependents)
+                {
+                    rJSON.relations.Add(depSingle.Value["name"]);
+                    num++;
+                }
+                rJSON.relationCount = num;
+            }
+
+
+            return JsonConvert.SerializeObject(rJSON);
+        }
 
         private void fileSaved(string name)
         {
@@ -394,9 +420,13 @@ namespace GUILayoutTest1
                     string fullPath = this.lfm.getFullPathFromName(name);
                     bool res = this.createPreview(fullPath, fullPath + ".BMP", false);
 
+                    
+                    string dependents = this.getFileDependents(name);
+                    Debug.WriteLine(dependents);
+
                     if (res)
                     {
-                        this.lfm.uploadFile(name);
+                        this.lfm.uploadFile(name, dependents);
                     }
 
                     this.update();
@@ -663,6 +693,7 @@ namespace GUILayoutTest1
             {
                 this.addTrackedFile(filename, (int)status);
                 this.createEvent();
+                Debug.WriteLine(this.docM.getDependents(modelname));
             }
         }
 
@@ -673,22 +704,30 @@ namespace GUILayoutTest1
         private void refreshPreview()
         {
             string urlData = this.url;
-            urlData += "preview/" + this.currentProject + "/" + this.currentFile;
 
-            Debug.WriteLine(urlData);
-            try
+            if (this.currentSelectedProject != "")
             {
-                this.previewPictureBox.Load(urlData);
-                this.previewPictureBox.Update();
+                if (this.currentFile != "")
+                {
+                    urlData += "preview/" + this.currentSelectedProject + "/" + this.currentFile;
+
+                    Debug.WriteLine(urlData);
+                    try
+                    {
+                        this.previewPictureBox.Load(urlData);
+                        this.previewPictureBox.Update();
+                    }
+                    catch (System.Net.WebException)
+                    {
+                        Debug.WriteLine("404");
+                    }
+                    catch (System.ArgumentException)
+                    {
+                        Debug.WriteLine("fatal");
+                    }
+                }
             }
-            catch (System.Net.WebException)
-            {
-                Debug.WriteLine("404");
-            }
-            catch (System.ArgumentException)
-            {
-                Debug.WriteLine("fatal");
-            }
+            
         }
 
 
@@ -888,30 +927,29 @@ namespace GUILayoutTest1
         //----------------------------------MAIN BUTTON LOGIC----------------------------------//
         private bool initAPIConnect(string url, string user, string localHead)
         {
-            if (this.lfm != null)
-            {
-                bool result = this.lfm.connectToServer(url, user, localHead);
+            bool result = this.lfm.connectToServer(url, user, localHead);
 
-                if (result)
-                {
-                    this.apiConnected = true;
-                    this.update();
-                    this.cloudConnectLabel.BackColor = this.greenColor;
-                    this.apiConnectButton.ForeColor = this.redColor;
-                } else {
-                    this.cloudConnectLabel.BackColor = this.redColor;
-                    this.apiConnectButton.ForeColor = this.greenColor;
-                }
-
-                return result;
-            } else
+            if (result)
             {
-                return false;
+                this.apiConnected = true;
+                this.update();
+                this.cloudConnectLabel.BackColor = this.greenColor;
+                this.apiConnectButton.ForeColor = this.redColor;
+            } else {
+                this.cloudConnectLabel.BackColor = this.redColor;
+                this.apiConnectButton.ForeColor = this.greenColor;
             }
+
+            return result;
+      
             
         }
         private void initSolidConnect()
         {
+            if (this.pid == "")
+            {
+                return;
+            }
             bool res = this.swC.connectToProcess(Int32.Parse(this.pid));
             this.swConnected = res;
 
@@ -1185,8 +1223,12 @@ namespace GUILayoutTest1
         {
             if (!this.apiConnected)
             {
-                this.initAPIConnect(this.url, this.user, this.localHead);
-                this.update();
+                if (this.lfm != null)
+                {
+                    //this.initAPIConnect(this.url, this.user, this.localHead);
+                }
+                
+                //this.update();
             }
             else
             {
@@ -1215,14 +1257,7 @@ namespace GUILayoutTest1
             else if (sldwrkSettings.pid != 0)
             {
                 // connect
-                bool res = this.swC.connectToProcess(sldwrkSettings.pid);
-                this.swConnected = res;
-
-                if (!this.swConnected)
-                {
-                    // error connecting
-                    MessageBox.Show("Error attaching to PID");
-                }
+                this.initSolidConnect();
             }
 
         }
@@ -1278,36 +1313,24 @@ namespace GUILayoutTest1
         //----------------------------------TASKPANE----------------------------------//
         void createTaskPane(ISldWorks app)
         {
-            string bitmap = "";
-            string toolTip = "Test Task Pane";
-            string ctrlName = "Test.Task";
+            string[] a = { this.executableDirectory, "small.ico" };
+            string bitmap = Path.Combine(a);
+            string toolTip = "API Manager";
+            string ctrlName = "API.Manager";
             string ctrlLicKey = "";
 
             swTaskPane = (TaskpaneView)app.CreateTaskpaneView2(bitmap, toolTip);
 
-
-            //taskPaneWinFormControl = new TestForm();
-            //taskPaneWinFormControl.testButton1.Click += new System.EventHandler(formButton1);
-            //taskPaneWinFormControl.testButton2.Click += new System.EventHandler(formButton2);
-            //taskPaneWinFormControl.testButton3.Click += new System.EventHandler(formButton3);
-
-            //swTaskPane.DisplayWindowFromHandlex64(taskPaneWinFormControl.Handle.ToInt64());
-
             this.taskPaneView = new Taskpane();
+            this.taskPaneView.exportSTLButton.Click += this.exportSTLButton;
+            this.taskPaneView.exportParasolidButton.Click += this.exportParasolidButton;
+            this.taskPaneView.exportSTEPButton.Click += this.exportSTEPButton;
+            this.taskPaneView.exportDXFButton.Click += this.exportDXFButton;
+
+
             this.taskPaneView.AutoSyncChanged += this.taskAutoSyncChanged;
             this.taskPaneView.NameClicked += this.taskNameClicked;
             swTaskPane.DisplayWindowFromHandlex64(this.taskPaneView.getHandle());
-
-
-
-
-            //bool result;
-            //result = swTaskPane.AddStandardButton((int)swTaskPaneBitmapsOptions_e.swTaskPaneBitmapsOptions_Back, "Back (standard)");
-            //result = swTaskPane.AddStandardButton((int)swTaskPaneBitmapsOptions_e.swTaskPaneBitmapsOptions_Next, "Next (standard)");
-            //result = swTaskPane.AddStandardButton((int)swTaskPaneBitmapsOptions_e.swTaskPaneBitmapsOptions_Close, "Close (standard)");
-            //result = swTaskPane.AddStandardButton((int)swTaskPaneBitmapsOptions_e.swTaskPaneBitmapsOptions_Ok, "OK (standard)");
-
-
 
             swTaskPane.TaskPaneActivateNotify += swTaskPane_TaskPaneActivateNotify;
             swTaskPane.TaskPaneDestroyNotify += swTaskPane_TaskPaneDestroyNotify;
@@ -1361,17 +1384,26 @@ namespace GUILayoutTest1
         }
 
         // TestForm Taskpane control events
-        private void formButton1(object sender, EventArgs e)
+        private void exportSTLButton(object sender, EventArgs e)
         {
-            log("Taskpane test button 1: clicked");
+            this.docM.exportActiveDoc("-" + this.getDateTimeString(), "STL");
         }
-        private void formButton2(object sender, EventArgs e)
+        private void exportParasolidButton(object sender, EventArgs e)
         {
-            log("Taskpane test button 2: clicked");
+            this.docM.exportActiveDoc("-" + this.getDateTimeString(), "x_t");
         }
-        private void formButton3(object sender, EventArgs e)
+        private void exportSTEPButton(object sender, EventArgs e)
         {
-            log("Taskpane test button 3: clicked");
+            this.docM.exportActiveDoc("-" + this.getDateTimeString(), "STEP");
+        }
+        private void exportDXFButton(object sender, EventArgs e)
+        {
+            this.docM.exportDWG("-" + this.getDateTimeString());
+        }
+
+        private string getDateTimeString()
+        {
+            return DateTime.Now.ToString("MMddyyyy-hmm");
         }
 
 
@@ -1465,22 +1497,25 @@ namespace GUILayoutTest1
                 var address = o1.address;
                 var user = o1.user;
                 var root = o1.root;
-                var temp = o1.template;
                 var pid = o1.pid;
 
                 bool result = (address != null) && (user != null) &&
-                              (root != null) && (pid != null) && (temp != null);
+                              (root != null) && (pid != null);
 
+                if (root == "")
+                {
+                    return;
+                }
                 if (result)
                 {
                     this.url = address;
                     this.user = user;
                     this.localHead = root + "\\";
-                    this.templateDir = temp + "\\";
+                    
                     this.pid = pid;
 
                     settingsLoaded = true;
-                    this.lfm = new LocalFileManage(this.localHead, this.templateDir);
+                    //this.lfm = new LocalFileManage(this.localHead, this.templateDir);
 
                 }
                 else
@@ -1508,23 +1543,17 @@ namespace GUILayoutTest1
 
             //Debug.WriteLine("window closed");
 
-            string url = settings.address;
-            string user = settings.user;
-            string localHead = settings.path;
-            string pid = settings.pid;
+            this.url = settings.address;
+            this.user = settings.user;
+            this.localHead = settings.path + @"\";
+            this.pid = settings.pid;
+
+
+            this.lfm = new LocalFileManage(localHead, this.templateDir);
 
             bool res = this.initAPIConnect(url, user, localHead);
-
-            if (res)
-            {
-                this.url = url;
-                this.user = user;
-                this.localHead = localHead;
-                this.pid = pid;
-                this.writeInternalSettings();
-            }
-            else
-            {
+            
+            if (!res) { 
                 MessageBox.Show("Error Connecting");
             }
         }

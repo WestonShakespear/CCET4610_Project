@@ -37,7 +37,6 @@ namespace GUILayoutTest1
             this.address = addressTextBox.Text;
             this.user = userTextBox.Text;
             this.path = pathTextBox.Text;
-            this.pid = pidTextBox.Text;
         }
 
         private void applyButton_Click(object sender, EventArgs e)
@@ -82,12 +81,6 @@ namespace GUILayoutTest1
                 if (root != null)
                 {
                     this.pathTextBox.Text = root;
-                }
-
-                string pid = o1.pid;
-                if (pid != null)
-                {
-                    this.pidTextBox.Text = pid;
                 }
             }
 

@@ -191,12 +191,20 @@ public class SW_DocMgr
     }
 
     private ModelDocExtension getModelExtFromName(string name) {
+
+        
+        ModelDoc2 document = (ModelDoc2) this.app.ActiveDoc;
+        EquationMgr eq = (EquationMgr) document.GetEquationMgr();
+
+
         return (ModelDocExtension)this.getModelFromName(name).Extension;
     }
 
     private EquationMgr getEquMgrFromName(string name) {
         return (EquationMgr)this.getModelFromName(name).GetEquationMgr();
     }
+
+    
 
     private ConfigurationManager getConfigMgrFromName(string name) {
         return (ConfigurationManager)this.getModelFromName(name).ConfigurationManager;
@@ -245,6 +253,28 @@ public class SW_DocMgr
 
 
 
+    public void exportDWG(string suffix)
+    {
+        ModelDoc2 doc = (ModelDoc2) this.app.ActiveDoc;
+        string filepath = doc.GetPathName();
+
+        string modelname = Path.GetFileNameWithoutExtension(filepath);
+        string? folder = Path.GetDirectoryName(filepath);
+
+        if (folder != null)
+        {
+            string[] pathParts = {folder, modelname + suffix + ".dwg"};
+            filepath = Path.Combine(pathParts);
+
+            double a = 0;
+
+            IPartDoc part = (IPartDoc) this.app.ActiveDoc;
+            part.IExportToDWG2(filepath,
+                                modelname,
+                                (int)swExportToDWG_e.swExportToDWG_ExportSelectedFacesOrLoops,
+                                true, ref a, false, false, 0, 0, null);
+        }
+    }
 
 
 
@@ -252,14 +282,43 @@ public class SW_DocMgr
 
 
 
+    public void exportActiveDoc(string suffix, string type)
+    {
+        ModelDoc2 doc = (ModelDoc2) this.app.ActiveDoc;
+        string filepath = doc.GetPathName();
+
+        string modelname = Path.GetFileNameWithoutExtension(filepath);
+        string? folder = Path.GetDirectoryName(filepath);
+
+        if (folder != null)
+        {
+            this.exportDoc(folder, modelname, suffix, type);
+        }
+    }
 
 
 
 
 
+    public int exportDoc(string folder, string docName, string suffix, string type)
+    {
+        //STL
+        //STEP
+        //x_t
+        string[] fileParts = {folder, docName + suffix + "." + type};
+        string filepath = Path.Combine(fileParts);
 
+        Console.WriteLine(filepath);
 
+        int errors = 0;
+        int warnings = 0;
 
+        ModelDocExtension modelEX = (ModelDocExtension) this.openDocs[docName].Extension;
+
+        modelEX.SaveAs(filepath, 0, (int)swSaveAsOptions_e.swSaveAsOptions_Silent, null, ref errors, ref warnings);
+
+        return errors;
+    }
 
 
 
@@ -340,23 +399,7 @@ public class SW_DocMgr
         ModelDoc2 model = (ModelDoc2)app.INewDocument2(template, (int)swDwgPaperSizes_e.swDwgPaperAsize, 0, 0);
 
         string name = Path.GetFileNameWithoutExtension(location);
-        // Console.WriteLine("Name: " + name);
-        // Console.WriteLine("Loc: " + location);
-        // Console.WriteLine(model.GetPathName());
 
-        // bool status = false;
-        // int errors = 0;
-        // int warnings = 0;
-        // ModelDocExtension modEx = (ModelDocExtension)model.Extension;
-
-        // int opt = (int)swSaveWithReferencesOptions_e.swSaveWithReferencesOptions_None;
-        // object options = modEx.GetAdvancedSaveAsOptions(opt);
-
-        // status = modEx.SaveAs3(location, (int)swSaveAsVersion_e.swSaveAsCurrentVersion, (int)swSaveAsOptions_e.swSaveAsOptions_Silent, null, options, ref errors, ref warnings);
-
-        // Console.WriteLine(status);
-        // Console.WriteLine(errors);
-        // Console.WriteLine(warnings);
 
         openDocs.Add(name, model);
     }

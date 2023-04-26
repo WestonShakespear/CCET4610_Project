@@ -14,25 +14,49 @@ class Program {
         string url = "http://127.0.0.1:5000/";
         string pathHead = @"D:\School\4610\API\local\";
         string user = "weston";
-        Console.WriteLine("SERVER: " + lFM.connectToServer(url, user, pathHead).ToString());
+        //Console.WriteLine("SERVER: " + lFM.connectToServer(url, user, pathHead).ToString());
 
         
         lFM.updateCloudTree();
        // Console.WriteLine(lFM.listTree(false));
         lFM.refreshLocalFileList();
-        Console.WriteLine(lFM.listTree(false));
+        //Console.WriteLine(lFM.listTree(false));
         
         // dynamic settings = new JObject();
         // settings.name = "debugProject";
         // settings.units = "";
         // settings.prefix = "";
         // settings.suffix = "";
-        Console.WriteLine(lFM.getFullPathFromName("file5.SLDPRT"));
-        Console.WriteLine(lFM.testForLocalFile("file5.SLDPRT"));
+        //Console.WriteLine(lFM.getFullPathFromName("file5.SLDPRT"));
+        //Console.WriteLine(lFM.testForLocalFile("file5.SLDPRT"));
 
 
-        string name = "23.SLDPRT";
-        lFM.downloadfile(name);
+        //string name = "23.SLDPRT";
+        //lFM.downloadfile(name);
+
+
+
+    //deserialize
+        string ret = "{'relationCount':0, 'relations':[]}";
+
+        dynamic? obj = JsonConvert.DeserializeObject(ret);
+        if (obj != null)
+        {
+            Console.WriteLine(obj.relationCount);
+        }
+
+
+        //serialize
+        dynamic testA = new JObject();
+
+        testA.relationCount = 2;
+        testA.relations = new JArray();
+        testA.relations.Add("asdf");
+        testA.relations.Add("bdsg");
+        
+        string st = JsonConvert.SerializeObject(testA);
+        Console.WriteLine(st);
+        
 
         // lFM.createProject(settings);
         // lFM.createFileFromTemplate("inch", lFM.comb(head, "debugProject", "file5.SLDPRT"), false);

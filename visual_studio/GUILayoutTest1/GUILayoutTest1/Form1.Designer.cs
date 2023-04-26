@@ -85,6 +85,7 @@
             System.Windows.Forms.TreeNode treeNode30 = new System.Windows.Forms.TreeNode("Drawing");
             System.Windows.Forms.TreeNode treeNode31 = new System.Windows.Forms.TreeNode("Drawings", new System.Windows.Forms.TreeNode[] {
             treeNode30});
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
@@ -97,11 +98,6 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.previewPictureBox = new System.Windows.Forms.PictureBox();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.tabPage5 = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.fileGroupBox = new System.Windows.Forms.GroupBox();
             this.currentFileLabel = new System.Windows.Forms.Label();
@@ -156,8 +152,6 @@
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.previewPictureBox)).BeginInit();
-            this.tabPage3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.tableLayoutPanel5.SuspendLayout();
             this.fileGroupBox.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -385,10 +379,6 @@
             // tabControl1
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Controls.Add(this.tabPage3);
-            this.tabControl1.Controls.Add(this.tabPage4);
-            this.tabControl1.Controls.Add(this.tabPage5);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.tabControl1.ItemSize = new System.Drawing.Size(100, 40);
@@ -420,56 +410,6 @@
             this.previewPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.previewPictureBox.TabIndex = 0;
             this.previewPictureBox.TabStop = false;
-            // 
-            // tabPage2
-            // 
-            this.tabPage2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(246)))), ((int)(((byte)(227)))));
-            this.tabPage2.Location = new System.Drawing.Point(4, 44);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(10);
-            this.tabPage2.Size = new System.Drawing.Size(987, 846);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Overview";
-            // 
-            // tabPage3
-            // 
-            this.tabPage3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(246)))), ((int)(((byte)(227)))));
-            this.tabPage3.Controls.Add(this.dataGridView1);
-            this.tabPage3.Location = new System.Drawing.Point(4, 44);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(10);
-            this.tabPage3.Size = new System.Drawing.Size(987, 846);
-            this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "Relations";
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(189, 423);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowTemplate.Height = 25;
-            this.dataGridView1.Size = new System.Drawing.Size(240, 150);
-            this.dataGridView1.TabIndex = 0;
-            // 
-            // tabPage4
-            // 
-            this.tabPage4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(246)))), ((int)(((byte)(227)))));
-            this.tabPage4.Location = new System.Drawing.Point(4, 44);
-            this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Padding = new System.Windows.Forms.Padding(10);
-            this.tabPage4.Size = new System.Drawing.Size(987, 846);
-            this.tabPage4.TabIndex = 3;
-            this.tabPage4.Text = "Properties";
-            // 
-            // tabPage5
-            // 
-            this.tabPage5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(246)))), ((int)(((byte)(227)))));
-            this.tabPage5.Location = new System.Drawing.Point(4, 44);
-            this.tabPage5.Name = "tabPage5";
-            this.tabPage5.Padding = new System.Windows.Forms.Padding(10);
-            this.tabPage5.Size = new System.Drawing.Size(987, 846);
-            this.tabPage5.TabIndex = 4;
-            this.tabPage5.Text = "History";
             // 
             // tableLayoutPanel5
             // 
@@ -576,7 +516,6 @@
             this.uploadButton.Name = "uploadButton";
             this.uploadButton.Size = new System.Drawing.Size(238, 78);
             this.uploadButton.TabIndex = 3;
-            this.uploadButton.Text = "Upload";
             this.uploadButton.UseVisualStyleBackColor = false;
             this.uploadButton.Click += new System.EventHandler(this.uploadButton_Click);
             // 
@@ -590,7 +529,6 @@
             this.addButton.Name = "addButton";
             this.addButton.Size = new System.Drawing.Size(238, 78);
             this.addButton.TabIndex = 5;
-            this.addButton.Text = "Add";
             this.addButton.UseVisualStyleBackColor = false;
             // 
             // newButton
@@ -647,7 +585,6 @@
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(84, 90);
             this.button3.TabIndex = 5;
-            this.button3.Text = "Account";
             this.button3.UseVisualStyleBackColor = false;
             // 
             // settingsButton
@@ -942,8 +879,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1904, 1041);
             this.Controls.Add(this.tableLayoutPanel1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "SolidWorks API Project Manager";
             this.Load += new System.EventHandler(this.s);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
@@ -961,8 +899,6 @@
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.previewPictureBox)).EndInit();
-            this.tabPage3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.tableLayoutPanel5.ResumeLayout(false);
             this.fileGroupBox.ResumeLayout(false);
             this.fileGroupBox.PerformLayout();
@@ -998,11 +934,6 @@
         private GroupBox groupBox2;
         private TabControl tabControl1;
         private TabPage tabPage1;
-        private TabPage tabPage2;
-        private TabPage tabPage3;
-        private DataGridView dataGridView1;
-        private TabPage tabPage4;
-        private TabPage tabPage5;
         private TableLayoutPanel tableLayoutPanel4;
         private Button newFileButton;
         private Button addFileButton;

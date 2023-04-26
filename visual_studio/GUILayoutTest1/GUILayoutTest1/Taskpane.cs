@@ -38,10 +38,10 @@ namespace GUILayoutTest1
 
         private Button syncButton;
 
-        private Button exportSTLButton;
-        private Button exportParasolidButton;
-        private Button exportSTEPButton;
-        private Button exportDXFButton;
+        public Button exportSTLButton;
+        public Button exportParasolidButton;
+        public Button exportSTEPButton;
+        public Button exportDXFButton;
 
 
         private Color statusNewFile = Color.FromArgb(220, 50, 47);

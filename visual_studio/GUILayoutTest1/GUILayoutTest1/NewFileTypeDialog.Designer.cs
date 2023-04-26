@@ -96,7 +96,7 @@
             this.ClientSize = new System.Drawing.Size(584, 161);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "NewFileTypeDialog";
-            this.Text = "NewFileTypeDialog";
+            this.Text = "Type";
             this.tableLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
